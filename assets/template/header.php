@@ -24,7 +24,7 @@
 
             <!--Logo/recherche/contact-->
 
-            <div class="col-md-7 col-5 mt-5 border">
+            <div class="col-md-7 col-5 mt-5">
                 <div class="search text-end">
                     <button type="button" class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-search"></i></button>
                 </div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-1 col-3 mt-5 border">
+            <div class="col-md-1 col-3 mt-5 pt-1">
                 <a href="contact.php" class="text-decoration-none text-white">Contact</a>
             </div>
         </div>
@@ -52,75 +52,40 @@
 
     <!--NAVBAR-->
 
-    <section class="navbar border-3 border-outset border-dark border-bottom p-0">
+    <section class=" p-0 shadow sticky-top">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-            <a class="nav-link" aria-current="page" href="index.php"><img src="assets/img/logo home1.png" class="img-fluid" alt="Home"></a>
+                <a class="nav-link" aria-current="page" href="index.php"><img src="assets/img/logo home1.png" class="img-fluid" alt="Home"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="games.php">Jeux</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="mods.php">Mods</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="pressArticle.php">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="gametest.php" id="test">Game test</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="review.php">Rédiger un avis</a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="games.php">Jeux</a>
+                            <a class="nav-link text-white" href="connection.php">Connexion</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link text-white" href="mods.php">Mods</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-white" href="pressArticle.php">Articles</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-white" href="gametest.php" id="test">Game test</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-white" href="review.php">Rédiger un avis</a>
-                        </li>
-                        <li class="nav-item" id="reglage">
-                        <a class="nav-link text-white" href="connection.php">Connexion</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-white" href="registration.php">Inscription</a>
+                            <a class="nav-link text-white" href="registration.php">Inscription</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-
-
-        <!-- <nav class="navbar navbar-expand-lg navbar col-sm-12 p-0">
-            <div class="container-fluid">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.php"><img src="assets/img/logo home1.png" class="img-fluid" alt="Home"></a>
-                    </li>
-                    <li class="nav-item mt-1">
-                        <a class="nav-link" aria-current="page" href="games.php">Jeux</a>
-                    </li>
-                    <li class="nav-item mt-1">
-                        <a class="nav-link" href="mods.php">Mods</a>
-                    </li>
-                    <li class="nav-item mt-1">
-                        <a class="nav-link" href="pressArticle.php">Articles</a>
-                    </li>
-                    <li class="nav-item mt-1">
-                        <a class="nav-link" href="gametest.php" id="test">Game test</a>
-                    </li>
-                    <li class="nav-item mt-1">
-                        <a class="nav-link" href="review.php">Rédiger un avis</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav col-sm justify-content-end">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="connection.php">Connexion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registration.php">Inscription</a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </nav> -->
     </section>

@@ -1,5 +1,5 @@
 <?php require 'assets/template/header.php'; ?>
-<?php require_once 'controller/indexControllers.php'; ?>
+<?php require_once 'controller/registrationControllers.php'; ?>
 
 <div class="container-fluid">
     <div class="row">

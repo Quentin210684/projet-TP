@@ -3,7 +3,7 @@ $formErrors = [];
 $regex = [
     'name' => '#^([A-Z]{1}[a-zÀ-ÖØ-öø-ÿ]+)([- ]{1}[A-Z]{1}[a-zÀ-ÖØ-öø-ÿ]+){0,1}$#',
     'email' => '/^([a-z0-9-_.]+){1}(@){1}([a-z]+){1}(\.){1}([a-z]{2,3}){1}$/',
-    'password' => '/[-0-9a-zA-Z.+_*#]+/',
+
 ];
 
 if (count($_POST) > 0) {
@@ -28,11 +28,10 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['password'])) {
-        if (preg_match($regex['password'], $_POST['password'])) {
-            $email = strip_tags($_POST['password']);
-        } else {
-            $formErrors['password'] = 'Votre mot de passe est invalide. Il ne doit comporter que des lettres, des tirets, des espaces et des chiffres';
-        }
+/**
+ *  password_hash : permet de chiffrer les mots de passe.
+ */
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     } else {
         $formErrors['password'] = 'Votre mot de passe est vide.';
     }
