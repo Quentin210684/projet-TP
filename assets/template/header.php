@@ -29,14 +29,14 @@
                     <button type="button" class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                    <div class="offcanvas-header">
+                    <div class="offcanvas-header colorLogo2 text-white">
                         <h5 id="offcanvasRightLabel">Que recherchez-vous ?</h5>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
                         <form action="" method="get">
                             <input class="form-control me-2 mb-2" type="search" placeholder="Chercher un jeu..." aria-label="Search">
-                            <button class="btn btn-outline-light border border-dark text-start text-dark" type="submit">Search</button>
+                            <button class="btn btn-outline-dark text-white border border-white" type="submit">Search</button>
                         </form>
                     </div>
                 </div>

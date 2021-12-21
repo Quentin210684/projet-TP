@@ -3,15 +3,15 @@
 
 
 <div class="container">
-    <div class="row"  id="mod">
-        <div class="col-sm-8 mx-auto mb-5 mt-3 border-3 border border-dark ">
+    <div class="row">
+        <div class="col-sm-8 mx-auto mb-5 mt-4 shadow">
 
 
             <!----------------------------------------- formulaire mods ------------------>
 
 
-            <form action="" method="$_POST" >
-                <div class="row g-3 mt-3 text-center text-dark">
+            <form action="" method="$_POST" id="transparent">
+                <div class="test row g-3 mt-3 text-center text-dark">
                     <h2 class="text-white">Proposez votre Mod</h2>
                     <div class="col-md-6 mx-auto">
                         <div class="col-ms-6">

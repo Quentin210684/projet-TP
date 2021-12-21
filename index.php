@@ -43,7 +43,7 @@
                 </button>
             </div>
         </div>
-        <div class="col-sm mt-2 border bg-light  border-3 border-outset border-dark">
+        <div class="col-sm mt-2 border bg-light   shadow">
             <div id="selection">La sélection du moment</div>
             <div class="clearfix mt-4">
                 <img src="assets/img/a découvrir 1.jpg" class="col-md-8 float-md-end mb-3 ms-md-3 img-fluid" alt="image4">

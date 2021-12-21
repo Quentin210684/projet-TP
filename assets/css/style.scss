@@ -200,4 +200,30 @@ footer {
 }
 
 
-/*-------------------------------------------formulaire mods-------------------------------------------------------*/
+/*-------------------------------------------plan de site-------------------------------------------------------*/
+
+.modal-body {
+    background-color: #2661a5;
+}
+
+
+/*-------------------------------------------recherche-------------------------------------------------------*/
+
+.offcanvas-body {
+    background-color: #2661a5;
+}
+
+
+/*-------------------------------------------formulaire ajout mod-------------------------------------------------------*/
+
+.test {
+    background-image: url('../img/gif/undungeon_main_gif_steam_store\ gif.gif');
+    background-size: cover;
+}
+
+#transparent {
+    input,
+    textarea {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}

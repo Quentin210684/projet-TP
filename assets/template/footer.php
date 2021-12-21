@@ -20,50 +20,50 @@
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content text-start">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Plan de site</h5>
+                        <div class="modal-header colorLogo2">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Plan de site</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h3><a href="index.php" class="plan">Accueil</a></h3>
+                                        <h3><a href="index.php" class="plan text-white text-decoration-none">Accueil</a></h3>
                                         <ul>
-                                            <li><a href="games.php" class="plan">Jeux</a></li>
-                                            <li><a href="mods.php" class="plan">Mods</a></li>
-                                            <li><a href="pressArticle.php" class="plan">Articles</a></li>
-                                            <li><a href="gametest.php" class="plan">Game test</a></li>
-                                            <li><a href="review.php" class="plan">Rédiger un avis</a></li>
+                                            <li><a href="games.php" class="plan text-white text-decoration-none">Jeux</a></li>
+                                            <li><a href="mods.php" class="plan text-white text-decoration-none">Mods</a></li>
+                                            <li><a href="pressArticle.php" class="plan text-white text-decoration-none">Articles</a></li>
+                                            <li><a href="gametest.php" class="plan text-white text-decoration-none">Game test</a></li>
+                                            <li><a href="review.php" class="plan text-white text-decoration-none">Rédiger un avis</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-3">
-                                        <h3><a href="Votre compte" class="plan">Votre compte</a></h3>
+                                        <h3><a href="Votre compte" class="plan text-white text-decoration-none">Votre compte</a></h3>
                                         <ul>
-                                            <li><a href="connection.php" class="plan">Connexion</a></li>
-                                            <li><a href="registration.php" class="plan">Inscription</a></li>
+                                            <li><a href="connection.php" class="plan text-white text-decoration-none">Connexion</a></li>
+                                            <li><a href="registration.php" class="plan text-white text-decoration-none">Inscription</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-3">
-                                        <h3><a href="Nous contacter" class="plan">Nous contacter</a></h3>
+                                        <h3><a href="Nous contacter" class="plan text-white text-decoration-none">Nous contacter</a></h3>
                                         <ul>
-                                            <li><a href="Contact.php" class="plan">Contact</a></li>
+                                            <li><a href="Contact.php" class="plan text-white text-decoration-none">Contact</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-3">
-                                        <h3><a href="Votre compte" class="plan">Votre compte</a></h3>
+                                        <h3><a href="Votre compte" class="plan text-white text-decoration-none">Votre compte</a></h3>
                                         <ul>
-                                            <li><a href="Condition d'utilisation" class="plan">Condition d'utilisation</a></li>
-                                            <li><a href="Mentions légales" class="plan">Mentions légales</a></li>
-                                            <li><a href="Politique concernant les cookies" class="plan">Politique concernant les cookies</a></li>
-                                            <li><a href="Politique de confidentialité" class="plan">Politique de confidentialité</a></li>
+                                            <li><a href="Condition d'utilisation" class="plan text-white text-decoration-none">Condition d'utilisation</a></li>
+                                            <li><a href="Mentions légales" class="plan text-white text-decoration-none">Mentions légales</a></li>
+                                            <li><a href="Politique concernant les cookies" class="plan text-white text-decoration-none">Politique concernant les cookies</a></li>
+                                            <li><a href="Politique de confidentialité" class="plan text-white text-decoration-none">Politique de confidentialité</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary text-white" data-bs-dismiss="modal">Fermer</button>
+                        <div class="modal-footer colorLogo2">
+                            <button type="button" class="btn btn-outline-dark text-white border border-white" data-bs-dismiss="modal">Fermer</button>
                         </div>
                     </div>
                 </div>
