@@ -11,7 +11,7 @@ if (count($_POST) > 0) {
         if (preg_match($regex['name'], $_POST['user'])) {
             $user = strip_tags($_POST['user']);
         } else {
-            $formErrors['user'] = 'Le nom d\'utilsateur est invalide. Il ne doit comporter que des lettre, des tirets, des espaces.';
+            $formErrors['user'] = 'Le nom d\'utilsateur est invalide. Il ne doit comporter que des lettres, des tirets, des espaces.';
         }
     } else {
         $formErrors['user'] = 'Votre nom d\'utilisateur est vide.';

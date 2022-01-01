@@ -1,4 +1,4 @@
-<?php require('assets/template/header.php'); ?>
+<?php require 'assets/template/header.php'; ?>
 <!-------------------------------------------------------Page centrale jeux------------------------------------------->
 <!--Finir de completez les alt des images-->
 
@@ -141,4 +141,4 @@
         </div>
         
 
-        <?php require('assets/template/footer.php'); ?>
+        <?php require 'assets/template/footer.php'; ?>

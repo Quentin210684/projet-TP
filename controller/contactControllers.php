@@ -21,7 +21,7 @@ if (count($_POST) > 0) {
         if (preg_match($regex['email'], $_POST['email'])) {
             $email = strip_tags($_POST['email']);
         } else {
-            $formErrors['email'] = 'Votre mot de passe est invalide. Il ne doit comporter que des lettres, des tirets, des espaces, des minuscules et des chiffres';
+            $formErrors['email'] = 'Votre email est invalide. Il ne doit comporter que des lettres, des tirets, des espaces et des minuscules ';
         }
     } else {
         $formErrors['email'] = 'Votre email est vide.';

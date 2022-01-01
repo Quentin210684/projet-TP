@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title>Game screening</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ldt9MwdAAAAAAf4Qhrz49nevcOtbfyWDvYGSnzg"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
             <!--Logo/recherche/contact-->
 
             <div class="col-md-7 col-5 mt-5">
-                <div class="search text-end">
+                <div class="text-end">
                     <button type="button" class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">

@@ -12,8 +12,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 animate__animated animate__fadeInLeft">
-            <div class="col-sm-8 p-3 mt-2 mb-4 mx-auto border border-dark border-3">
-                <div class="d-inline-flex p-auto mb-2 border">
+            <div class="col-sm-8 p-3 mt-2 mb-4 mx-auto shadow">
+                <div class="d-inline-flex p-auto mb-2 shadow">
                     <img src="assets/img/northguard img.png" class="img-fluid">
                 </div>
                 <div class="p-auto fw-bold text-white text-center mt-3 fs-5">
@@ -57,9 +57,11 @@
                         </div>
 
 
+
                         <div class="mb-3 col-sm-11 text-center">
-                            <button type="submit" class="btn btn-primary" name="send" id="send">envoyez</button>
+                            <button type="submit" class="btn btn-outline-dark text-white border border-white" name="send" id="send">envoyez</button>
                         </div>
+
 
                     </form>
                 <?php } else { ?>
@@ -67,7 +69,7 @@
                         <p>Bonjour, <?php echo $user . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
                     </div>
                     <div class="text-end text-white mt-4 fs-5">
-                       <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
+                        <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
                     </div>
                 <?php } ?>
             </div>

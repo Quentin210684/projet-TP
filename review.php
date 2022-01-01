@@ -1,4 +1,4 @@
-<?php require('assets/template/header.php'); ?>
+<?php require 'assets/template/header.php'; ?>
 <!-------------------------------------------------------Page centrale Avis------------------------------------------->
 
 <div class="container-fluid">
@@ -40,4 +40,4 @@
     </div>
 </div>
 
-<?php require('assets/template/footer.php'); ?>
+<?php require 'assets/template/footer.php'; ?>

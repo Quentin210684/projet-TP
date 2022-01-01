@@ -1,4 +1,4 @@
-<?php require('assets/template/header.php'); ?>
+<?php require 'assets/template/header.php'; ?>
 
 <div class="container-fluid">
     <div class="row">
@@ -57,4 +57,4 @@
 </div>
 
 
-<?php require('assets/template/footer.php'); ?>
+<?php require 'assets/template/footer.php'; ?>

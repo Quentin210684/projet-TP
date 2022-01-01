@@ -1,4 +1,4 @@
-<?php require('assets/template/header.php'); ?>
+<?php require 'assets/template/header.php'; ?>
 <!--CARROUSEL-->
 
 <div class="container">
@@ -74,7 +74,7 @@
     <div class="row row-cols-sm row-cols-md-11 g-4 mt-3 text-center">
         <div class="col-sm">
             <div class="card h-75 border-3 border-outset border-dark" data-aos="flip-right" data-aos-duration="2500">
-                <img src="assets/img/potion image.jpg" class="card-img-top" class="img-fluid" alt="decouverte1">
+                <img src="assets/img/potion image.jpg" class="card-img-top card-img img-fluid" alt="decouverte1"  id="potion">
                 <div class="card-body overflow-auto colorLogo2">
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
@@ -87,7 +87,7 @@
         </div>
         <div class="col-sm">
             <div class="card h-75 border-3 border-outset border-dark" data-aos="flip-right" data-aos-duration="2000">
-                <img src="assets/img/a découvrir 2.jpg" class="card-img-top" class="img-fluid" alt="decouverte2">
+                <img src="assets/img/a découvrir 2.jpg" class="card-img-top card-img img-fluid" alt="decouverte2" id="unpack">
                 <div class="card-body overflow-auto colorLogo2">
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
@@ -101,7 +101,7 @@
         </div>
         <div class="col-sm">
             <div class="card h-75 border-3 border-outset border-dark" data-aos="flip-right" data-aos-duration="1500">
-                <img src="assets/img/a découvrir 3.jpg" class="card-img-top" class="img-fluid" alt="decouverte3">
+                <img src="assets/img/a découvrir 3.jpg" class="card-img-top card-img img-fluid" alt="decouverte3" id="despot">
                 <div class="card-body overflow-auto colorLogo2">
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
@@ -115,7 +115,7 @@
         </div>
         <div class="col-sm">
             <div class="card h-75 border-3 border-outset border-dark" data-aos="flip-right" class="img-fluid" data-aos-duration="1000">
-                <img src="assets/img/a découvrir 4.jpg" class="card-img-top" class="img-fluid" alt="decouverte4">
+                <img src="assets/img/a découvrir 4.jpg" class="card-img-top card-img img-fluid" alt="decouverte4" id="tavern" >
                 <div class="card-body overflow-auto colorLogo2 h-25">
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
@@ -133,4 +133,4 @@
 
 
 
-<?php require('assets/template/footer.php'); ?>
+<?php require 'assets/template/footer.php'; ?>

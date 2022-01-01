@@ -51,12 +51,12 @@
                                         </ul>
                                     </div>
                                     <div class="col-sm-3">
-                                        <h3><a href="Votre compte" class="plan text-white text-decoration-none">Votre compte</a></h3>
+                                        <h3><a href="Pages" class="plan text-white text-decoration-none">Pages</a></h3>
                                         <ul>
                                             <li><a href="Condition d'utilisation" class="plan text-white text-decoration-none">Condition d'utilisation</a></li>
-                                            <li><a href="Mentions légales" class="plan text-white text-decoration-none">Mentions légales</a></li>
+                                            <li><a href="mentionsLegales.php" class="plan text-white text-decoration-none">Mentions légales</a></li>
                                             <li><a href="Politique concernant les cookies" class="plan text-white text-decoration-none">Politique concernant les cookies</a></li>
-                                            <li><a href="Politique de confidentialité" class="plan text-white text-decoration-none">Politique de confidentialité</a></li>
+                                            <li><a href="adminArticle.php" class="plan text-white text-decoration-none">Politique de confidentialité</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
             <a href="Condition d'utilisation" class="text-decoration-none text-white">Condition d'utilisation</a>
         </div>
         <div class="col-sm p-2 text-center">
-            <a href="Mentions légales" class="text-decoration-none text-white">Mentions légales</a>
+            <a href="mentionsLegales.php" class="text-decoration-none text-white">Mentions légales</a>
         </div>
         <div class="col-sm-3 p-2 text-center">
             <a href="Politique concernant les cookies" class="text-decoration-none text-white">Politique concernant les cookies</a>
@@ -99,7 +99,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-
+<script src="assets/js/index.js"></script>
+<script src="assets/js/games.js"></script>
 
 <!-- $_SERVER va permettre de faire la correspondance entre la page PHP et la ou se trouve le JS  -->
 <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/registration.php') { ?>

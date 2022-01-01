@@ -1,4 +1,4 @@
-<?php require('assets/template/header.php'); ?>
+<?php require 'assets/template/header.php'; ?>
 <?php require_once 'controller/contactControllers.php'; ?>
 
 
@@ -15,7 +15,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-8 mx-auto mb-5 mt-3 border-3 border border-dark">
+        <div class="col-sm-8 mx-auto mb-5 mt-3 border-3 shadow video" id="transparent">
 
             <!----------------------------------------- formulaire de contact et regex ------------------>
 
@@ -24,7 +24,7 @@
                 <form action="contact.php" method="POST">
 
                     <div class="row g-3 mt-3 text-center text-dark">
-                        <h2 class="text-white">Contact</h2>
+                        <h2 class="text-white">Formulaire de contact</h2>
                         <div class="col-md-6 mx-auto">
                             <div class="col-ms-6">
 
@@ -54,13 +54,13 @@
                             </div>
                         </div>
                         <div class="col-12 mb-5">
-                            <button class="btn btn-primary" type="submit">Soumettre votre demande</button>
+                            <button class="btn btn-outline-dark text-white border border-white" type="submit">Soumettre votre demande</button>
                         </div>
                     </div>
                 </form>
             <?php } else { ?>
                 <div class="text-center text-white mt-4 fs-5">
-                    <p>Bonjour, <?php echo $user . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
+                    <p>Bonjour, <?php echo $user . ' merci de votre message. Nous reviendrons vers vous rapidement.' ?></p>
                 </div>
                 <div class="text-end text-white mt-4 fs-5">
                     <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
@@ -70,4 +70,4 @@
     </div>
 </div>
 
-<?php require('assets/template/footer.php'); ?>
+<?php require 'assets/template/footer.php'; ?>

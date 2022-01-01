@@ -1,4 +1,4 @@
-<?php require('assets/template/header.php'); ?>
+<?php require 'assets/template/header.php'; ?>
 <!-------------------------------------------------------Page centrale Game test------------------------------------------->
 <div class="container-fluid">
     <div class="row">
@@ -81,4 +81,4 @@
     </div>
 </div>
 
-<?php require('assets/template/footer.php'); ?>
+<?php require 'assets/template/footer.php'; ?>

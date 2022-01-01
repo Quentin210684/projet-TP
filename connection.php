@@ -1,4 +1,6 @@
-<?php require('assets/template/header.php'); ?>
+<?php require 'assets/template/header.php'; ?>
+<?php require_once 'controller/connectionControllers.php'; ?>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md ms-md-5 mt-4 text-start" id="neon">
@@ -10,47 +12,65 @@
 <div class="container px-4">
     <div class="row gx-5">
         <div class="col-sm-4">
-            <div class="p-3 mt-2 mb-4 mx-auto border-3 border border-dark animate__animated animate__fadeInLeft">
+            <div class="p-3 mt-2 mb-4 mx-auto border-3 shadow animate__animated animate__fadeInLeft">
                 <div class="p-3 mb-2 text-white ms-2 me-2">
                     <img src="assets/img/gif/PotionCraft gif.gif" class="img-fluid">
                 </div>
                 <div class="p-auto fw-bold text-white">
                     <label for="chk" aria-hidden="true" class="label">CONNECTEZ-VOUS ou <a href="registration.php" class="link-dark">Créez un compte</a></label>
                 </div>
-                <form action="connection.php" method="get">
-                    <div class="p-3 text-white">
-                        <div>
-                            <label for="username"></label>
-                            <input class="w-100 rounded form-control" type="text" id="username" name="username" placeholder="Utilisateur...">
+                <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
+
+                    <form action="connection.php" method="POST">
+
+                        <div class="p-3 text-white">
+                            <div>
+                                <label for="lastName" class="form-label">Utilisateur :</label>
+                                <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['user'] ?>" id=" lastName" name="user">
+
+                                <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['user'] ?></p>
+                            </div>
+
+                            <div class="password mb-5">
+                                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                                <input type="password" class="form-control <?= isset($formErrors['password']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['password'] ?>" id="pass" name="password">
+
+                                <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['password'] ?></p>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input rounded" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">Se souvenir de moi
+                                </label>
+                            </div>
+
+                            <div class="ms-1 mb-4">
+                                <a href="mot de passe oublié ?" class="link-dark">Mot de passe oublié ?</a>
+                            </div>
                         </div>
-                        <div class="password mb-5">
-                            <label for="pass"></label>
-                            <input class="w-100 form-control" type="password" id="pass" name="password" minlength="8" required placeholder="Mot de passe...">
+                        <div class="mt-3 text-center">
+                            <button class="btn btn-outline-dark text-white border border-white" type="submit">Connexion</button>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input rounded" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">Se souvenir de moi
-                            </label>
-                        </div>
-                        <div class="ms-1 mb-4">
-                            <a href="mot de passe oublié ?" class="link-dark">Mot de passe oublié ?</a>
-                        </div>
+                    </form>
+                <?php } else { ?>
+                    <div class="text-center text-white mt-4 fs-5">
+                        <p>Bonjour, <?php echo $user . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
                     </div>
-                </form>
-                <div class="mt-3 text-center">
-                    <button class="btn btn-primary"  type="submit">Connexion</button>
-                </div>
+                    <div class="text-end text-white mt-4 fs-5">
+                        <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
+                    </div>
+                <?php } ?>
             </div>
 
         </div>
         <div class="col-sm-8">
             <div class="p-3 mt-4 mb-5 mx-auto">
                 <div class="col-sm-12">
-                    <div class="p-3 mb-3 text-center border-3 border border-dark colorLogo2">
+                    <div class="p-3 mb-3 text-center shadow colorLogo2">
                         <h2 class="image-clignote colorLogo">Note d'information</h2>
                     </div>
                     <div class="col-sm-12">
-                        <div class="p-3 text-white border-3 border border-dark">
+                        <div class="p-3 text-white shadow">
                             <ul>
                                 <li>
                                     <p>Afin d’être susceptible d’être sélectionné pour participer à un Game test et ainsi recevoir une clé produit.
@@ -86,4 +106,4 @@
 </div>
 
 
-<?php require('assets/template/footer.php'); ?>
+<?php require 'assets/template/footer.php'; ?>
