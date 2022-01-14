@@ -49,7 +49,7 @@
                 <img src="assets/img/a découvrir 1.jpg" class="col-md-8 float-md-end mb-3 ms-md-3 img-fluid" alt="image4">
                 <p>Dans ce city-builder inspiré de « Banished », vous dirigerez un peuple à la recherche de son nouveau foyer. Terraformez le paysage, gérez des matières premières rares, plantez des cultures, collectez des ressources et développez des
                     routes commerciales pour bâtir une ville unique et animée. </p>
-                <a href="En savoir plus" class="text-decoration-none">En savoir plus</a>
+                <a href="selectionmoment.php" class="text-decoration-none">En savoir plus</a>
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
 <div class="container">
     <div class="row row-cols-sm row-cols-md-11 g-4 mt-3 text-center">
         <div class="col-sm">
-            <div class="card h-75 border-3 border-outset border-dark" data-aos="flip-right" data-aos-duration="2500">
+            <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
                 <img src="assets/img/potion image.jpg" class="card-img-top card-img img-fluid" alt="decouverte1"  id="potion">
                 <div class="card-body overflow-auto colorLogo2">
 
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="col-sm">
-            <div class="card h-75 border-3 border-outset border-dark" data-aos="flip-right" data-aos-duration="2000">
+            <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
                 <img src="assets/img/a découvrir 2.jpg" class="card-img-top card-img img-fluid" alt="decouverte2" id="unpack">
                 <div class="card-body overflow-auto colorLogo2">
 
@@ -100,7 +100,7 @@
             </div>
         </div>
         <div class="col-sm">
-            <div class="card h-75 border-3 border-outset border-dark" data-aos="flip-right" data-aos-duration="1500">
+            <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
                 <img src="assets/img/a découvrir 3.jpg" class="card-img-top card-img img-fluid" alt="decouverte3" id="despot">
                 <div class="card-body overflow-auto colorLogo2">
 
@@ -114,7 +114,7 @@
             </div>
         </div>
         <div class="col-sm">
-            <div class="card h-75 border-3 border-outset border-dark" data-aos="flip-right" class="img-fluid" data-aos-duration="1000">
+            <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
                 <img src="assets/img/a découvrir 4.jpg" class="card-img-top card-img img-fluid" alt="decouverte4" id="tavern" >
                 <div class="card-body overflow-auto colorLogo2 h-25">
 

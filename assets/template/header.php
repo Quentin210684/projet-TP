@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title>Game screening</title>
-    <script src="https://www.google.com/recaptcha/api.js?render=6Ldt9MwdAAAAAAf4Qhrz49nevcOtbfyWDvYGSnzg"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             <!--Logo/recherche/contact-->
 
             <div class="col-md-7 col-5 mt-5">
-                <div class="text-end">
+                <div class="text-end" id="rechercher">
                     <button type="button" class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-1 col-3 mt-5 pt-1">
+            <div class="col-md-1 col-3 mt-5 pt-1" id="contact">
                 <a href="contact.php" class="text-decoration-none text-white">Contact</a>
             </div>
         </div>
@@ -77,6 +77,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="review.php">Rédiger un avis</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -85,6 +88,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="registration.php">Inscription</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav d-md-none">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="contact.php">Contact</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

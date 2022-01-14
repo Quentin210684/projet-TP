@@ -5,6 +5,8 @@ let pass = document.getElementById('pass');
 let pass2 = document.getElementById('pass2');
 
 pass2.onkeyup = () => {
+    // onkeyup me permet que quand la souris quitte son emplacement il me valide la 
+    // comparaison entre mes deux passwords.
     if (pass.value == pass2.value) {
         pass.classList.add('is-valid');
         pass2.classList.add('is-valid');
@@ -20,11 +22,6 @@ pass2.onkeyup = () => {
 
 }
 
-function onClick(e) {
-    e.preventDefault();
-    grecaptcha.ready(function() {
-        grecaptcha.execute('reCAPTCHA_site_key', { action: 'submit' }).then(function(token) {
-
-        });
-    });
+function onSubmit(token) {
+    document.getElementById("recaptcha").submit();
 }

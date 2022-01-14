@@ -56,7 +56,7 @@
                                             <li><a href="Condition d'utilisation" class="plan text-white text-decoration-none">Condition d'utilisation</a></li>
                                             <li><a href="mentionsLegales.php" class="plan text-white text-decoration-none">Mentions légales</a></li>
                                             <li><a href="Politique concernant les cookies" class="plan text-white text-decoration-none">Politique concernant les cookies</a></li>
-                                            <li><a href="adminArticle.php" class="plan text-white text-decoration-none">Politique de confidentialité</a></li>
+                                            <li><a href="Politique de confidentialité" class="plan text-white text-decoration-none">Politique de confidentialité</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -91,16 +91,19 @@
 
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/0af4ce9358.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<script src="assets/js/index.js"></script>
-<script src="assets/js/games.js"></script>
+
+
+
+
+
+
 
 <!-- $_SERVER va permettre de faire la correspondance entre la page PHP et la ou se trouve le JS  -->
 <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/registration.php') { ?>
@@ -115,8 +118,26 @@
 <?php } ?>
 
 <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/index.php') { ?>
+    <script src="assets/js/index.js"></script>
+<?php } ?>
+
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/dashboard.php') { ?>
+    <script src="assets/js/admin.js"></script>
+<?php } ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/games.php') { ?>
+    <script src="assets/js/games.js"></script>
+<?php } ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gameListadmin.php') { ?>
     <script src="assets/js/script.js"></script>
 <?php } ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/userAdmin.php') { ?>
+    <script src="assets/js/userAdmin.js"></script>
+<?php } ?>
+
+
+
+
+
 
 
 

@@ -1,14 +1,12 @@
-// let logic = document.getElementById('logic');
-// logic.onclick = () => {
-//     alert('ok');
-// }
-
 let logic = document.getElementById('logic');
-
+// j'appelle ma variable en utilisant getElementById
 logic.onmouseenter = () => {
+    // onmouseenter me permet qu'au passage de la souris a variable change de source
     logic.setAttribute('src', 'assets/img/gif/logic gif.gif')
 }
 logic.onmouseleave = () => {
+    // onmouseleave me permet que lorsque la souris sorte l'image reprenne sa source initiale.
+
     logic.setAttribute('src', 'assets/img/page jeux 1logic.jpg')
 
 }

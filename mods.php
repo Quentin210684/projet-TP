@@ -84,13 +84,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid ">
-        <div class="row">
-            <div class="col-sm-11 mb-5 text-end">
-                <a href="formMods.php"><button class="btn btn-outline-dark text-white border border-white" type="button" id="button search">Soumettez votre mod</button></a> 
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 <?php require 'assets/template/footer.php'; ?>

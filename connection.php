@@ -1,5 +1,7 @@
-<?php require 'assets/template/header.php'; ?>
+<?php require_once 'models/usersModel.php';?>
 <?php require_once 'controller/connectionControllers.php'; ?>
+<?php require 'assets/template/header.php'; ?>
+
 
 <div class="container-fluid">
     <div class="row">

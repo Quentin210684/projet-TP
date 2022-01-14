@@ -1,5 +1,8 @@
-<?php require 'assets/template/header.php'; ?>
+<?php require_once 'models/usersModel.php';?>
 <?php require_once 'controller/contactControllers.php'; ?>
+<?php require 'assets/template/header.php'; ?>
+
+
 
 
 

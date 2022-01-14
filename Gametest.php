@@ -16,9 +16,10 @@
         <div class="col-sm-5 mb-3 fs-5 text-white text-center align-self-center">
             Validez le quiz afin de participer au test !
             <div class="col-sm mt-4">
+
                 <form action="" method="post">
                     <div class="col-sm-12 mt-5 mb-2 bg-dark border text-center border pt-2">
-                        <p>Quelle est la date de sorti undying ?</p>
+                        <p>Quelle est la date de sorti de undying ?</p>
                     </div>
                     <div class="col-sm-12 d-flex ms-3">
                         <div class="col-sm-5">
@@ -29,7 +30,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 bg-dark mt-4 mb-4 border pt-2">
-                        <p>Quel est le développeur du jeu ?</p> 
+                        <p>Quel est le développeur du jeu ?</p>
                     </div>
                     <div class="col-sm-12 d-flex ms-3">
                         <div class="col-sm-5">
@@ -40,7 +41,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 bg-dark mt-4 mb-4 border pt-2">
-                        <p>Le jeu a-t-il gagné des récompenses en 2021 ?</p> 
+                        <p>Le jeu a-t-il gagné des récompenses en 2021 ?</p>
                     </div>
                     <div class="col-sm-12 d-flex ms-3">
                         <div class="col-sm-5">
@@ -51,7 +52,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 bg-dark mt-4 mb-4 border pt-2">
-                        <p>Le jeu ce joue à la première personne.</p> 
+                        <p>Le jeu ce joue à la première personne.</p>
                     </div>
                     <div class="col-sm-12 d-flex ms-3">
                         <div class="col-sm-5">
@@ -62,7 +63,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 bg-dark mt-4 mb-4 border pt-2">
-                        <p>Quel est le genre du jeu ?</p> 
+                        <p>Quel est le genre du jeu ?</p>
                     </div>
                     <div class="col-sm-12 d-flex ms-3">
                         <div class="col-sm-5">
@@ -72,10 +73,12 @@
                             <input type="checkbox" name="response2" value="gender2"> Survie
                         </div>
                     </div>
+                    <div class="col-sm-12 mt-4 mb-4 text-end">
+                        <button class="btn btn-outline-dark text-white border border-white" type="submit">Envoyez</button>
+                    </div>
+
                 </form>
-                <div class="col-sm-12 mt-4 mb-4 text-end">
-                    <button class="btn btn-outline-dark text-white border border-white" type="submit">Envoyez</button>
-                </div>
+
             </div>
         </div>
     </div>

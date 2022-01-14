@@ -119,12 +119,16 @@
             </div>
         </div>
 
-        <div class="col-sm-7 mb-5 mt-5 text-white">
+        <div class="col-sm-7 mb-5 mt-4 text-white">
             <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/tV5LXRZqQ9g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            </div>
+                <iframe src="https://www.youtube.com/embed/tV5LXRZqQ9g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-sm-auto mt-3 shadow">
+                <h3 class="fw-bolder text-dark text-center">-Evaluations-</h3>
+                Emplacement avis client
+            </div>
         </div>
     </div>
 </div>
-
 
 <?php require 'assets/template/footer.php'; ?>

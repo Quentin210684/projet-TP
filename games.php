@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-sm mt-2 ms-2 mb-2 animate__animated animate__zoomInDown">
                         <figure class="figure border border-3 border-outset border-dark">
-                            <img src="assets/img/page jeux 3.jpg" id="graveyard" class=" img-fluid card-img3 figure-img rounded mb-0" alt="...">
+                            <img src="assets/img/page jeux 3.jpg" id="graveyard" class=" img-fluid card-img2 figure-img rounded mb-0" alt="...">
                             <div class="d-flex align-items-center colorLogo2 fw-bold">
                                 <p class="size figure-caption mt-2 mb-1 ms-1 fs-6 col-sm me-md-2"><a href="Graveyard Keeper" class="text-decoration-none text-white">Graveyard Keeper</a></p>
                                 <p class="col-sm mt-1 mb-1 text-end "><img src="assets/img/logo windows reduit.png"><img src="assets/img/logo mac os reduit.png"></p>
@@ -100,7 +100,7 @@
                         <div class="row">
                             <div class="col-sm mt-2 ms-1 mb-2 animate__animated animate__zoomInDown">
                                 <figure class="figure border border-3 border-outset border-dark">
-                                    <img src="assets/img/page jeux 4.jpg" id="rebel" class="img-fluid card-img3 figure-img rounded mb-0" alt="...">
+                                    <img src="assets/img/page jeux 4.jpg" id="rebel" class="img-fluid card-img2 figure-img rounded mb-0" alt="...">
                                     <div class="d-flex align-items-center colorLogo2 fw-bold">
                                         <p class="size figure-caption mt-2 mb-1 ms-1 fs-6 col-sm me-md-2"><a href="Rebel Inc. Escalation" class="text-decoration-none text-white">Rebel Inc. Escalation</a></p>
                                         <p class="col-sm mt-1 mb-1 text-end "><img src="assets/img/logo windows reduit.png"><img src="assets/img/logo mac os reduit.png"></p>

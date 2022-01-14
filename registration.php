@@ -1,5 +1,8 @@
-<?php require 'assets/template/header.php'; ?>
+<?php require_once 'models/usersModel.php';?>
 <?php require_once 'controller/registrationControllers.php'; ?>
+<?php require 'assets/template/header.php'; ?>
+
+
 
 <div class="container-fluid">
     <div class="row">
@@ -23,13 +26,13 @@
                 <!---------------------------------------------formulaire avec regex  -------------------------------->
                 <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
 
-                    <form action="registration.php" method="POST">
+                    <form action="registration.php" method="POST" id="recaptcha">
 
                         <div class="mb-3 col-sm-5 mx-auto">
                             <label for="lastName" class="form-label">Utilisateur :</label>
                             <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['user'] ?>" id=" lastName" name="user">
 
-                            <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['user'] ?></p>
+                            <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['user'] ?></p>
 
                         </div>
 
@@ -37,7 +40,7 @@
                             <label for="inputEmail4" class="form-label">Email</label>
                             <input type="email" class="form-control <?= isset($formErrors['email']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['email'] ?>" id="inputEmail4" name="email">
 
-                            <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['email'] ?></p>
+                            <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['email'] ?></p>
 
 
                         </div>
@@ -46,32 +49,34 @@
                             <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
                             <input type="password" class="form-control <?= isset($formErrors['password']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['password'] ?>" id="pass" name="password">
 
-                            <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['password'] ?></p>
+                            <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['password'] ?></p>
 
 
                         </div>
 
                         <div class="mb-4 col-sm-5 mx-auto">
                             <label for="exampleInputPassword1" class="form-label">Confirmez votre mot de passe</label>
-                            <input type="password" class="form-control" id="pass2" name="password2">
-                        </div>
+                            <input type="password" class="form-control <?= isset($formErrors['password']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['password'] ?>" id="pass2" name="password2">
 
+                            <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['password'] ?></p>
+
+
+                        </div>
 
 
                         <div class="mb-3 col-sm-11 text-center">
-                            <button type="submit" class="btn btn-outline-dark text-white border border-white" name="send" id="send">envoyez</button>
+                            <button type="submit" class="g-recaptcha btn btn-outline-dark text-white border border-white" data-sitekey="6Ldt9MwdAAAAAAf4Qhrz49nevcOtbfyWDvYGSnzg" data-callback='onSubmit' data-action='submit' name="send" id="send">envoyez</button>
                         </div>
-
-
+                        
                     </form>
-                <?php } else { ?>
-                    <div class="text-center text-white mt-4 fs-5">
-                        <p>Bonjour, <?php echo $user . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
-                    </div>
-                    <div class="text-end text-white mt-4 fs-5">
-                        <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
-                    </div>
-                <?php } ?>
+                    <?php } else { ?>
+                        <div class="text-center text-white mt-4 fs-5">
+                            <p>Bonjour, <?php echo $user . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
+                        </div>
+                        <div class="text-end text-white mt-4 fs-5">
+                            <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
+                        </div>
+                    <?php } ?>
             </div>
         </div>
     </div>
