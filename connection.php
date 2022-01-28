@@ -1,5 +1,5 @@
 <?php require_once 'models/usersModel.php';?>
-<?php require_once 'controller/connectionControllers.php'; ?>
+<?php require_once 'controllers/connectionController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
 
 

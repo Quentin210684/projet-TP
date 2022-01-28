@@ -10,7 +10,6 @@ class users
     public $starred;
     public $blocked;
     public $id_roles;
-    private $db;
 
     public function __construct()
     {

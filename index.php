@@ -79,7 +79,7 @@
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
                     <h5>
-                        <a href="potiongamepage.php" class="news colorLogo">Potion Craft</a>
+                        <a href="game.php" class="news colorLogo">Potion Craft</a>
                     </h5>
                     <p class="card-text text-white">Potion Craft est un simulateur d'alchimie dans lequel vous interagissez physiquement avec vos outils et ingrédients pour concocter des potions</p>
                 </div>

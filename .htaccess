@@ -1,0 +1,17 @@
+RewriteEngine On
+
+RewriteRule ^admin-ajouter-un-article$ admin/addArticleAdmin.php
+RewriteRule ^admin-ajouter-un-jeu$ admin/addGameAdmin.php
+RewriteRule ^admin-ajouter-un-mod$ admin/addModAdmin.php
+#RewriteRule ^admin-liste-des-articles$ admin/articlesListAdmin.php
+RewriteRule ^administration$ admin/dashboardAdmin.php
+RewriteRule ^admin-liste-des-jeux$ admin/gamesListAdmin.php
+#RewriteRule ^admin-liste-des-mods$ admin/modsListAdmin.php
+RewriteRule ^admin-liste-des-utilisateurs$ admin/usersListAdmin.php
+
+RewriteRule accueil index.php
+RewriteRule jeux games.php
+RewriteRule mods mods.php
+RewriteRule article pressArticle.php
+RewriteRule jeux-test gametest.php
+RewriteRule rediger-un-avis review.php

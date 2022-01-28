@@ -56,42 +56,57 @@
     <section class=" p-0 shadow sticky-top">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="nav-link" aria-current="page" href="index.php"><img src="assets/img/logo home1.png" class="img-fluid" alt="Home"></a>
+                <a class="nav-link figure-img" aria-current="page" href="index.php"><img src="assets/img/logo home1.png" class="img-fluid" alt="Home"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-white" aria-current="page" href="games.php">Jeux</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" aria-current="page" href="gamesList.php">Jeux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="mods.php">Mods</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" href="modsList.php">Mods</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="pressArticle.php">Articles</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" href="pressArticlesList.php">Articles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="gametest.php" id="test">Game test</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" href="gameTest.php" id="test">Game test</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="review.php">Rédiger un avis</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" href="addReview.php">Rédiger un avis</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" href="myDashboard.php">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white figure-img text-decoration-none" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="administration">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="admin-ajouter-un-article">Ajouter un article</a></li>
+                                <li><a class="dropdown-item" href="admin-ajouter-un-jeu">Ajouter un jeu</a></li>
+                                <li><a class="dropdown-item" href="admin-ajouter-un-mod">Ajouter un mod</a></li>
+                                <li><a class="dropdown-item" href="admin-liste-des-articles">Liste des articles</a></li>
+                                <li><a class="dropdown-item" href="admin-liste-des-jeux">Liste des jeux</a></li>
+                                <li><a class="dropdown-item" href="admin-liste-des-mods">Liste des mods</a></li>
+                                <li><a class="dropdown-item" href="admin-liste-des-utilisateurs">Liste des utilisateurs</a></li>
+                            </ul>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="connection.php">Connexion</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" href="connection.php">Connexion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="registration.php">Inscription</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" href="registration.php">Inscription</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav d-md-none">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="contact.php">Contact</a>
+                            <a class="nav-link text-white figure-img text-decoration-none" href="contact.php">Contact</a>
                         </li>
 
                     </ul>

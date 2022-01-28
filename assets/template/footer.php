@@ -109,11 +109,11 @@
 <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/registration.php') { ?>
     <script src="assets/js/registration.js"></script>
 <?php } ?>
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gametest.php') { ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gameTest.php') { ?>
     <script src="assets/js/gametest.js"></script>
 <?php } ?>
 
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/pressArticle.php') { ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/pressArticlesList.php') { ?>
     <script src="assets/js/script.js"></script>
 <?php } ?>
 
@@ -121,16 +121,16 @@
     <script src="assets/js/index.js"></script>
 <?php } ?>
 
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/dashboard.php') { ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/myDashboarduser.php') { ?>
     <script src="assets/js/admin.js"></script>
 <?php } ?>
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/games.php') { ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gamesList.php') { ?>
     <script src="assets/js/games.js"></script>
 <?php } ?>
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gameListadmin.php') { ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gamesListAdmin.php') { ?>
     <script src="assets/js/script.js"></script>
 <?php } ?>
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/userAdmin.php') { ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/usersListAdmin.php') { ?>
     <script src="assets/js/userAdmin.js"></script>
 <?php } ?>
 

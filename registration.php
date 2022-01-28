@@ -1,5 +1,5 @@
 <?php require_once 'models/usersModel.php';?>
-<?php require_once 'controller/registrationControllers.php'; ?>
+<?php require_once 'controllers/registrationController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
 
 
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="mb-4 col-sm-5 mx-auto">
-                            <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                            <label for="exampleInputPassword" class="form-label">Mot de passe</label>
                             <input type="password" class="form-control <?= isset($formErrors['password']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['password'] ?>" id="pass" name="password">
 
                             <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['password'] ?></p>
@@ -56,9 +56,9 @@
 
                         <div class="mb-4 col-sm-5 mx-auto">
                             <label for="exampleInputPassword1" class="form-label">Confirmez votre mot de passe</label>
-                            <input type="password" class="form-control <?= isset($formErrors['password']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['password'] ?>" id="pass2" name="password2">
+                            <input type="password" class="form-control <?= isset($formErrors['confirmPassword']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['confirmPassword'] ?>" id="pass2" name="confirmPassword">
 
-                            <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['password'] ?></p>
+                            <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['confirmPassword'] ?></p>
 
 
                         </div>
@@ -71,7 +71,7 @@
                     </form>
                     <?php } else { ?>
                         <div class="text-center text-white mt-4 fs-5">
-                            <p>Bonjour, <?php echo $user . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
+                            <p>Bonjour, <?php echo $user->name . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
                         </div>
                         <div class="text-end text-white mt-4 fs-5">
                             <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>

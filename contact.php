@@ -1,5 +1,5 @@
 <?php require_once 'models/usersModel.php';?>
-<?php require_once 'controller/contactControllers.php'; ?>
+<?php require_once 'controllers/contactController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
 
 
@@ -31,18 +31,25 @@
                         <div class="col-md-6 mx-auto">
                             <div class="col-ms-6">
 
-                                <div class="text-start text-white mt-3 mb-3">
+                                <div class="text-start text-white mt-3 mb-2">
                                     <label for="lastName" class="form-label">Utilisateur</label>
                                     <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['user'] ?>" id=" lastName" name="user">
 
                                     <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['user'] ?></p>
                                 </div>
 
-                                <div class="text-start text-white mb-5">
+                                <div class="text-start text-white mb-3">
                                     <label for="inputEmail4" class="form-label">Email</label>
                                     <input type="email" class="form-control <?= isset($formErrors['email']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['email'] ?>" id="inputEmail4" name="email">
 
                                     <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['email'] ?></p>
+                                </div>
+
+                                <div class="text-start text-white mb-3">
+                                    <label for="subject" class="form-label">Sujet</label>
+                                    <input type="text" class="form-control <?= isset($formErrors['subject']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['subject'] ?>" id=" subject" name="subject">
+
+                                    <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['subject'] ?></p>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -63,7 +70,7 @@
                 </form>
             <?php } else { ?>
                 <div class="text-center text-white mt-4 fs-5">
-                    <p>Bonjour, <?php echo $user . ' merci de votre message. Nous reviendrons vers vous rapidement.' ?></p>
+                    <p>Bonjour, <?php echo $user->name . ' merci de votre message. Nous reviendrons vers vous rapidement.' ?></p>
                 </div>
                 <div class="text-end text-white mt-4 fs-5">
                     <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
