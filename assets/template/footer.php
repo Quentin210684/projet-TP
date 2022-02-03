@@ -28,26 +28,26 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h3><a href="index.php" class="plan text-white text-decoration-none">Accueil</a></h3>
+                                        <h3><a href="accueil" class="plan text-white text-decoration-none">Accueil</a></h3>
                                         <ul>
-                                            <li><a href="games.php" class="plan text-white text-decoration-none">Jeux</a></li>
-                                            <li><a href="mods.php" class="plan text-white text-decoration-none">Mods</a></li>
-                                            <li><a href="pressArticle.php" class="plan text-white text-decoration-none">Articles</a></li>
-                                            <li><a href="gametest.php" class="plan text-white text-decoration-none">Game test</a></li>
-                                            <li><a href="review.php" class="plan text-white text-decoration-none">Rédiger un avis</a></li>
+                                            <li><a href="jeux" class="plan text-white text-decoration-none">Jeux</a></li>
+                                            <li><a href="mods" class="plan text-white text-decoration-none">Mods</a></li>
+                                            <li><a href="article-de-presse" class="plan text-white text-decoration-none">Articles</a></li>
+                                            <li><a href="test" class="plan text-white text-decoration-none">Game test</a></li>
+                                            <li><a href="rediger-un-avis" class="plan text-white text-decoration-none">Rédiger un avis</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-3">
-                                        <h3><a href="Votre compte" class="plan text-white text-decoration-none">Votre compte</a></h3>
+                                        <h3><a href="#" class="plan text-white text-decoration-none">Votre compte</a></h3>
                                         <ul>
-                                            <li><a href="connection.php" class="plan text-white text-decoration-none">Connexion</a></li>
-                                            <li><a href="registration.php" class="plan text-white text-decoration-none">Inscription</a></li>
+                                            <li><a href="connexion" class="plan text-white text-decoration-none">Connexion</a></li>
+                                            <li><a href="inscription" class="plan text-white text-decoration-none">Inscription</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-3">
-                                        <h3><a href="Nous contacter" class="plan text-white text-decoration-none">Nous contacter</a></h3>
+                                        <h3><a href="#" class="plan text-white text-decoration-none">Nous contacter</a></h3>
                                         <ul>
-                                            <li><a href="Contact.php" class="plan text-white text-decoration-none">Contact</a></li>
+                                            <li><a href="Contact" class="plan text-white text-decoration-none">Contact</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-3">
@@ -121,18 +121,20 @@
     <script src="assets/js/index.js"></script>
 <?php } ?>
 
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/myDashboarduser.php') { ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/dashboardAdmin.php') { ?>
     <script src="assets/js/admin.js"></script>
 <?php } ?>
 <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gamesList.php') { ?>
     <script src="assets/js/games.js"></script>
 <?php } ?>
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gamesListAdmin.php') { ?>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/gamesListAdmin.php') { ?>
     <script src="assets/js/script.js"></script>
 <?php } ?>
-<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/usersListAdmin.php') { ?>
-    <script src="assets/js/userAdmin.js"></script>
+<?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/gamesListAdmin.php') { ?>
+    <script src="assets/js/gamesListAdmin.js"></script>
 <?php } ?>
+
+
 
 
 

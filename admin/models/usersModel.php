@@ -76,6 +76,26 @@ class users
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
 
+
+    public function countUsersList()
+    {
+        /**
+         * L’utilisation la plus courante de SQL consiste à lire des données issues de la base de données.
+         * Cela s’effectue grâce à la commande SELECT, qui retourne des enregistrements dans un tableau de résultat.
+         * Cette commande peut sélectionner une ou plusieurs colonnes d’une table.
+         */
+        $query = 'SELECT count(wc5m2_users.id) AS usersCounter , count(wc5m2_evaluations.id_users) AS evaluationsCounter '
+            . 'FROM `wc5m2_users` '
+            .'LEFT JOIN `wc5m2_evaluations` '
+            .'On wc5m2_evaluations.id_users = wc5m2_users.id ';
+        $queryPrepare = $this->db->query($query);
+
+        /**
+         *  Retourne un tableau contenant toutes les lignes du jeu d'enregistrements
+         */
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+
     /**
      * Méthode permettant de supprimer un utilisateur
      * Paramètres : id

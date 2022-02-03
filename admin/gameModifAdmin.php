@@ -3,7 +3,7 @@
 <?php require 'models/graphismsModel.php'; ?>
 <?php require 'models/platformsModel.php'; ?>
 <?php require '../assets/template/header.php'; ?>
-<?php require_once 'controllers/addGameAdminController.php'; ?>
+<?php require_once 'controllers/gameModifAdminController.php'; ?>
 
 
 
@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col py-3 text-start">
-            <h2 class="d-flex mt-3 mb-5 align-items-center text-white "><span id="neon" class="me-2">Ajouter un jeu</span><a class="btn btn-outline-dark text-white border border-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <h2 class="d-flex mt-3 mb-5 align-items-center text-white "><span id="neon" class="me-2"> Modifier un jeu</span><a class="btn btn-outline-dark text-white border border-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                     <i class="fas fa-angle-double-right fs-4"></i>
                 </a></h2>
 
@@ -45,7 +45,7 @@
 
                             <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
 
-                                <form action="admin-ajouter-un-jeu" method="POST" enctype="multipart/form-data">
+                                <form action="admin-modification-jeux_<?=$game->id ?>" method="POST" enctype="multipart/form-data">
 
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
@@ -55,14 +55,14 @@
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="title" class="form-label">Titre</label>
-                                        <input type="text" class="form-control <?= isset($formErrors['title']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['title'] ?>" id=" title" name="title">
+                                        <input type="text" class="form-control <?= isset($formErrors['title']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['title']) ? $_POST['title'] : $gameDetails->title ?>" id=" title" name="title">
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['title'] ?></p>
                                     </div>
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
-                                        <label for="developpers" class="form-label">Développeur</label>
-                                        <input type="text" class="form-control <?= isset($formErrors['developpers']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['developpers'] ?>" id=" developpers" name="developpers">
+                                        <label for="title2" class="form-label">Développeur</label>
+                                        <input type="text" class="form-control <?= isset($formErrors['developpers']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['developpers']) ? $_POST['developpers'] : $gameDetails->developpers ?>" id=" developpers" name="developpers">
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['developpers'] ?></p>
                                     </div>
@@ -102,7 +102,7 @@
 
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
-                                        <label for="releaseDate" class=" form-label">Date de parution</label>
+                                        <label for="releaseDate class=" form-label">Date de parution</label>
                                         <input type="date" class="form-control" id=" releaseDate" name="releaseDate">
                                     </div>
 
@@ -150,13 +150,12 @@
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="url" class="form-label">Trailer</label>
-                                        <input class="form-control form-control-sm" id="url" name="trailer" type="url" pattern="https://.*">
+                                        <input class="form-control form-control-sm" id="url" name="trailer" type="url" pattern="https://.*" required>
                                     </div>
 
-
-                                    <div class="col-sm-8 mt-3 mb-4 mx-auto text-white">
+                                    <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="floatingTextarea2">Résumé</label>
-                                        <textarea class="form-control <?= isset($formErrors['summary']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['summary'] ?>" name="summary" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <textarea class="form-control <?= isset($formErrors['summary']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['summary']) ? $_POST['summary'] : $gameDetails->summary ?>" name="summary" id="floatingTextarea2" style="height: 100px"></textarea>
 
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['summary'] ?></p>
@@ -171,10 +170,10 @@
                                 </form>
                             <?php } else { ?>
                                 <div class="text-center text-white mt-4 fs-5">
-                                    <p>Bonjour, <?php echo $game->title . ' à bien été ajoutez' ?></p>
+                                    <p>Bonjour, <?php echo $game->title . ' à bien été modifier' ?></p>
                                 </div>
-                                <div class="text-center text-white mt-4 fs-5">
-                                    <p><a class="text-decoration-none text-white" href="administration">Retourner à l'accueil</a> </p>
+                                <div class="text-end text-white mt-4 fs-5">
+                                    <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
                                 </div>
                             <?php } ?>
                         </div>

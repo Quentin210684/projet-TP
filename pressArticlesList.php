@@ -11,8 +11,8 @@
             <div class="col-sm mt-5 mb-5">
                 <div class="col-sm row justify-content-center p-md-auto">
                     <a href="remarkArticl.php"></a>
-                    <div class="mt-2 me-3 ms-3 bg-dark card border border-3 border-outset border-dark" data-aos="flip-up" data-aos-duration="1500" style="width: 30rem;">
-                        <img src="assets/img/a découvrir 2.jpg" class="img-fluid me-auto ms-auto" alt="...">
+                    <div class="mt-2 me-1 bg-dark card border border-3 border-outset border-dark" data-aos="flip-up" data-aos-duration="1500" style="width: 30rem;">
+                        <img src="assets/img/Unpacking.jpg" class="img-fluid me-auto ms-auto" alt="...">
                         <div class="card-body text-white mb-4">
                             <h5 class="card-title">“Unpacking”, le simulateur d’emménagement qui fait un carton</h5>
                             <p class="card-text">Signé du studio indépendant australien Witch Beam, le jeu Unpacking propose de s’atteler à déballer des cartons et s’installer dans une maison.</p>
@@ -30,8 +30,8 @@
                     </div>
 
 
-                    <div class=" mt-2 me-3 ms-3 bg-dark card border border-3 border-outset border-dark" data-aos="flip-up" data-aos-duration="2000" style="width: 30rem;">
-                        <img src="assets/img/page jeux 11stoneshard.jpg" class="img-fluid card-img-top" alt="...">
+                    <div class=" mt-2 me-1 bg-dark card border border-3 border-outset border-dark" data-aos="flip-up" data-aos-duration="2000" style="width: 30rem;">
+                        <img src="assets/img/stoneshard.jpg" class="img-fluid card-img-top" alt="...">
                         <div class="card-body text-white">
                             <h5 class="card-title">Un RPG brutal Roguelike qui n'est PAS pour les âmes sensibles</h5>
                             <p class="card-text">Stoneshard est un RPG brutal au tour par tour, disponible dès maintenant sur Steam en accès anticipé, qui combine un cadre fantastique en monde ouvert avec des éléments de type voyou.</p>
@@ -49,8 +49,8 @@
                     </div>
 
 
-                    <div class=" mt-2 card bg-dark border border-3 border-outset border-dark" data-aos="flip-up" data-aos-duration="2500" style="width: 30rem;">
-                        <img src="assets/img/page jeux 14surviving.jpg" class="img-fluid card-img-top" alt="...">
+                    <div class=" mt-2 me-1 card bg-dark border border-3 border-outset border-dark" data-aos="flip-up" data-aos-duration="2500" style="width: 30rem;">
+                        <img src="assets/img/surviving.jpg" class="img-fluid card-img-top" alt="...">
                         <div class="card-body text-white">
                             <h5 class="card-title">"Surviving The Aftermath": des cataclysmes passionnants, mais pas grand-chose d'autre</h5>
                             <p class="card-text">C'est toujours passionnant lorsqu'un simulateur de gestion de colonie vous convainc de ressentir de l'empathie pour les ouvrières individuelles de la taille d'une fourmi qui vont et viennent entre vos bâtiments

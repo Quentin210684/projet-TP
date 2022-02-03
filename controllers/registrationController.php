@@ -61,7 +61,7 @@ if (count($_POST) > 0) {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             /**
              * Le filter_var()  - permet de remplacer une regex trop complexe. Ici, l'adresse mail par exemple.
-             * Le filtre 'FILTER_VALIDATE_EMAIL' est une constante. Les différents filtres existants sont dispos sur le site php.net : https://www.php.net/manual/fr/filter.filters.validate.php
+             * Le filtre 'FILTER_VALIDATE_EMAIL' est une constante. Les différents filtres existants sont dispos sur le site php.net
              */
             $user->email = strip_tags($_POST['email']);
             if ($user->mailDouble() > 0) {

@@ -1,6 +1,6 @@
 <?php require 'models/articlesModel.php'; ?>
 <?php require '../assets/template/header.php'; ?>
-<?php require_once 'controllers/addArticleAdminController.php'; ?>
+<?php require_once 'controllers/articleModifAdminController.php'; ?>
 
 
 
@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col py-3 text-start">
-            <h2 class="d-flex mt-3 mb-5 align-items-center text-white "><span id="neon" class="me-2">Ajouter un Article</span><a class="btn btn-outline-dark text-white border border-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <h2 class="d-flex mt-3 mb-5 align-items-center text-white "><span id="neon" class="me-2">Modifier un Article</span><a class="btn btn-outline-dark text-white border border-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                     <i class="fas fa-angle-double-right fs-4"></i>
                 </a></h2>
 
@@ -43,7 +43,7 @@
 
                             <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
 
-                                <form action="admin-ajouter-un-article" method="POST" enctype="multipart/form-data">
+                                <form action="admin-modification-article_<?=$articles->id ?>" method="POST" enctype="multipart/form-data">
 
                                 <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="picture" class="form-label">Image</label>
@@ -52,14 +52,14 @@
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="title" class="form-label">Titre</label>
-                                        <input type="text" class="form-control <?= isset($formErrors['title']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['title'] ?>" id=" title" name="title">
+                                        <input type="text" class="form-control <?= isset($formErrors['title']) ? 'is-invalid' : '' ?> "value="<?= isset($_POST['title']) ? $_POST['title'] : $articlesDetails->title ?>" id=" title" name="title">
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['title'] ?></p>
                                     </div>
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="floatingTextarea2">Résumé</label>
-                                        <textarea class="form-control <?= isset($formErrors['content']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['content'] ?>" name="content" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <textarea class="form-control <?= isset($formErrors['content']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['content']) ? $_POST['content'] : $articlesDetails->content ?>" name="content" id="floatingTextarea2" style="height: 100px"></textarea>
 
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['content'] ?></p>
@@ -68,7 +68,7 @@
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="headline" class="form-label">Nom du journal</label>
-                                        <input type="text" class="form-control <?= isset($formErrors['headline']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['headline'] ?>" id=" headline" name="headline">
+                                        <input type="text" class="form-control <?= isset($formErrors['headline']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['headline']) ? $_POST['headline'] : $articlesDetails->headline ?>" id=" headline" name="headline">
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['headline'] ?></p>
                                     </div>

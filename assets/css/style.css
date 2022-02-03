@@ -396,4 +396,9 @@ a[href*="intent"] {
 .bgMods {
   background-color: #000000;
 }
+
+/*-------------------------------------------liste des jeux admin-------------------------------------------------------*/
+.imgSize {
+  width: 40vh;
+}
 /*# sourceMappingURL=style.css.map */

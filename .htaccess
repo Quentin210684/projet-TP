@@ -3,15 +3,27 @@ RewriteEngine On
 RewriteRule ^admin-ajouter-un-article$ admin/addArticleAdmin.php
 RewriteRule ^admin-ajouter-un-jeu$ admin/addGameAdmin.php
 RewriteRule ^admin-ajouter-un-mod$ admin/addModAdmin.php
-#RewriteRule ^admin-liste-des-articles$ admin/articlesListAdmin.php
+RewriteRule ^liste-admin-articles$ admin/articlesListAdmin.php
 RewriteRule ^administration$ admin/dashboardAdmin.php
 RewriteRule ^admin-liste-des-jeux$ admin/gamesListAdmin.php
-#RewriteRule ^admin-liste-des-mods$ admin/modsListAdmin.php
+RewriteRule ^admin-liste-des-mods$ admin/modsListAdmin.php
 RewriteRule ^admin-liste-des-utilisateurs$ admin/usersListAdmin.php
+RewriteRule ^admin-modification-jeux_([0-9]+)$ admin/gameModifAdmin.php?id=$1
+RewriteRule ^admin-modification-article_([0-9]+)$ admin/articleModifAdmin.php?id=$1
+
 
 RewriteRule accueil index.php
-RewriteRule jeux games.php
-RewriteRule mods mods.php
-RewriteRule article pressArticle.php
-RewriteRule jeux-test gametest.php
-RewriteRule rediger-un-avis review.php
+RewriteRule jeux gamesList.php
+RewriteRule ^mods$ modsList.php
+RewriteRule article-de-presse pressArticlesList.php
+RewriteRule ^test$ gameTest.php
+RewriteRule rediger-un-avis addReview.php
+RewriteRule espace-utilisateur myDashboard.php
+RewriteRule connexion connection.php
+RewriteRule inscription registration.php
+RewriteRule mentions-Legales mentionsLegales.php
+RewriteRule jeu-potion-craft game.php
+RewriteRule contact contact.php
+
+RewriteRule utilisateur-ajouter-un-mod addMod.php
+RewriteRule ajouter-un-avis addOpinion.php

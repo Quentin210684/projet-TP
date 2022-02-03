@@ -46,7 +46,7 @@
         <div class="col-sm mt-2 border bg-light   shadow">
             <div id="selection">La sélection du moment</div>
             <div class="clearfix mt-4">
-                <img src="assets/img/a découvrir 1.jpg" class="col-md-8 float-md-end mb-3 ms-md-3 img-fluid" alt="image4">
+                <img src="assets/img/SettlementSurvival.jpg" class="col-md-8 float-md-end mb-3 ms-md-3 img-fluid" alt="image4">
                 <p>Dans ce city-builder inspiré de « Banished », vous dirigerez un peuple à la recherche de son nouveau foyer. Terraformez le paysage, gérez des matières premières rares, plantez des cultures, collectez des ressources et développez des
                     routes commerciales pour bâtir une ville unique et animée. </p>
                 <a href="selectionmoment.php" class="text-decoration-none">En savoir plus</a>
@@ -79,7 +79,7 @@
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
                     <h5>
-                        <a href="game.php" class="news colorLogo">Potion Craft</a>
+                        <a href="jeu-potion-craft" class="news colorLogo">Potion Craft</a>
                     </h5>
                     <p class="card-text text-white">Potion Craft est un simulateur d'alchimie dans lequel vous interagissez physiquement avec vos outils et ingrédients pour concocter des potions</p>
                 </div>
@@ -87,7 +87,7 @@
         </div>
         <div class="col-sm">
             <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
-                <img src="assets/img/a découvrir 2.jpg" class="card-img-top card-img img-fluid" alt="decouverte2" id="unpack">
+                <img src="assets/img/Unpacking.jpg" class="card-img-top card-img img-fluid" alt="decouverte2" id="unpack">
                 <div class="card-body overflow-auto colorLogo2">
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
@@ -101,7 +101,7 @@
         </div>
         <div class="col-sm">
             <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
-                <img src="assets/img/a découvrir 3.jpg" class="card-img-top card-img img-fluid" alt="decouverte3" id="despot">
+                <img src="assets/img/DespotGame.jpg" class="card-img-top card-img img-fluid" alt="decouverte3" id="despot">
                 <div class="card-body overflow-auto colorLogo2">
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
@@ -115,7 +115,7 @@
         </div>
         <div class="col-sm">
             <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
-                <img src="assets/img/a découvrir 4.jpg" class="card-img-top card-img img-fluid" alt="decouverte4" id="tavern" >
+                <img src="assets/img/TavernMaster.jpg" class="card-img-top card-img img-fluid" alt="decouverte4" id="tavern" >
                 <div class="card-body overflow-auto colorLogo2 h-25">
 
                     <!--------------Mettre à jour les découverte---------------------------------------->

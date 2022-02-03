@@ -1,4 +1,5 @@
 <?php
+
 $types = new types;
 $typesList = $types->selectTypesList();
 
@@ -10,8 +11,8 @@ $platforms = new platforms;
 $platformsList = $platforms->selectPlatformsList();
 
 
-
 $game = new games;
+$game->id = $_GET['id'];
 
 $formData = [];
 $formErrors = [];
@@ -24,7 +25,7 @@ $formErrors = [];
  */
 
 $regex = [
-    'name' => '/^([A-Z]{1}[a-zA-Zâäàéèùêëîïôöçñ!?.:,® ]+){1}([\- ]{1}[A-Z]{1}[a-zA-Zâäàéèùêëîïôöçñ!?.:,® ]+)?$/',
+    'name' => '/^([A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+){1}([\- ]{1}[A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+)?$/',
 
     /**
  * Je crée une regex pour le nom d'utilisateur
@@ -165,14 +166,16 @@ if (count($_POST) > 0) {
              */
             $game->trailer = strip_tags($_POST['trailer']);
         } else {
-            $formErrors['trailer'] = 'Veuillez renseigner une adresse url valide';
+            $formErrors['email'] = 'Veuillez renseigner une adresse url valide';
         }
     } else {
-        $formErrors['trailer'] = 'Veuillez renseigner votre adresse URL';
+        $formErrors['email'] = 'Veuillez renseigner votre adresse url';
     }
 
 
+
     if (!empty($_POST['summary'])) {
+
         $game->summary = strip_tags($_POST['summary']);
         /**
          * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
@@ -182,12 +185,12 @@ if (count($_POST) > 0) {
         $formErrors['summary'] = 'Votre message est vide.';
     }
     if (count($formErrors) == 0) {
-        $game->addGame();
-        
+        $game->updateGame();
     }
-   
 }
+$gameDetails = $game->getGameById();
 
+var_dump($gameDetails);
 /**
  * var_dump() affiche les informations structurées d'une variable, y compris son type et sa valeur.
  */

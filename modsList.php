@@ -35,7 +35,7 @@
                             <a href="">
                                 <img src="assets/img/modimage1.png" class="img-fluid card-img-top " alt="...">
                             </a>
-                            <img src="assets/img/page jeux 2 dd.jpg" class="image-fluid">
+                            <img src="assets/img/darkestDungeon.jpg" class="image-fluid">
                             <p class="card-text text-center colorLogo2"><small class="text-white">3518 objets</small></p>
                             <a href="addRemarkMod.php" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
                         </div>
@@ -45,7 +45,7 @@
                             <a href="">
                                 <img src="assets/img/modimage2.png" class="card-img-top img-fluid" alt="...">
                             </a>
-                            <img src="assets/img/page jeux 13divinity.jpg" class="image-fluid">
+                            <img src="assets/img/divinity.jpg" class="image-fluid">
                             <p class="card-text text-center colorLogo2"><small class="text-white">21 objets</small></p>
                             <a href="addRemarkMod.php" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
 
@@ -56,7 +56,7 @@
                             <a href="">
                                 <img src="assets/img/modimage3.png" class="card-img-top img-fluid" alt="...">
                             </a>
-                            <img src="assets/img/page jeux 15command.jpg" class="image-fluid">
+                            <img src="assets/img/commandConquer.jpg" class="image-fluid">
                             <p class="card-text text-center colorLogo2"><small class="text-white">11561 objets</small></p>
                             <a href="addRemarkMod.php" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
 
@@ -67,7 +67,7 @@
                             <a href="">
                                 <img src="assets/img/modimage4.png" class="card-img-top img-fluid" alt="...">
                             </a>
-                            <img src="assets/img/page jeux 16.jpg." class="image-fluid">
+                            <img src="assets/img/zombie.jpg" class="image-fluid">
                             <p class="card-text text-center colorLogo2"><small class="text-white">61 objets</small></p>
                             <a href="addRemarkMod.php" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
 

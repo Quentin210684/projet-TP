@@ -1,5 +1,5 @@
 <?php
-class graphisms
+class types
 {
 
     public $id;
@@ -21,10 +21,10 @@ class graphisms
         }
     }
 
-    public function selectGraphismsList()
+    public function selectTypesList()
     {
         $query = 'SELECT id, name 
-    FROM wc5m2_graphisms';
+    FROM wc5m2_types';
         $queryPrepare = $this->db->query($query);
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }

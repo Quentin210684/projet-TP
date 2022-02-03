@@ -1,17 +1,10 @@
 <?php
-$types = new types;
-$typesList = $types->selectTypesList();
 
 
-$graphism = new graphisms;
-$graphismsList = $graphism->selectGraphismsList();
-
-$platforms = new platforms;
-$platformsList = $platforms->selectPlatformsList();
+$articles = new articles;
+$articles->id = $_GET['id'];
 
 
-
-$game = new games;
 
 $formData = [];
 $formErrors = [];
@@ -23,10 +16,13 @@ $formErrors = [];
  * Ca permet de ne pas chercher de nom de variable
  */
 
-$regex = [
-    'name' => '/^([A-Z]{1}[a-zA-Zâäàéèùêëîïôöçñ!?.:,® ]+){1}([\- ]{1}[A-Z]{1}[a-zA-Zâäàéèùêëîïôöçñ!?.:,® ]+)?$/',
 
-    /**
+
+$regex = [
+    'name' => '/^([A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+){1}([\- ]{1}[A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+)?$/',
+
+];
+/**
  * Je crée une regex pour le nom d'utilisateur
  * ^$ : marquent le début et la fin de la chaîne de caractère / permettent de dire que toute la chaîne doit correpondre à la Regex
  * a-z : autorise les lettres en minuscules
@@ -34,21 +30,14 @@ $regex = [
  * 0-9 : autorise les nombres
  */
 
-];
-
-
 
 if (count($_POST) > 0) {
-
-
     /**
      * La fonction count permet de compter le nombres d'éléments dans le tableau $_POST
      * J'envoie le formulaire grâce à la méthode POST, il remplit donc mon tableau superglobal $_POST
      * Donc s'il y a un élément dans $_POST, c'est que mon formulaire a été envoyé
      * Permet de ne pas lancer les vérifications si le formulaire n'est pas envoyé et de na pas afficher les erreurs au démarrage
      */
-
-
 
     if ($_FILES['picture']['error'] == 0) {
         /**
@@ -91,7 +80,7 @@ if (count($_POST) > 0) {
                 //donne des droits au fichiers, utiles pour les sites hébergés sur un serveur Linux
 
                 chmod('../uploads/' . $_FILES['picture']['name'], 0644);
-                $game->picture = '../../uploads/' . $_FILES['picture']['name'];
+                $articles->picture = '../../uploads/' . $_FILES['picture']['name'];
             } else {
                 $formErrors['picture'] = 'Une erreur est survenue';
             }
@@ -102,12 +91,15 @@ if (count($_POST) > 0) {
         $formErrors['picture'] = 'Le fichier est obligatoire';
     }
 
+
     /**
-     * 1 - Je vérifie que ma variable existe ET n'est pas vide. La fonction empty() - https://www.php.net/manual/fr/function.empty.php - vérifie ces deux conditions, pas besoin de compléter avec isset()
+     * 1 - Je vérifie que ma variable existe ET n'est pas vide. La fonction empty() -  vérifie ces deux conditions, pas besoin de compléter avec isset()
      * Cette condition est faisable aussi pour un champs non-obligatoire, il faut juste supprimer le else (pas d'erreur si le champs n'est pas rempli)
      * Les autres vérifications pour ce champs doivent se faire dans cette condition, il ne faut pas vérifier si une varible correspond à une regex s'il n'y a rien dedans
      * Si ça n'existe pas je crée un message d'erreur adapté
      */
+
+
     if (!empty($_POST['title'])) {
         /**
          * 2 - Je vérifie si ma variable correspond à ma Regex avec preg_match() - https://www.php.net/manual/fr/function.preg-match.php
@@ -123,7 +115,7 @@ if (count($_POST) > 0) {
              * cependant, avec la cybersécurité 2,3 voire 4 sécurités valent mieux qu'une
              * Peut être remplacée par htmlentities() -
              */
-            $game->title = strip_tags($_POST['title']);
+            $articles->title = strip_tags($_POST['title']);
             /**
              * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
              * Elle génère des alertes si les balises sont incomplètes ou erronées.
@@ -135,59 +127,41 @@ if (count($_POST) > 0) {
         $formErrors['title'] = 'Votre titre est vide.';
     }
 
-    if (!empty($_POST['developpers'])) {
-        if (preg_match($regex['name'], $_POST['developpers'])) {
-            $game->developpers = strip_tags($_POST['developpers']);
-            /**
-             * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
-             * Elle génère des alertes si les balises sont incomplètes ou erronées.
-             */
-        } else {
-            $formErrors['developpers'] = 'Le titre est invalide. Il ne doit comporter que des lettres, des tirets, des espaces.';
-        }
-    } else {
-        $formErrors['developpers'] = 'Votre titre est vide.';
-    }
-
-
-    $game->releaseDate = $_POST['releaseDate'];
-    $game->earlyExitDate = $_POST['earlyExitDate'];
-    $game->id_graphisms = $_POST['id_graphisms'];
-    $game->id_types = $_POST['id_types'];
-    $game->id_platforms = $_POST['id_platforms'];
-
-
-    if (!empty($_POST['trailer'])) {
-        if (filter_var($_POST['trailer'], FILTER_VALIDATE_URL)) {
-            /**
-             * Le filter_var()  - permet de remplacer une regex trop complexe. Ici, l'adresse mail par exemple.
-             * Le filtre 'FILTER_VALIDATE_EMAIL' est une constante. Les différents filtres existants sont dispos sur le site php.net
-             */
-            $game->trailer = strip_tags($_POST['trailer']);
-        } else {
-            $formErrors['trailer'] = 'Veuillez renseigner une adresse url valide';
-        }
-    } else {
-        $formErrors['trailer'] = 'Veuillez renseigner votre adresse URL';
-    }
-
-
-    if (!empty($_POST['summary'])) {
-        $game->summary = strip_tags($_POST['summary']);
+    if (!empty($_POST['content'])) {
+        $articles->content = strip_tags($_POST['content']);
         /**
          * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
          * Elle génère des alertes si les balises sont incomplètes ou erronées.
          */
     } else {
-        $formErrors['summary'] = 'Votre message est vide.';
+        $formErrors['content'] = 'Votre message est vide.';
     }
-    if (count($formErrors) == 0) {
-        $game->addGame();
-        
-    }
-   
-}
 
+    if (!empty($_POST['headline'])) {
+        if (preg_match($regex['name'], $_POST['headline'])) {
+            $articles->headline = strip_tags($_POST['headline']);
+            /**
+             * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
+             * Elle génère des alertes si les balises sont incomplètes ou erronées.
+             */
+        } else {
+            $formErrors['headline'] = 'Le nom d\'utilsateur est invalide. Il ne doit comporter que des lettre, des chiffres, des tirets, des espaces.';
+        }
+    } else {
+        $formErrors['headline'] = 'Votre message est vide.';
+    }
+
+    $articles->publicationDate = $_POST['publicationDate'];
+    // $articles->time = $_POST['time'];
+
+
+    if (count($formErrors) == 0) {
+        $articles->updateArticle();
+    }
+}
+$articlesDetails = $articles->updateArticle();
+
+var_dump($formErrors);
 /**
  * var_dump() affiche les informations structurées d'une variable, y compris son type et sa valeur.
  */

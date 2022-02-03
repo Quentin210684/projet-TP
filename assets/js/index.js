@@ -11,10 +11,10 @@ potion.onmouseleave = () => {
 let unpack = document.getElementById('unpack');
 
 unpack.onmouseenter = () => {
-    unpack.setAttribute('src', 'assets/img/gif/unpacking_steam_bookshelf.gif')
+    unpack.setAttribute('src', 'assets/img/gif/unpacking.gif')
 }
 unpack.onmouseleave = () => {
-    unpack.setAttribute('src', 'assets/img/a découvrir 2.jpg')
+    unpack.setAttribute('src', 'assets/img/Unpacking.jpg')
 
 }
 
@@ -24,7 +24,7 @@ despot.onmouseenter = () => {
     despot.setAttribute('src', 'assets/img/gif/depsots.gif')
 }
 despot.onmouseleave = () => {
-    despot.setAttribute('src', 'assets/img/a découvrir 3.jpg')
+    despot.setAttribute('src', 'assets/img/DespotGame.jpg')
 
 }
 
@@ -34,6 +34,6 @@ tavern.onmouseenter = () => {
     tavern.setAttribute('src', 'assets/img/gif/tavern.gif')
 }
 tavern.onmouseleave = () => {
-    tavern.setAttribute('src', 'assets/img/a découvrir 4.jpg')
+    tavern.setAttribute('src', 'assets/img/TavernMaster.jpg')
 
 }

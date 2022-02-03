@@ -1,4 +1,4 @@
-<?php require 'assets/template/header.php'; ?>
+<?php require 'assets/template/header.php'; ?> 
 <!-------------------------------------------------------Page centrale jeux------------------------------------------->
 <!--Finir de completez les alt des images-->
 
@@ -50,7 +50,7 @@
                 </select>
             </div>
             <div class=" size col-sm fs-5 mt-5 text-white">
-                <label for="genre-select">Support</label>
+                <label for="genre-select">Plateforme</label>
             </div>
             <div class="col-sm mt-3">
                 <select class="btn btn-outline-dark dropdown-toggle border border-white text-start text-white" name="genres" id="genre-select">
@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="col-sm mt-2 ms-2 mb-2 animate__animated animate__zoomInDown">
                         <figure class="figure border border-3 border-outset border-dark">
-                            <img src="assets/img/page jeux 1logic.jpg" id="logic" class="img-fluid card-img2 figure-img rounded mb-0" alt="...">
+                            <img src="assets/img/LogicWorld.jpg" id="logic" class="img-fluid card-img2 figure-img rounded mb-0" alt="...">
                             <div class="d-flex align-items-center colorLogo2 fw-bold">
                                 <p class="size figure-caption mt-2 mb-1 ms-1 fs-6 col-sm me-md-2"><a href="logicworldgamepage.php" class="text-decoration-none text-white">Logic World</a></p>
                                 <p class="col-sm mt-1 mb-1 text-end "><img src="assets/img/logo windows reduit.png"><img src="assets/img/logo mac os reduit.png"></p>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-sm mt-2 ms-2 mb-2 animate__animated animate__zoomInDown">
                         <figure class="figure border border-3 border-outset border-dark" >
-                            <img src="assets/img/page jeux 2 dd.jpg" id="dark" class=" img-fluid card-img2 figure-img rounded mb-0 " alt="...">
+                            <img src="assets/img/darkestDungeon.jpg" id="dark" class=" img-fluid card-img2 figure-img rounded mb-0 " alt="...">
                             <div class="d-flex align-items-center colorLogo2 fw-bold">
                                 <p class="size figure-caption mt-2 mb-1 ms-1 fs-6 col-sm me-md-2"><a href="Darkest Dungeon" class="text-decoration-none text-white">Darkest Dungeon</a></p>
                                 <p class="col-sm mt-1 mb-1 text-end "><img src="assets/img/logo windows reduit.png"><img src="assets/img/logo mac os reduit.png"></p>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-sm mt-2 ms-2 mb-2 animate__animated animate__zoomInDown">
                         <figure class="figure border border-3 border-outset border-dark">
-                            <img src="assets/img/page jeux 3.jpg" id="graveyard" class=" img-fluid card-img2 figure-img rounded mb-0" alt="...">
+                            <img src="assets/img/Graveyard.jpg" id="graveyard" class=" img-fluid card-img2 figure-img rounded mb-0" alt="...">
                             <div class="d-flex align-items-center colorLogo2 fw-bold">
                                 <p class="size figure-caption mt-2 mb-1 ms-1 fs-6 col-sm me-md-2"><a href="Graveyard Keeper" class="text-decoration-none text-white">Graveyard Keeper</a></p>
                                 <p class="col-sm mt-1 mb-1 text-end "><img src="assets/img/logo windows reduit.png"><img src="assets/img/logo mac os reduit.png"></p>
@@ -100,7 +100,7 @@
                         <div class="row">
                             <div class="col-sm mt-2 ms-1 mb-2 animate__animated animate__zoomInDown">
                                 <figure class="figure border border-3 border-outset border-dark">
-                                    <img src="assets/img/page jeux 4.jpg" id="rebel" class="img-fluid card-img2 figure-img rounded mb-0" alt="...">
+                                    <img src="assets/img/RebelInc.jpg" id="rebel" class="img-fluid card-img2 figure-img rounded mb-0" alt="...">
                                     <div class="d-flex align-items-center colorLogo2 fw-bold">
                                         <p class="size figure-caption mt-2 mb-1 ms-1 fs-6 col-sm me-md-2"><a href="Rebel Inc. Escalation" class="text-decoration-none text-white">Rebel Inc. Escalation</a></p>
                                         <p class="col-sm mt-1 mb-1 text-end "><img src="assets/img/logo windows reduit.png"><img src="assets/img/logo mac os reduit.png"></p>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="col-sm mt-2 ms-1 mb-2 animate__animated animate__zoomInDown">
                                 <figure class="figure border border-3 border-outset border-dark">
-                                    <img src="assets/img/page jeux 5.jpg" id="ruined" class="img-fluid card-img2 figure-img rounded mb-0" alt="...">
+                                    <img src="assets/img/RuinedKing.jpg" id="ruined" class="img-fluid card-img2 figure-img rounded mb-0" alt="...">
                                     <div class="d-flex align-items-center colorLogo2 fw-bold">
                                         <p class="size figure-caption mt-2 mb-1 ms-1 fs-6 col-sm me-md-2"><a href="Ruined King" class="text-decoration-none text-white">Ruined King</a></p>
                                         <p class="col-sm mt-1 mb-1 text-end "><img src="assets/img/logo windows reduit.png"></p>
@@ -118,7 +118,7 @@
                             </div>
                             <div class="col-sm mt-2 ms-1 mb-2 animate__animated animate__zoomInDown">
                                 <figure class="figure border border-3 border-outset border-dark">
-                                    <img src="assets/img/page jeux 6.jpg" id="dysm" class="card-img2 figure-img img-fluid rounded mb-0" alt="...">
+                                    <img src="assets/img/Dysmantle.jpg" id="dysm" class="card-img2 figure-img img-fluid rounded mb-0" alt="...">
                                     <div class="d-flex align-items-center colorLogo2 fw-bold">
                                         <p class="size figure-caption mt-2 mb-1 ms-1 fs-6 col-sm me-md-2"><a href="Dysmantle" class="text-decoration-none text-white">Dysmantle</a></p>
                                         <p class="col-sm mt-1 mb-1 text-end "><img src="assets/img/logo windows reduit.png"><img src="assets/img/logo mac os reduit.png"></p>

@@ -1,4 +1,8 @@
 <?php
+
+
+$articles = new articles;
+
 $formData = [];
 $formErrors = [];
 
@@ -12,7 +16,7 @@ $formErrors = [];
 
 
 $regex = [
-    'name' => '/^([A-Z]{1}[a-zâäàéèùêëîïôöçñ]+){1}([\- ]{1}[A-Z]{1}[a-zâäàéèùêëîïôöçñ]+)?$/',
+    'name' => '/^([A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+){1}([\- ]{1}[A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+)?$/',
 
 ];
 /**
@@ -32,20 +36,19 @@ if (count($_POST) > 0) {
      * Permet de ne pas lancer les vérifications si le formulaire n'est pas envoyé et de na pas afficher les erreurs au démarrage
      */
 
-
-    if ($_FILES['paper']['error'] == 0) {
+    if ($_FILES['picture']['error'] == 0) {
         /**
          * Le tableau super global $_FILES se remplit dès que l'on envoie un fichier. Il crée alors une entrée ['nomDuFichier'] qui devient elle-même un tableau.
          * Ce nouveau tableau ($_FILES['nomDuFichier']) contient des informations très utiles comme le nom du fichier, sa taille et s'il y a eu une erreur lors de l'upload
          * Ce tableau $_FILES['nomDuFichier'] contient notamment une entrée error qui est à 0 si le fihier s'est bien uploadé
          */
-
-        $fileInfos = pathinfo($_FILES['paper']['name']);
+        $fileInfos = pathinfo($_FILES['picture']['name']);
         /**
          * pathinfo renvoie un tableau (donc $fileInfos devient un tableau) séparant les différentes infos du fichier
          * Je mets l'extension en minuscule pour simplifier ma vérification
          **/
-        $paperExtension = strtolower($fileInfos['extension']);
+        $pictureExtension = strtolower($fileInfos['extension']);
+
         /**
          * Je crée un tableau associatif des extentions avec les types mimes associés
          */
@@ -58,31 +61,33 @@ if (count($_POST) > 0) {
         ];
 
         /**
-         * La fonction array_key_exists() -
+         * La fonction array_key_exists() 
          * permet de vérifier si un index existe dans un tableau, permet de vérifier si l'extension existe dans le tableau et donc si elle est autorisée
-         * La fonction mime_content_type() - 
+         * La fonction mime_content_type() -
          * détecte le type mime du fichier et le renvoie. Je me sers de l'extension du fichier pour récupérer le type MIME correspondant à cette extension
          * pour vérifier que le type MIME est bien celui qui correspond à l'extension
          */
-        if (array_key_exists($paper, $authorizedMimeTypes) && mime_content_type($_FILES['paper']['tmp_name']) == $authorizedMimeTypes[$paper]) {
+        if (array_key_exists($pictureExtension, $authorizedMimeTypes) && mime_content_type($_FILES['picture']['tmp_name']) == $authorizedMimeTypes[$pictureExtension]) {
             /**
-             * move_uploaded_file() -
+             * move_uploaded_file() 
              * permet de déplacer un fichier dans un dossier sur le serveur où est hebergé le site
              */
-            if (move_uploaded_file($_FILES['paper']['tmp_name'], 'uploads/' . $_FILES['paper']['name'])) {
+
+            if (move_uploaded_file($_FILES['picture']['tmp_name'], '../uploads/' . $_FILES['picture']['name'])) {
                 //donne des droits au fichiers, utiles pour les sites hébergés sur un serveur Linux
 
-                chmod('uploads/' . $_FILES['paper']['name'], 0644);
-                $paper->fichier = 'uploads/' . $_FILES['paper']['name'];
+                chmod('../uploads/' . $_FILES['picture']['name'], 0644);
+                $articles->picture = '../../uploads/' . $_FILES['picture']['name'];
             } else {
-                $formErrors['paper'] = 'Une erreur est survenue';
+                $formErrors['picture'] = 'Une erreur est survenue';
             }
         } else {
-            $formErrors['paper'] = 'Le fichier n\'est pas au bon format';
+            $formErrors['picture'] = 'Le fichier n\'est pas au bon format';
         }
     } else {
-        $formErrors['paper'] = 'Le fichier est obligatoire';
+        $formErrors['picture'] = 'Le fichier est obligatoire';
     }
+
 
     /**
      * 1 - Je vérifie que ma variable existe ET n'est pas vide. La fonction empty() -  vérifie ces deux conditions, pas besoin de compléter avec isset()
@@ -94,24 +99,20 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['title'])) {
         /**
-         * 2 - Je vérifie si ma variable correspond à ma Regex avec preg_match() -
+         * 2 - Je vérifie si ma variable correspond à ma Regex avec preg_match() - https://www.php.net/manual/fr/function.preg-match.php
          * Ca me permet de contrôler ce qui entrera plus tard dans ma base de données
          * Si ça ne correspond pas je crée un message d'erreur adapté
          */
-
-
         if (preg_match($regex['name'], $_POST['title'])) {
-
             /**
              * 2bis - Si tout se passe bien je peux enregistrer ma valeur
              * Je la stocke dans l'attribut de mon objet, l'username de mon objet $user
-             * Le htmlspecialchars()  - permet de désactiver les différentes balises html, cela nous protège en partie d'une possible faille xss
+             * Le htmlspecialchars() - permet de désactiver les différentes balises html, cela nous protège en partie d'une possible faille xss
              * En principe, cette partie là pourrait paraître inutile car nous avons la regex qui n'autorise pas les chevrons
              * cependant, avec la cybersécurité 2,3 voire 4 sécurités valent mieux qu'une
              * Peut être remplacée par htmlentities() -
              */
-
-            $user = strip_tags($_POST['title']);
+            $articles->title = strip_tags($_POST['title']);
             /**
              * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
              * Elle génère des alertes si les balises sont incomplètes ou erronées.
@@ -121,6 +122,39 @@ if (count($_POST) > 0) {
         }
     } else {
         $formErrors['title'] = 'Votre titre est vide.';
+    }
+
+    if (!empty($_POST['content'])) {
+        $articles->content = strip_tags($_POST['content']);
+        /**
+         * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
+         * Elle génère des alertes si les balises sont incomplètes ou erronées.
+         */
+    } else {
+        $formErrors['content'] = 'Votre message est vide.';
+    }
+
+    if (!empty($_POST['headline'])) {
+        if (preg_match($regex['name'], $_POST['headline'])) {
+            $articles->headline = strip_tags($_POST['headline']);
+            /**
+             * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
+             * Elle génère des alertes si les balises sont incomplètes ou erronées.
+             */
+        } else {
+            $formErrors['headline'] = 'Le nom d\'utilsateur est invalide. Il ne doit comporter que des lettre, des chiffres, des tirets, des espaces.';
+        }
+    } else {
+        $formErrors['headline'] = 'Votre message est vide.';
+    }
+
+    $articles->publicationDate = $_POST['publicationDate'];
+    // $articles->time = $_POST['time'];
+
+
+    if (count($formErrors) == 0) {
+        $articles->addArticle();
+        // var_dump($articles->addArticle());
     }
 }
 var_dump($formErrors);

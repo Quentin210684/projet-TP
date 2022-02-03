@@ -2,12 +2,12 @@ let logic = document.getElementById('logic');
 // j'appelle ma variable en utilisant getElementById
 logic.onmouseenter = () => {
     // onmouseenter me permet qu'au passage de la souris a variable change de source
-    logic.setAttribute('src', 'assets/img/gif/logic gif.gif')
+    logic.setAttribute('src', 'assets/img/gif/logic.gif')
 }
 logic.onmouseleave = () => {
     // onmouseleave me permet que lorsque la souris sorte l'image reprenne sa source initiale.
 
-    logic.setAttribute('src', 'assets/img/page jeux 1logic.jpg')
+    logic.setAttribute('src', 'assets/img/LogicWorld.jpg')
 
 }
 
@@ -17,7 +17,7 @@ dark.onmouseenter = () => {
     dark.setAttribute('src', 'assets/img/gif/darkest.gif')
 }
 dark.onmouseleave = () => {
-    dark.setAttribute('src', 'assets/img/page jeux 2 dd.jpg')
+    dark.setAttribute('src', 'assets/img/darkestDungeon.jpg')
 
 }
 
@@ -27,7 +27,7 @@ graveyard.onmouseenter = () => {
     graveyard.setAttribute('src', 'assets/img/gif/graveyard.gif')
 }
 graveyard.onmouseleave = () => {
-    graveyard.setAttribute('src', 'assets/img/page jeux 3.jpg')
+    graveyard.setAttribute('src', 'assets/img/Graveyard.jpg')
 
 }
 
@@ -37,17 +37,17 @@ rebel.onmouseenter = () => {
     rebel.setAttribute('src', 'assets/img/gif/rebel.gif')
 }
 rebel.onmouseleave = () => {
-    rebel.setAttribute('src', 'assets/img/page jeux 4.jpg')
+    rebel.setAttribute('src', 'assets/img/RebelInc.jpg')
 
 }
 
 let ruined = document.getElementById('ruined');
 
 ruined.onmouseenter = () => {
-    ruined.setAttribute('src', 'assets/img/gif/ruined-kings-braum.gif')
+    ruined.setAttribute('src', 'assets/img/gif/ruined.gif')
 }
 ruined.onmouseleave = () => {
-    ruined.setAttribute('src', 'assets/img/page jeux 5.jpg')
+    ruined.setAttribute('src', 'assets/img/RuinedKing.jpg')
 
 }
 
@@ -57,6 +57,6 @@ dysm.onmouseenter = () => {
     dysm.setAttribute('src', 'assets/img/gif/dysm.gif')
 }
 dysm.onmouseleave = () => {
-    dysm.setAttribute('src', 'assets/img/page jeux 6.jpg')
+    dysm.setAttribute('src', 'assets/img/Dysmantle.jpg')
 
 }
