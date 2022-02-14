@@ -13,3 +13,6 @@ if (!empty($_POST['updateGame'])){
 }
 
 $gamesList = $game->getGamesList();
+
+
+

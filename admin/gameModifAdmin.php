@@ -1,9 +1,15 @@
-<?php require 'models/gamesModel.php'; ?>
-<?php require 'models/typesModel.php'; ?>
-<?php require 'models/graphismsModel.php'; ?>
-<?php require 'models/platformsModel.php'; ?>
-<?php require '../assets/template/header.php'; ?>
+<?php
+session_start();
+require_once 'models/database.php'; ?>
+<?php require_once 'models/gamesModel.php'; ?>
+<?php require_once 'models/typesModel.php'; ?>
+<?php require_once 'models/graphismsModel.php'; ?>
+<?php require_once 'models/platformsModel.php'; ?>
+<?php require_once 'models/gamesLanguagesModel.php'; ?>
+<?php require_once 'models/modsLanguagesModel.php'; ?>
+<?php require_once 'models/languagesModel.php'; ?>
 <?php require_once 'controllers/gameModifAdminController.php'; ?>
+<?php require '../assets/template/header.php'; ?>
 
 
 

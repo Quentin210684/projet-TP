@@ -10,6 +10,15 @@ $graphismsList = $graphism->selectGraphismsList();
 $platforms = new platforms;
 $platformsList = $platforms->selectPlatformsList();
 
+$languages = new languages;
+$languagesList = $languages->selectLanguagesList();
+
+// $gamesLanguages = new gamesLanguages;
+// $gamesLanguagesList = $gamesLanguages->selectGameLanguageList();
+
+// $modsLanguages = new modsLanguages;
+// $modsLanguagesList = $modsLanguages->selectModLanguageList();
+
 
 $game = new games;
 $game->id = $_GET['id'];
@@ -190,7 +199,7 @@ if (count($_POST) > 0) {
 }
 $gameDetails = $game->getGameById();
 
-var_dump($gameDetails);
+
 /**
  * var_dump() affiche les informations structurées d'une variable, y compris son type et sa valeur.
  */

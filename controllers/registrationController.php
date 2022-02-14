@@ -50,6 +50,9 @@ if (count($_POST) > 0) {
              * Peut être remplacée par htmlentities() -
              */
             $user->name = strip_tags($_POST['user']);
+            if ($user->userDouble() > 0) {
+                $formErrors['user'] = 'Cet utilisateur existe déjà';
+            }
         } else {
             $formErrors['user'] = 'Le nom d\'utilsateur est invalide. Il ne doit comporter que des lettres, des tirets, des espaces.';
         }
@@ -61,7 +64,7 @@ if (count($_POST) > 0) {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             /**
              * Le filter_var()  - permet de remplacer une regex trop complexe. Ici, l'adresse mail par exemple.
-             * Le filtre 'FILTER_VALIDATE_EMAIL' est une constante. Les différents filtres existants sont dispos sur le site php.net
+             * Le filtre 'FILTER_VALIDATE_EMAIL' est une constante. 
              */
             $user->email = strip_tags($_POST['email']);
             if ($user->mailDouble() > 0) {
@@ -106,9 +109,19 @@ if (count($_POST) > 0) {
     }
 
     if (count($formErrors) == 0) {
-        var_dump($user->addUser());
+        $user->addUser();
+        // seul endroit ou l'on peut mettre du HTML dans du PHP et mise en page en tableau autorisé.
+        $message = '
+<p>Bonjour ' . $_POST['user'] . '</p>
+<p>Votre inscription est validé</p>';
+
+        $headers = array(
+            'From' => 'no-reply@quentintirmant.fr',
+            'MIME-Version' => '1.0',
+            'content-type' => 'text/html; charset=UTF8'
+        );
+        //Personne à qui on envoie le mail, l'objet du mail, le contenu du mail, les en-têtes du mail 
+        mail($_POST['email'], 'Bienvenue parmi nous', $message, $headers);
     }
 }
-
-var_dump($formErrors);
-var_dump($user);
+// var_dump([$formErrors]);

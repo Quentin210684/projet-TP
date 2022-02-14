@@ -1,5 +1,5 @@
 <?php
-class articles
+class articles extends database
 {
 
     public $id;
@@ -8,15 +8,11 @@ class articles
     public $publicationDate;
     public $picture;
     public $headline;
-
+    private $db;
 
     public function __construct()
     {
-        try {
-            return $this->db = new PDO('mysql:host=localhost; dbname=gamescreening; charset=UTF8', 'root', '2108171229');
-        } catch (Exception $error) {
-            die($error->getMessage());
-        }
+        $this->db = parent::__construct();
     }
 
     /**

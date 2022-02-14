@@ -1,4 +1,9 @@
 <?php
+
+if($_SESSION['user']->id_roles != 1){
+    header('location: inscription');
+    exit;
+}
 $types = new types;
 $typesList = $types->selectTypesList();
 
@@ -8,6 +13,16 @@ $graphismsList = $graphism->selectGraphismsList();
 
 $platforms = new platforms;
 $platformsList = $platforms->selectPlatformsList();
+
+$languages = new languages;
+$languagesList = $languages->selectLanguagesList();
+
+// $gamesLanguages = new gamesLanguages;
+// $gamesLanguagesList = $gamesLanguages->selectGameLanguageList();
+
+// $modsLanguages = new modsLanguages;
+// $modsLanguagesList = $modsLanguages->selectModLanguageList();
+
 
 
 
@@ -24,7 +39,7 @@ $formErrors = [];
  */
 
 $regex = [
-    'name' => '/^([A-Z]{1}[a-zA-Zâäàéèùêëîïôöçñ!?.:,® ]+){1}([\- ]{1}[A-Z]{1}[a-zA-Zâäàéèùêëîïôöçñ!?.:,® ]+)?$/',
+    'name' => '/^([A-Z0-9]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\' ]+){1}([\- ]{1}[A-Z09]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\' ]+)?$/',
 
     /**
  * Je crée une regex pour le nom d'utilisateur

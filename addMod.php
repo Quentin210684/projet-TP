@@ -1,3 +1,6 @@
+<?php
+session_start();
+require_once 'admin/models/database.php'; ?>
 <?php require_once 'admin/models/usersModel.php'; ?>
 <?php require_once 'controllers/myDashboardController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
@@ -32,6 +35,10 @@
                 <div class="col-sm-12">
                     <div class="container">
                         <div class="row">
+                            <div class="text-center text-white mt-4 fs-5">
+                                <h4>Bienvenue dans votre espace personnel.</h4>
+                                <p>Vous pouvez si vous le souhaitez proposer votre mod.</p>
+                            </div>
                             <div class="col-sm-8 mx-auto mb-5 mt-4 shadow">
 
 
@@ -89,28 +96,41 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 mb-4">
-                    <p class="text-white">Mes mods</p>
-                    <table class="table">
-                        <thead class="text-white">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Mod</th>
-                                <th scope="col">Date de parution</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                            </tr>
+            <div class="col py-3 text-start">
+                <div class="col-sm-12">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Titre</th>
+                                                    <th scope="col">trailer</th>
+                                                    <th scope="col">Picture</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                        </tbody>
-                    </table>
+                                                <tr class="text-center text-white">
+                                                    <th class="align-middle" scope="row">...</th>
+                                                    <td class="align-middle">...</td>
+                                                    <td class="align-middle">...</td>
+                                                    <td class="align-middle">...</td>
+                                                    <td class="align-middle">
+                                                        <a href="...>" class="btn btn-warning" title="Modifier votre profil"><i class="fas fa-user-edit"></i></a>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

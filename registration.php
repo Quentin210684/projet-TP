@@ -1,4 +1,7 @@
-<?php require_once 'admin/models/usersModel.php';?>
+<?php
+session_start();
+require_once 'admin/models/database.php'; ?>
+<?php require_once 'admin/models/usersModel.php'; ?>
 <?php require_once 'controllers/registrationController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
 
@@ -65,22 +68,23 @@
 
 
                         <div class="mb-3 col-sm-11 text-center">
-                            <button type="submit" class="g-recaptcha btn btn-outline-dark text-white border border-white" data-sitekey="6Ldt9MwdAAAAAAf4Qhrz49nevcOtbfyWDvYGSnzg" data-callback='onSubmit' data-action='submit' name="send" id="send">envoyez</button>
+                            <button type="submit" class="g-recaptcha btn btn-outline-dark text-white border border-white img-fluid" data-sitekey="6Ldt9MwdAAAAAAf4Qhrz49nevcOtbfyWDvYGSnzg" data-callback='onSubmit' data-action='submit' name="send" id="send">envoyez</button>
                         </div>
-                        
+
                     </form>
-                    <?php } else { ?>
-                        <div class="text-center text-white mt-4 fs-5">
-                            <p>Bonjour, <?php echo $user->name . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
-                        </div>
-                        <div class="text-end text-white mt-4 fs-5">
-                            <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
-                        </div>
-                    <?php } ?>
+                <?php } else { ?>
+                    <div class="text-center text-white mt-4 fs-5">
+                        <p>Bonjour, <?php echo $user->name . ' Bienvenue sur GameScreening' ?></p>
+                    </div>
+                    <div class="text-end text-white mt-4 fs-5">
+                        <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
 </div>
+
 
 
 

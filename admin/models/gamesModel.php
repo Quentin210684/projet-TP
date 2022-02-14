@@ -1,5 +1,5 @@
 <?php
-class games
+class games extends database
 {
 
     public $id;
@@ -13,14 +13,11 @@ class games
     public $id_graphisms;
     public $id_types;
     public $id_platforms;
+    private $db;
 
     public function __construct()
     {
-        try {
-            return $this->db = new PDO('mysql:host=localhost; dbname=gamescreening; charset=UTF8', 'root', '2108171229');
-        } catch (Exception $error) {
-            die($error->getMessage());
-        }
+        $this->db = parent::__construct();
     }
 
     /**
@@ -60,10 +57,46 @@ class games
             . 'FROM `wc5m2_games` '
             . 'INNER JOIN `wc5m2_graphisms` ON  wc5m2_games.id_graphisms = wc5m2_graphisms.id '
             . 'INNER JOIN `wc5m2_types` ON  wc5m2_games.id_types = wc5m2_types.id '
-            . 'INNER JOIN `wc5m2_platforms` ON  wc5m2_games.id_platforms = wc5m2_platforms.id ';
+            . 'INNER JOIN `wc5m2_platforms` ON  wc5m2_games.id_platforms = wc5m2_platforms.id '
+            . 'ORDER BY wc5m2_games.id DESC';
         $queryPrepare = $this->db->query($query);
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
+
+
+    public function getGamesListHome()
+    {
+        $query = 'SELECT wc5m2_games.id, `title`, `developpers`, `releaseDate`,`earlyExitDate`,`summary`,`trailer`,`picture`,wc5m2_graphisms.name AS graphismName, wc5m2_types.name AS typesName, wc5m2_platforms.name AS platformsName  '
+            . 'FROM `wc5m2_games` '
+            . 'INNER JOIN `wc5m2_graphisms` ON  wc5m2_games.id_graphisms = wc5m2_graphisms.id '
+            . 'INNER JOIN `wc5m2_types` ON  wc5m2_games.id_types = wc5m2_types.id '
+            . 'INNER JOIN `wc5m2_platforms` ON  wc5m2_games.id_platforms = wc5m2_platforms.id '
+            . 'ORDER BY wc5m2_games.id DESC '
+            . 'LIMIT 4';
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+    public function countGamesList()
+    {
+        /**
+         * L’utilisation la plus courante de SQL consiste à lire des données issues de la base de données.
+         * Cela s’effectue grâce à la commande SELECT, qui retourne des enregistrements dans un tableau de résultat.
+         * Cette commande peut sélectionner une ou plusieurs colonnes d’une table.
+         */
+        $query = 'SELECT count(wc5m2_games.id) AS gamesCounter , count(wc5m2_evaluations.id_games) AS evaluationsCounter '
+            . 'FROM `wc5m2_games` '
+            . 'LEFT JOIN `wc5m2_evaluations` '
+            . 'On wc5m2_evaluations.id_games = wc5m2_games.id ';
+        $queryPrepare = $this->db->query($query);
+
+        /**
+         *  Retourne un tableau contenant toutes les lignes du jeu d'enregistrements
+         */
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+
 
     public function deleteGame()
     /**
@@ -105,9 +138,10 @@ class games
 
     public function getGameById()
     {
-        $query = 'SELECT title, developpers, releaseDate, earlyExitDate, summary, trailer, picture, id_graphisms, id_types, id_platforms
+        $query = 'SELECT title, developpers, releaseDate, earlyExitDate, summary, trailer, picture, id_graphisms, wc5m2_types.name AS typesName, id_platforms
         FROM wc5m2_games
-        WHERE id = :id';
+        INNER JOIN `wc5m2_types` ON  wc5m2_games.id_types = wc5m2_types.id 
+        WHERE wc5m2_games.id = :id;';
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         $queryPrepare->execute();

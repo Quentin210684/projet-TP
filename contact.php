@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+<?php require_once 'admin/models/database.php';?>
 <?php require_once 'admin/models/usersModel.php';?>
 <?php require_once 'controllers/contactController.php'; ?>
 <?php require 'assets/template/header.php'; ?>

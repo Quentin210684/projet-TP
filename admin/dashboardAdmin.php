@@ -1,4 +1,8 @@
-<?php require 'models/usersModel.php'; ?>
+<?php
+session_start();
+require_once 'models/database.php'; ?>
+<?php require_once 'models/usersModel.php'; ?>
+<?php require_once 'models/gamesModel.php'; ?>
 <?php require_once 'controllers/dashboardAdminController.php'; ?>
 <?php require '../assets/template/header.php'; ?>
 
@@ -33,18 +37,23 @@
                 </div>
             </div>
 
-    
+
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="card mb-3" id="cardtest">
                         <div class="fontColor card-body text-center">
                             <i class="fas fa-users" id="user"></i>
                             <h5 class="card-title">Utilisateurs enregistrés</h5>
-                            <p class="card-text" id="user">2</p>
+                            <p class="card-text" id="user">
+                                <?php
+                                foreach ($user as $users) {
+                                    echo $users->usersCounter;
+                                }
+                                ?></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="card mb-3">
                         <div class=" fontColor2 card-body text-center">
                             <i class="far fa-eye" id="opinion"></i>
@@ -53,13 +62,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="card mb-3">
                         <div class="fontColor3 card-body text-center">
                             <i class="far fa-comments text-white" id="opinion"></i>
                             <h5 class="card-title text-white">Total Avis</h5>
-                            <p class="card-text text-white" id="user">2</p>
-                            
+                            <p class="card-text text-white" id="user">
+                                <?php
+                                foreach ($user as $users) {
+                                    echo $users->evaluationsCounter;
+                                }
+                                ?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card mb-3">
+                        <div class="fontColor3 card-body text-center">
+                            <i class="fas fa-gamepad text-white" id="opinion"></i>
+                            <h5 class="card-title text-white">Total Jeux</h5>
+                            <p class="card-text text-white" id="user">
+                                <?php
+                                foreach ($game as $games) {
+                                    echo $games->gamesCounter;
+                                }
+                                ?></p>
                         </div>
                     </div>
                 </div>

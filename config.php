@@ -1,15 +1,23 @@
 <?php
-// message d'erreur sur le champ user
-define('ERROR_USER', 'Le nom d\'utilsateur est invalide. Il ne doit comporter que des lettres, des tirets, des espaces.');
-define('ERROR_USER_2', 'Votre nom d\'utilisateur est vide.');
-
-// message d'erreur sur le champ password
-define('ERROR_PASS1', 'Votre mot de passe est vide.');
-define('ERROR_PASS2', 'Veuillez vérifier que le mot de passe et la confirmation de mot de passe sont identique.');
-define('ERROR_PASS3', 'Veuillez confirmer votre mot de passe.');
 
 
+//Constants
+define('CGU_ERROR', 'Veuillez accepter les Conditions Générales d\'Utilisation.');
 
-?>
+define('CIVILITIES_ERROR', 'Veuillez sélectionner une civilité.');
+
+define('DEPARTMENTS_ERROR', 'Veuillez sélectionner un département.');
+
+define('LOGIN_ERROR_INVALID', 'L\'adresse mail ou le mot de passe est invalide.');
+
+define('MAIL_ERROR_EMPTY', 'Veuillez renseigner votre adresse mail.');
+define('MAIL_ERROR_INVALID', 'Veuillez entrer une adresse mail valide.');
+
+define('PASSWORD_ERROR_EMPTY', 'Veuillez entrer un mot de passe.');
+define('PASSWORD_ERROR_INVALID', 'Veuillez entrer un mot de passe contenant au moins 8 caractères, une majuscule, une minucule, un chiffre et un caractère spécial.');
+define('PASSWORD_ERROR_DIFFERENT', 'Les mots de passe ne correspondent pas.');
+
+define('USERNAME_ERROR_EMPTY', 'Veuillez renseigner votre nom d\'utilisateur.');
+define('USERNAME_ERROR_INVALID', 'Veuillez entrer un nom d\'utilisateur valide.');
 
 

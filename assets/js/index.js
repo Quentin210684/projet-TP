@@ -1,10 +1,10 @@
-let potion = document.getElementById('potion');
+let effect = document.getElementById('effect');
 
-potion.onmouseenter = () => {
-    potion.setAttribute('src', 'assets/img/gif/PotionCraft gif.gif')
+effect.onmouseenter = () => {
+    effect.setAttribute('src', 'assets/img/gif/effectCraft gif.gif')
 }
-potion.onmouseleave = () => {
-    potion.setAttribute('src', 'assets/img/potion image.jpg')
+effect.onmouseleave = () => {
+    effect.setAttribute('src', '../../uploads/Zorya.jpg')
 
 }
 

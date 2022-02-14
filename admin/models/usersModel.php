@@ -1,6 +1,6 @@
 
 <?php
-class users
+class users extends database
 {
 
     public $id;
@@ -10,20 +10,11 @@ class users
     public $starred;
     public $blocked;
     public $id_roles;
+    private $db;
 
     public function __construct()
     {
-        try {
-            /**
-             * Le Data Source Name, ou DSN, qui contient les informations requises pour se connecter à la base.
-             * Crée une instance PDO qui représente une connexion à la base
-             * Le nom d'utilisateur pour la chaîne DSN. Ce paramètre est optionnel pour certains pilote PDO.
-             * Le mot de passe de la chaîne DSN. Ce paramètre est optionnel pour certains pilote PDO.
-             */
-            return $this->db = new PDO('mysql:host=localhost; dbname=gamescreening; charset=UTF8', 'root', '2108171229');
-        } catch (Exception $error) {
-            die($error->getMessage());
-        }
+        $this->db = parent::__construct();
     }
 
     /**
@@ -86,8 +77,8 @@ class users
          */
         $query = 'SELECT count(wc5m2_users.id) AS usersCounter , count(wc5m2_evaluations.id_users) AS evaluationsCounter '
             . 'FROM `wc5m2_users` '
-            .'LEFT JOIN `wc5m2_evaluations` '
-            .'On wc5m2_evaluations.id_users = wc5m2_users.id ';
+            . 'LEFT JOIN `wc5m2_evaluations` '
+            . 'On wc5m2_evaluations.id_users = wc5m2_users.id ';
         $queryPrepare = $this->db->query($query);
 
         /**
@@ -126,20 +117,77 @@ class users
         return $result->emailCount;
     }
 
-/**
+    public function userDouble()
+    {
+        $query = 'SELECT   COUNT(*) AS nameCount
+        FROM    `wc5m2_users`
+        WHERE `name` = :name';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $queryPrepare->execute();
+        $result = $queryPrepare->fetch(PDO::FETCH_OBJ);
+        return $result->nameCount;
+    }
+
+    /**
      * Méthode permettant de modifier un patient
      * Paramètres : lastname, firstname, birthdate, phone,  mail, id
      * @return objet
      */
-    public function updateUser() {
+    public function updateUser()
+    {
         $query = 'UPDATE `wc5m2_users` '
-                . 'SET `name` = `:name` '
-                . 'WHERE `id` = :id';
+            . 'SET `name` = :name, email=:email '
+            . 'WHERE `id` = :id;';
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $queryPrepare->bindValue(':email', $this->email, PDO::PARAM_STR);
         $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $queryPrepare->execute();
     }
 
+    public function checkIfUserExists()
+    {
+        $query = 'SELECT COUNT(*) AS exist
+        FROM wc5m2_users
+        WHERE `name` = :name';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $queryPrepare->execute();
+        $queryResult = $queryPrepare->fetch(PDO::FETCH_OBJ);
+        return $queryResult->exist;
+    }
+    // methode permettant de selectionner le mot de passe d'un utilisateur via son nom d'utilisateur
+    public function selectPasswordByUsername()
+    {
+        $query = 'SELECT password
+        FROM wc5m2_users
+        WHERE `name`= :name';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $queryPrepare->execute();
+        return $queryPrepare->fetch(PDO::FETCH_OBJ);
+    }
 
+    public function selectUserByName()
+    {
+        $query = 'SELECT id, id_roles 
+        FROM wc5m2_users
+        WHERE `name` = :name';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $queryPrepare->execute();
+        return $queryPrepare->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function selectUserById()
+    {
+        $query = 'SELECT `name`, email
+        FROM wc5m2_users
+        WHERE `id` = :id';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryPrepare->execute();
+        return $queryPrepare->fetch(PDO::FETCH_OBJ);
+    }
 }

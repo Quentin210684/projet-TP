@@ -1,5 +1,8 @@
-<?php require 'models/usersModel.php'; ?>
-<?php require 'controllers/usersListAdminController.php'; ?>
+<?php
+session_start();
+require_once 'models/database.php'; ?>
+<?php require_once 'models/usersModel.php'; ?>
+<?php require_once 'controllers/usersListAdminController.php'; ?>
 <?php require '../assets/template/header.php'; ?>
 
 
@@ -54,9 +57,8 @@
                                             <td><?= $userDetails->email ?></td>
                                             <td><?php $userDetails->id_roles ?></td>
                                             <td>
-                                                <form action="admin-liste-des-utilisateurs" method="POST"><input type="hidden" name="deleteUser" value="<?= $userDetails->id ?>"><button class="btn btn-danger" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer un utilisateur"><i class="far fa-times-circle"></i></button></form>
+                                                <button type="button" class="btn btn-danger" data-bs-whatever="<?= $userDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteAccount"><i class="far fa-times-circle"></i></button>
                                             </td>
-
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -69,57 +71,29 @@
     </div>
 </div>
 
-<!-- <div>
-            <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+<form method="post" action="admin-liste-des-utilisateurs">
+    <div class="modal fade" id="deleteAccount" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="container">
+                    <div class="row colorLogo2">
+                        <h3 class="mt-2 text-center" id="staticBackdropLabel">Suppression</h3>
+                    </div>
+                </div>
+                <div class="modal-body container">
+                    <div class="row">
+                        <p class="text-center text-white">Voulez-vous supprimer cette utilisateur ?</p>
+                        <input type="hidden" value="<?= $userDetails->id ?>" name="deleteUser" id="deleteUser">
+                    </div>
+                </div>
+                <div class="modal-footer colorLogo2 ">
+                    <button type="button" class="btn btn-outline-secondary ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-outline-secondary  me-md-5 me-2" >Confirmer</button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-sm-2 border">
-        UTILISATEUR
-    </div>
-    <div class="col-sm-2 border">
-        EMAIL
-    </div>
-    <div class="col-sm-1 border">
-        ACTIF
-    </div>
-    <div class="col-sm-1 border">
-        ROLES
-    </div>
-    <div class="col-sm-2 border">
-        MEMBRE DEPUIS
-    </div>
-    <div class="col-sm-3 border">
-        ACTION
-    </div>
-</div>
-<div class=" verticalAlign row text-center text-white">
-    <div class="col-sm-1 border">
-        <div>
-            <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-        </div>
-    </div>
-    <div class="col-sm-2 border">
-        ...
-    </div>
-    <div class="col-sm-1 border">
-        ..
-    </div>
-    <div class="col-sm-1 border">
-        ..
-    </div>
-    <div class="col-sm-2 border">
-        ..
-    </div>
-    <div class="col-sm-2 border">
-        ...
-    </div>
-    <div class="col-sm-3 border">
-        <p><a href="#" class=" text-decoration-none">Modifier</a>/<a href="#" class=" text-decoration-none">Annuler le compte</a></p>
-    </div> -->
-
-
-
-
+</form>
 
 
 

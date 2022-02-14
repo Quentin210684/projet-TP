@@ -1,4 +1,6 @@
-<?php require 'assets/template/header.php'; ?>
+<?php
+session_start();
+require 'assets/template/header.php'; ?>
 <!---------------------------------------------------------Articles page------------------------------------------------------------------------------------------------------------------------------------------->
 
 <div class="container-fluid">
@@ -23,8 +25,8 @@
                             <li class="list-group-item  bg-dark text-white">06:41</li>
                         </ul>
                         <div class="card-body d-md-flex justify-content-md-end">
-                            <a href="https://www.courrierinternational.com/article/jeu-video-unpacking-le-simulateur-demmenagement-qui-fait-un-carton" class="card-link">En savoir plus</a>
-                           <a href="remarkArticl.php"> <button type="button" class="btn btn-outline-light btn-sm ms-4">Un commentaire ?</button></a>
+                            <a href="https://www.courrierinternational.com/article/jeu-video-unpacking-le-simulateur-demmenagement-qui-fait-un-carton" class="card-link text-decoration-none text-white figure-img">En savoir plus</a>
+                           <a href="addRemarkArticle.php"> <button type="button" class="btn btn-outline-light btn-sm ms-4">Un commentaire ?</button></a>
                         </div>
 
                     </div>
@@ -42,7 +44,7 @@
                             <li class="list-group-item  bg-dark text-white">NC</li>
                         </ul>
                         <div class="card-body d-md-flex justify-content-md-end">
-                            <a href="#" class="card-link">En savoir plus</a>
+                            <a href="#" class="card-link text-decoration-none text-white figure-img">En savoir plus</a>
                             <a href="remarkArticl.php"> <button type="button" class="btn btn-outline-light btn-sm ms-4">Un commentaire ?</button></a>
 
                         </div>
@@ -62,7 +64,7 @@
                             <li class="list-group-item  bg-dark text-white">NC</li>
                         </ul>
                         <div class="card-body d-md-flex justify-content-md-end">
-                            <a href="#" class="card-link">En savoir plus</a>
+                            <a href="#" class="card-link text-decoration-none text-white figure-img">En savoir plus</a>
                             <a href="remarkArticl.php"> <button type="button" class="btn btn-outline-light btn-sm ms-4">Un commentaire ?</button></a>
 
                         </div>

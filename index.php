@@ -1,4 +1,9 @@
-<?php require 'assets/template/header.php'; ?>
+<?php
+session_start();
+require_once 'admin/models/database.php';
+require_once 'admin/models/gamesModel.php';
+require_once 'controllers/indexGameController.php';
+require 'assets/template/header.php'; ?>
 <!--CARROUSEL-->
 
 <div class="container">
@@ -67,19 +72,39 @@
 
 
 <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-
-
 <div class="container">
+    <div class="row row-cols-sm row-cols-md-11 g-2 mt-3 mb-5">
+        <div class="row row-cols-1 row-cols-md-4 g-4  ">
+            <?php foreach ($gamesList as $gamesDetails) { ?>
+                <div class="col-sm animate__animated animate__zoomIn">
+                    <a href="pageJeux_<?= $gamesDetails->id ?>" class="text-decoration-none text-dark">
+                        <div class="card h-100">
+                            <img src="assets/img/<?= $gamesDetails->picture ?>" class="card-img-top img-fluid" alt="image jeux">
+                            <div class="card-body">
+                                <p class="card-title d-flex h5"><span class="me-auto"><?= $gamesDetails->title ?></span><img src="assets/img/logo windows reduit.png"></p>
+                                <p class="card-text"></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="container">
     <div class="row row-cols-sm row-cols-md-11 g-4 mt-3 text-center">
         <div class="col-sm">
-            <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
-                <img src="assets/img/potion image.jpg" class="card-img-top card-img img-fluid" alt="decouverte1"  id="potion">
+            <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn"  id="effect">
+                <img src="assets/img/potion image.jpg" class="card-img-top card-img img-fluid" alt="decouverte1" id="potion">
                 <div class="card-body overflow-auto colorLogo2">
 
                     <!--------------Mettre à jour les découverte---------------------------------------->
-                    <h5>
-                        <a href="jeu-potion-craft" class="news colorLogo">Potion Craft</a>
+<!-- <h5>
+                        <a href="pageJeux" class="news colorLogo">Potion Craft</a>
                     </h5>
                     <p class="card-text text-white">Potion Craft est un simulateur d'alchimie dans lequel vous interagissez physiquement avec vos outils et ingrédients pour concocter des potions</p>
                 </div>
@@ -88,48 +113,9 @@
         <div class="col-sm">
             <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
                 <img src="assets/img/Unpacking.jpg" class="card-img-top card-img img-fluid" alt="decouverte2" id="unpack">
-                <div class="card-body overflow-auto colorLogo2">
+                <div class="card-body overflow-auto colorLogo2"> -->
 
-                    <!--------------Mettre à jour les découverte---------------------------------------->
 
-                    <h5>
-                        <a href="Unpacking" class="news colorLogo">Unpacking</a>
-                    </h5>
-                    <p class="card-text text-white">Unpacking est un jeu de puzzle zen sur l'expérience familière de sortir ses affaires de cartons et de les placer dans une nouvelle maison.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
-                <img src="assets/img/DespotGame.jpg" class="card-img-top card-img img-fluid" alt="decouverte3" id="despot">
-                <div class="card-body overflow-auto colorLogo2">
-
-                    <!--------------Mettre à jour les découverte---------------------------------------->
-
-                    <h5>
-                        <a href="Despot's game" class="news colorLogo">Despot's game</a>
-                    </h5>
-                    <p class="card-text text-white">Savant mélange de tactiques rogue-like et de batailles explosives</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <div class="card h-75 border-3 border-outset border-dark animate__animated animate__zoomIn">
-                <img src="assets/img/TavernMaster.jpg" class="card-img-top card-img img-fluid" alt="decouverte4" id="tavern" >
-                <div class="card-body overflow-auto colorLogo2 h-25">
-
-                    <!--------------Mettre à jour les découverte---------------------------------------->
-
-                    <h5>
-                        <a href="Tavern Master" class="news colorLogo">Tavern Master</a>
-                    </h5>
-                    <p class="card-text text-white">Tavern Master consiste à gérer une taverne médiévale. Vous commencez avec une toute petite pièce, quelques bancs et tables, et vous progressez jusqu'à devenir une grande taverne prospère avec une cuisine, des chambres pour les
-                        clients, un groupe de loyaux employés et bien plus encore</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

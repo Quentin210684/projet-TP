@@ -1,5 +1,9 @@
+<?php
+session_start();
+require_once 'admin/models/database.php'; ?>
+<?php require_once 'admin/models/evaluationModel.php'; ?>
+<?php require_once 'controllers/evaluationController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
-
 
 
 
@@ -27,27 +31,39 @@
             </div>
 
 
-            <div class="col-sm-6 mt-4  mb-4">
-                <p class="text-white mt-4">Mes avis :</p>
-                <table class="table">
-                    <thead class="text-white">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Avis</th>
-                            <th scope="col">Date de parution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>...</td>
-                            <td>...</td>
-                            <td>...</td>
-                        </tr>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th scope="col">#</th>
+                                            <th scope="col">Contenu</th>
+                                            <th scope="col">Evaluation</th>
+                                            <th scope="col">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($evaluationList as $evaluation) { ?>
 
-                    </tbody>
-                </table>
+                                        <tr class="text-center text-white">
+                                            <th class="align-middle" scope="row"><?= $evaluation->id ?></th>
+                                            <td class="align-middle">...</td>
+                                            <td class="align-middle">...</td>
+                                            <td class="align-middle">...</td>
+                                            <td class="align-middle">
+                                                <a href="..." class="btn btn-warning" title="Modifier votre profil"><i class="fas fa-user-edit"></i></a>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

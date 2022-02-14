@@ -1,7 +1,9 @@
-<?php require 'models/articlesModel.php'; ?>
-<?php require '../assets/template/header.php'; ?>
+<?php
+session_start();
+require_once 'models/database.php'; ?>
+<?php require_once 'models/articlesModel.php'; ?>
 <?php require_once 'controllers/addArticleAdminController.php'; ?>
-
+<?php require '../assets/template/header.php'; ?>
 
 
 

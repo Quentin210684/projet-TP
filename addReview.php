@@ -1,4 +1,6 @@
-<?php require 'assets/template/header.php'; ?>
+<?php
+session_start();
+require 'assets/template/header.php'; ?>
 <!-------------------------------------------------------Page centrale Avis------------------------------------------->
 
 <div class="container-fluid">

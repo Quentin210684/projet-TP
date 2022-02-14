@@ -1,3 +1,6 @@
+<?php
+session_start();
+require_once 'models/database.php'; ?>
 <?php require_once 'models/usersModel.php'; ?>
 <?php require_once 'controllers/addModAdminController.php'; ?>
 <?php require '../assets/template/header.php'; ?>

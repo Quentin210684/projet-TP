@@ -111,8 +111,17 @@ if (count($_POST) > 0) {
         $formErrors['message'] = 'Votre message est vide.';
     }
     if(empty($formErrors)){
-        $destinataires = 'ragnarGrosslok@gmail.com';
-        mail($destinataires,$subject,$message);
+        $message = '
+<p>Bonjour ' . $_POST['user'] . '</p>
+<p>Votre demande sera traitée dans les plus brefs délais</p>';
+
+        $headers = array(
+            'From' => 'no-reply@quentintirmant.fr',
+            'MIME-Version' => '1.0',
+            'content-type' => 'text/html; charset=UTF8'
+        );
+        //Personne à qui on envoie le mail, l'objet du mail, le contenu du mail, les en-têtes du mail 
+        mail($_POST['email'], 'Bienvenue parmi nous', $message, $headers);
     }
 }
 

@@ -1,9 +1,15 @@
-<?php require 'models/gamesModel.php'; ?>
-<?php require 'models/typesModel.php'; ?>
-<?php require 'models/graphismsModel.php'; ?>
-<?php require 'models/platformsModel.php'; ?>
-<?php require '../assets/template/header.php'; ?>
+<?php
+session_start();
+require_once 'models/database.php'; ?>
+<?php require_once 'models/gamesModel.php'; ?>
+<?php require_once 'models/typesModel.php'; ?>
+<?php require_once 'models/graphismsModel.php'; ?>
+<?php require_once 'models/platformsModel.php'; ?>
+<?php require_once 'models/gamesLanguagesModel.php'; ?>
+<?php require_once 'models/modsLanguagesModel.php'; ?>
+<?php require_once 'models/languagesModel.php'; ?>
 <?php require_once 'controllers/addGameAdminController.php'; ?>
+<?php require '../assets/template/header.php'; ?>
 
 
 
@@ -111,43 +117,17 @@
                                         <input type="date" class="form-control" id=" earlyExitDate" name="earlyExitDate">
                                     </div>
 
-                                    <div class="col-sm-8 mt-4 mb-3 mx-auto text-white">
-                                        <p>
-                                            <a class="btn btn-outline-dark text-white border border-white" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                Choisissez la Langue
-                                            </a>
-                                        </p>
-                                        <div class="collapse" id="collapseExample">
-                                            <div class="card card-body">
-                                                <div class="form-check form-check-inline text-dark">
-                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                                    <label class="form-check-label" for="inlineCheckbox1">Français</label>
-                                                </div>
-                                                <div class="form-check form-check-inline text-dark">
-                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                    <label class="form-check-label" for="inlineCheckbox2">Anglais</label>
-                                                </div>
-                                                <div class="form-check form-check-inline text-dark">
-                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                    <label class="form-check-label" for="inlineCheckbox2">Allemand</label>
-                                                </div>
-                                                <div class="form-check form-check-inline text-dark">
-                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                    <label class="form-check-label" for="inlineCheckbox2">Italien</label>
-                                                </div>
-                                                <div class="form-check form-check-inline text-dark">
-                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                    <label class="form-check-label" for="inlineCheckbox2">Espagnol</label>
-                                                </div>
-                                                <div class="form-check form-check-inline text-dark">
-                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                    <label class="form-check-label" for="inlineCheckbox2">Portugais</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                    <div class="col-sm-8 mt-3 mx-auto text-white">
+                                        <label for="Types" class="form-label">Choisissez le langage</label>
                                     </div>
-
+                                    <div class="col-sm-8 mb-3 mx-auto text-white">
+                                        <select class="selectpicker form-control" name="id_languages" multiple data-max-options="2">
+                                            <?php foreach ($languagesList as $language) { ?>
+                                                <option value="<?= $language->id ?>"><?= $language->name ?></option>
+                                            <?php } ?>
+                                        </select>                                    
+                                    </div>
+                                    
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="url" class="form-label">Trailer</label>
                                         <input class="form-control form-control-sm" id="url" name="trailer" type="url" pattern="https://.*">

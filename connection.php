@@ -1,4 +1,7 @@
-<?php require_once 'admin/models/usersModel.php';?>
+<?php 
+session_start();
+require_once 'admin/models/database.php'; ?>
+<?php require_once 'admin/models/usersModel.php'; ?>
 <?php require_once 'controllers/connectionController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
 
@@ -19,16 +22,16 @@
                     <img src="assets/img/gif/PotionCraft gif.gif" class="img-fluid">
                 </div>
                 <div class="p-auto fw-bold text-white">
-                    <label for="chk" aria-hidden="true" class="label">CONNECTEZ-VOUS ou <a href="registration.php" class="link-dark">Créez un compte</a></label>
+                    <label for="chk" aria-hidden="true" class="label">CONNECTEZ-VOUS ou <a href="inscription" class="link-dark">Créez un compte</a></label>
                 </div>
                 <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
 
-                    <form action="connection.php" method="POST">
+                    <form action="connection.php" method="POST" id="recaptcha">
 
                         <div class="p-3 text-white">
                             <div>
                                 <label for="lastName" class="form-label">Utilisateur :</label>
-                                <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['user'] ?>" id=" lastName" name="user">
+                                <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['user'] ?>" id="lastName" name="user">
 
                                 <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['user'] ?></p>
                             </div>
@@ -53,10 +56,14 @@
                         <div class="mt-3 text-center">
                             <button class="btn btn-outline-dark text-white border border-white" type="submit">Connexion</button>
                         </div>
+
                     </form>
+
+
+
                 <?php } else { ?>
                     <div class="text-center text-white mt-4 fs-5">
-                        <p>Bonjour, <?php echo $user . ' merci de votre inscription. Vous allez reçevoir un mail de validation' ?></p>
+                        <p>Bonjour, <?php echo $user->name . ' et bienvenue sur GameScreening' ?></p>
                     </div>
                     <div class="text-end text-white mt-4 fs-5">
                         <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
@@ -80,7 +87,7 @@
                                 </li>
                                 </p>
                                 <li>
-                                    <p>Avoir renseigné sur le Site, dans la rubrique « Informations du compte », l’ensemble des informations permettant l’envoi du produit objet du test produit : nom, prénom, adresse mail.
+                                    <p>Avoir renseigné sur le Site, dans la rubrique « Informations du compte », l’ensemble des informations permettant l’envoi du produit objet du test produit : nom d'utilisateur, adresse mail.
                                 </li>
                                 </p>
                                 <li>
@@ -97,7 +104,6 @@
                                 </li>
                                 </p>
                             </ul>
-
                         </div>
                     </div>
                 </div>
@@ -105,7 +111,8 @@
         </div>
     </div>
 </div>
-</div>
+
+
 
 
 <?php require 'assets/template/footer.php'; ?>

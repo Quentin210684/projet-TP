@@ -1,5 +1,8 @@
-<?php require 'models/gamesModel.php'; ?>
-<?php require 'controllers/gamesListAdminController.php'; ?>
+<?php
+session_start();
+require_once 'models/database.php'; ?>
+<?php require_once 'models/gamesModel.php'; ?>
+<?php require_once 'controllers/gamesListAdminController.php'; ?>
 <?php require '../assets/template/header.php'; ?>
 
 
@@ -70,7 +73,7 @@
                                             <a href="admin-modification-jeux_<?= $gamesDetails->id ?>" class="btn btn-warning" title="Modifier jeux"><i class="fas fa-user-edit"></i></a>
                                         </td>
                                         <td class="align-middle">
-                                            <form action="admin-liste-des-jeux" method="POST"><input type="hidden" name="deleteGame" value="<?= $gamesDetails->id ?>"><button class="btn btn-danger" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer jeux"><i class="far fa-times-circle"></i></button></form>
+                                            <button type="button" class="btn btn-danger" data-bs-whatever="<?= $gamesDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteAccount" title="Supprimer un jeux"><i class="far fa-times-circle"></i></button>
                                         </td>
 
                                     </tr>
@@ -83,7 +86,29 @@
         </div>
     </div>
 </div>
-
+<form method="post" action="admin-liste-des-jeux">
+    <div class="modal fade" id="deleteAccount" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="container">
+                    <div class="row colorLogo2">
+                        <h3 class="mt-2 text-center" id="staticBackdropLabel">Suppression</h3>
+                    </div>
+                </div>
+                <div class="modal-body container">
+                    <div class="row">
+                        <p class="text-center text-white">Voulez-vous supprimer ce jeu ?</p>
+                        <input type="hidden" value="<?= $gamesDetails->id ?>" name="deleteGame" id="deleteGame">
+                    </div>
+                </div>
+                <div class="modal-footer colorLogo2 ">
+                    <button type="button" class="btn btn-outline-secondary ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-outline-secondary  me-md-5 me-2">Confirmer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 
 

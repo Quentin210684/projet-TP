@@ -1,5 +1,8 @@
-<?php require 'assets/template/header.php'; ?>
-
+<?php 
+session_start();
+require_once 'admin/models/database.php';
+require 'assets/template/header.php'; 
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md ms-md-5 mt-4 text-start" id="neon">

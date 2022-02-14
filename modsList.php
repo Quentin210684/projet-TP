@@ -1,4 +1,7 @@
-<?php require 'assets/template/header.php'; ?>
+<?php
+session_start();
+
+require 'assets/template/header.php'; ?>
 <!-------------------------------------------------------Page centrale Mods------------------------------------------->
 <div class="container-fluid">
     <div class="row">
@@ -37,7 +40,7 @@
                             </a>
                             <img src="assets/img/darkestDungeon.jpg" class="image-fluid">
                             <p class="card-text text-center colorLogo2"><small class="text-white">3518 objets</small></p>
-                            <a href="addRemarkMod.php" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
+                            <a href="rediger-un-commentaire-mod" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
                         </div>
                     </div>
                     <div class="col-sm-3 mt-3">
@@ -47,7 +50,7 @@
                             </a>
                             <img src="assets/img/divinity.jpg" class="image-fluid">
                             <p class="card-text text-center colorLogo2"><small class="text-white">21 objets</small></p>
-                            <a href="addRemarkMod.php" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
+                            <a href="rediger-un-commentaire-mod" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
 
                         </div>
                     </div>
@@ -58,7 +61,7 @@
                             </a>
                             <img src="assets/img/commandConquer.jpg" class="image-fluid">
                             <p class="card-text text-center colorLogo2"><small class="text-white">11561 objets</small></p>
-                            <a href="addRemarkMod.php" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
+                            <a href="rediger-un-commentaire-mod" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
 
                         </div>
                     </div>
@@ -69,7 +72,7 @@
                             </a>
                             <img src="assets/img/zombie.jpg" class="image-fluid">
                             <p class="card-text text-center colorLogo2"><small class="text-white">61 objets</small></p>
-                            <a href="addRemarkMod.php" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
+                            <a href="rediger-un-commentaire-mod" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
 
                         </div>
                     </div>
