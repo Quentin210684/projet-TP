@@ -1,5 +1,8 @@
 <?php
-$evaluation = new Evaluations;
+$evaluation = new evaluations;
+$evaluationList = $evaluation->getEvaluationsListByUSerID(); 
+$game = new games;
+
 
 
 $formErrors = [];
@@ -20,18 +23,27 @@ $regex = [
 
 
 if (count($_POST) > 0) {
+    $evaluation->id_games=$_GET['id'];
 
-
+    $evaluation->id_users=$_SESSION['user']->id;
     /**
      * La fonction count permet de compter le nombres d'éléments dans le tableau $_POST
      * J'envoie le formulaire grâce à la méthode POST, il remplit donc mon tableau superglobal $_POST
      * Donc s'il y a un élément dans $_POST, c'est que mon formulaire a été envoyé
      * Permet de ne pas lancer les vérifications si le formulaire n'est pas envoyé et de na pas afficher les erreurs au démarrage
      */
-
+    if (!empty($_POST['content'])) {
+        $evaluation->rating = $_POST['rating'];
+        /**
+         * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
+         * Elle génère des alertes si les balises sont incomplètes ou erronées.
+         */
+    } else {
+        $formErrors['rating'] = 'Votre message est vide.';
+    }
 
     if (!empty($_POST['content'])) {
-        $game->summary = strip_tags($_POST['content']);
+        $evaluation->content = strip_tags($_POST['content']);
         /**
          * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
          * Elle génère des alertes si les balises sont incomplètes ou erronées.
@@ -39,9 +51,12 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['content'] = 'Votre message est vide.';
     }
+
     if (count($formErrors) == 0) {
-        $evaluation->addEvaluation();
-        
+        var_dump($evaluation->addEvaluation());
     }
-   
 }
+var_dump($_POST);
+var_dump($evaluation);
+
+

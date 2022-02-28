@@ -13,6 +13,8 @@ class games extends database
     public $id_graphisms;
     public $id_types;
     public $id_platforms;
+    public $offset;
+    public $limit;
     private $db;
 
     public function __construct()
@@ -27,9 +29,16 @@ class games extends database
      */
     public function addGame()
     {
+        // Ici les ":" indiquent que ce sont des marqueurs nominatifs, ces valeurs sont vides, on prépare l'entrée de future données,
         $query = 'INSERT INTO `wc5m2_games`(`title`, `developpers`, `releaseDate`,`earlyExitDate`,`summary`,`trailer`,`picture`,`id_graphisms`,`id_types`,`id_platforms`) '
             . 'VALUES (:title, :developpers, :releaseDate, :earlyExitDate, :summary, :trailer, :picture, :id_graphisms, :id_types, :id_platforms);';
+        // On utilise prepare lorsque l'on a des marqueurs nominatifs, mais elle n'execute pas la requete directement contrairement à query.
         $queryPrepare = $this->db->prepare($query);
+        /**
+         * Le bindvalue va attribuer les données aux marqueurs nominatifs
+         * Le PARAM_STR va dire à la base de données de changer la valeur stockée en string. C'est une sécurité pour empêcher les 
+         * attaques aux requêtes SQL
+         */
         $queryPrepare->bindValue(':title', $this->title, PDO::PARAM_STR);
         $queryPrepare->bindValue(':developpers', $this->developpers, PDO::PARAM_STR);
         $queryPrepare->bindValue(':releaseDate', $this->releaseDate, PDO::PARAM_STR);
@@ -40,8 +49,8 @@ class games extends database
         $queryPrepare->bindValue(':id_graphisms', $this->id_graphisms, PDO::PARAM_INT);
         $queryPrepare->bindValue(':id_types', $this->id_types, PDO::PARAM_INT);
         $queryPrepare->bindValue(':id_platforms', $this->id_platforms, PDO::PARAM_INT);
-
-
+        // L'execute va éxécuter la requête préparée avec les valeurs données dans le bindvalue qui elles, seront tirées de nos inputs
+        // Enfin on retourne l'éxécute qui nous renvoi ici true ou false (booléan) car cette méthode ne nous permet pas des infos du "FETCH ou FETC ALL).
         return $queryPrepare->execute();
     }
 
@@ -58,8 +67,21 @@ class games extends database
             . 'INNER JOIN `wc5m2_graphisms` ON  wc5m2_games.id_graphisms = wc5m2_graphisms.id '
             . 'INNER JOIN `wc5m2_types` ON  wc5m2_games.id_types = wc5m2_types.id '
             . 'INNER JOIN `wc5m2_platforms` ON  wc5m2_games.id_platforms = wc5m2_platforms.id '
-            . 'ORDER BY wc5m2_games.id DESC';
-        $queryPrepare = $this->db->query($query);
+            . 'ORDER BY wc5m2_games.id DESC '
+            . 'LIMIT :limit OFFSET :offset';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':offset',$this->offset, PDO::PARAM_INT);
+        $queryPrepare->bindValue(':limit',$this->limit, PDO::PARAM_INT);
+        $queryPrepare->execute();
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function getGamesSearchList()
+    {
+        $query = 'SELECT `title`, `picture`, `id` FROM `wc5m2_games` WHERE title LIKE :title ';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':title', '%' . $this->title . '%', PDO::PARAM_STR);
+        $queryPrepare->execute();
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
 
@@ -110,7 +132,7 @@ class games extends database
         return $queryPrepare->execute();
     }
     /**
-     * Méthode permettant d'ajouter un jeu dans la base de données.
+     * Méthode permettant de modifier un jeu dans la base de données.
      * Paramètres : title, releaseDate, earlyExitDate, summary, trailer, picture, id_graphisms, id_genders, id_types, id_platforms
      * @return objet
      */
@@ -146,5 +168,31 @@ class games extends database
         $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         $queryPrepare->execute();
         return $queryPrepare->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function countGamesPages(){
+        $query = 'SELECT COUNT(id) AS cpt FROM wc5m2_games';
+        $queryPrepare = $this->db->query($query);
+        $queryResult = $queryPrepare->fetch(PDO::FETCH_OBJ);
+        return $queryResult->cpt;
+    }
+
+    public function getGamesListAdmin()
+    {
+        $query = 'SELECT wc5m2_games.id, `title`, `developpers`, `releaseDate`,`earlyExitDate`,`summary`,`trailer`,`picture`,wc5m2_graphisms.name AS graphismName, wc5m2_types.name AS typesName, wc5m2_platforms.name AS platformsName  '
+            . 'FROM `wc5m2_games` '
+            . 'INNER JOIN `wc5m2_graphisms` ON  wc5m2_games.id_graphisms = wc5m2_graphisms.id '
+            . 'INNER JOIN `wc5m2_types` ON  wc5m2_games.id_types = wc5m2_types.id '
+            . 'INNER JOIN `wc5m2_platforms` ON  wc5m2_games.id_platforms = wc5m2_platforms.id '
+            . 'ORDER BY wc5m2_games.id DESC ';
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function getGamesListForMods()
+    {
+        $query = 'SELECT id, `title` '
+            . 'FROM `wc5m2_games` ';   
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
 }

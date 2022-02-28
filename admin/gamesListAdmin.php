@@ -41,7 +41,7 @@ require_once 'models/database.php'; ?>
                     <div class="row">
                         <table class="table">
                             <thead>
-                                <tr class="text-center">
+                                <tr class="text-center text-white">
                                     <th scope="col">#</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Titre</th>
@@ -68,17 +68,20 @@ require_once 'models/database.php'; ?>
                                         <td class="align-middle"><?= $gamesDetails->typesName ?></td>
                                         <td class="align-middle"><?= $gamesDetails->graphismName ?></td>
                                         <td class="align-middle"><?= $gamesDetails->platformsName ?></td>
-
+                                        <td class="align-middle">
+                                            <a href="pageJeux_<?= $gamesDetails->id ?>" class="btn btn-info" title="voir le jeu"><i class="far fa-eye"></i></a>
+                                        </td>
                                         <td class="align-middle">
                                             <a href="admin-modification-jeux_<?= $gamesDetails->id ?>" class="btn btn-warning" title="Modifier jeux"><i class="fas fa-user-edit"></i></a>
                                         </td>
                                         <td class="align-middle">
-                                            <button type="button" class="btn btn-danger" data-bs-whatever="<?= $gamesDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteAccount" title="Supprimer un jeux"><i class="far fa-times-circle"></i></button>
+                                            <button type="button" class="btn btn-danger" data-bs-whatever="<?= $gamesDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un jeu"><i class="far fa-times-circle"></i></button>
                                         </td>
 
                                     </tr>
                                 <?php } ?>
                             </tbody>
+
                         </table>
                     </div>
                 </div>
@@ -87,7 +90,7 @@ require_once 'models/database.php'; ?>
     </div>
 </div>
 <form method="post" action="admin-liste-des-jeux">
-    <div class="modal fade" id="deleteAccount" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark">
                 <div class="container">
@@ -98,7 +101,7 @@ require_once 'models/database.php'; ?>
                 <div class="modal-body container">
                     <div class="row">
                         <p class="text-center text-white">Voulez-vous supprimer ce jeu ?</p>
-                        <input type="hidden" value="<?= $gamesDetails->id ?>" name="deleteGame" id="deleteGame">
+                        <input type="hidden" name="deleteGame" id="deleteInput">
                     </div>
                 </div>
                 <div class="modal-footer colorLogo2 ">
@@ -109,7 +112,6 @@ require_once 'models/database.php'; ?>
         </div>
     </div>
 </form>
-
 
 
 

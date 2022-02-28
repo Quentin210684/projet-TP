@@ -2,7 +2,7 @@
 
 $user = new users;
 $user->id = $_SESSION['user']->id;
-
+ 
 /**
  * Je crée un tableau formErrors. Il va stocker des éléments de manière logique (toutes les erreurs).
  * formErrors : sert à stocker les messages d'erreur
@@ -11,7 +11,7 @@ $user->id = $_SESSION['user']->id;
 
 $formErrors = [];
 $regex = [
-    'name' => '/^([A-Z]{1}[a-zâäàéèùêëîïôöçñ]+){1}([\- ]{1}[A-Z]{1}[a-zâäàéèùêëîïôöçñ]+)?$/',
+    'name' => '/^([A-Z0-9]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\' ]+){1}([\- ]{1}[A-Z09]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\' ]+)?$/',
     'email' => '/^([a-z0-9-_.]+){1}(@){1}([a-z]+){1}(\.){1}([a-z]{2,3}){1}$/',
 
 ];
@@ -79,7 +79,7 @@ if (count($_POST) > 0) {
     }
 
     if (count($formErrors) == 0) {
-        var_dump($user->updateUser());
+        $user->updateUser();
         $_SESSION['user']->name=$_POST['user'];
     }
 }

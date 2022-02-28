@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require 'assets/template/header.php'; ?>
 <!-------------------------------------------------------Page centrale Avis------------------------------------------->
 
@@ -24,9 +25,9 @@ require 'assets/template/header.php'; ?>
         <div class="col-sm-12">
             <nav class="navbar navbar-transparent bg-transparent">
                 <div class="container-fluid justify-content-center me-5 mt-2 mb-4">
-                    <form class="d-flex w-50">
-                        <input class="form-control me-2" type="search" placeholder="Chercher un mod..." aria-label="Search">
-                        <button class="btn btn-outline-dark border border-white text-start text-white" type="submit">Search</button>
+                    <form action="accueil" method="GET" class="d-flex w-50">
+                        <input class="form-control me-2 mb-2" type="search" placeholder="Recherche..." name="search" aria-label="Search">
+                        <input class="btn btn-outline-dark text-white border border-white" type="submit"  value="Valider">
                     </form>
                 </div>
             </nav>

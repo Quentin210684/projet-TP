@@ -57,37 +57,59 @@ require 'assets/template/header.php'; ?>
         <div class="col-sm-9 mt-5 ms-md-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <?php foreach ($gamesList as $gamesDetails) { ?>
-                        <div class="col-sm">
-                            <a href="pageJeux_<?= $gamesDetails->id ?>" class="text-decoration-none text-dark">
-                                <div class="card h-100">
-                                    <img src="assets/img/<?= $gamesDetails->picture ?>" class="card-img-top img-fluid" alt="image jeux">
-                                    <div class="card-body">
-                                        <p class="card-title d-flex h5"><span class="me-auto"><?= $gamesDetails->title ?></span><img src="assets/img/logo windows reduit.png"></p>
-                                        <p class="card-text"></p>
+
+                    <?php
+                    if (count($gamesList) > 0) {
+                        foreach ($gamesList as $gamesDetails) {
+                    ?>
+                            <div class="col-sm animate__animated animate__zoomInDown">
+                                <a href="pageJeux_<?= $gamesDetails->id ?>" class="text-decoration-none text-dark">
+                                    <div class="card h-100">
+                                        <img src="assets/img/<?= $gamesDetails->picture ?>" class="card-img-top img-fluid" alt="image jeux">
+                                        <div class="card-body">
+                                            <p class="card-title d-flex h5"><span class="me-auto"><?= $gamesDetails->title ?></span><img src="assets/img/logo windows reduit.png"></p>
+                                            <p class="card-text"></p>
+                                        </div>
                                     </div>
+                                </a>
+                            </div>
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="alert alert-info p-5 m-5 text-center text-white bg-dark ">
+                                    <i class="fas fa-exclamation-triangle fs-5"></i> Aucun jeux ne correspond à votre recherche !
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    <?php } ?>
+                    <?php }
+                    ?>
+
                 </div>
-            </div>
-            <div class="">
-                <nav aria-label="..." class="mt-4 justify-content-center">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                            <span class="page-link">2</span>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="row ">
+                    <div class="mt-4 mb-2 ms-auto col-auto">
+
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item <?php if ($_GET['page'] == 1) {
+                                echo 'disabled';
+                                 } ?>"><a class="page-link" href="<?= '?page=' . ($_GET['page'] - 1); ?>">Previous</a></li>
+                                <li class="page-item <?php if ($_GET['page'] - 1 == 0) {
+                                echo 'd-none';
+                                } ?>"><a class="page-link" href="<?= '?page=' . ($_GET['page'] - 1); ?>"><?= $_GET['page'] - 1 ?></a></li>
+                                <li class="page-item active "><a class="page-link" href="#"><?= $_GET['page'] ?></a></li>
+                                <li class="page-item <?php if ($_GET['page'] + 1 == $pageNumber + 1) {
+                                echo 'd-none';
+                                } ?>"><a class="page-link" href="<?= '?page=' . ($_GET['page'] + 1); ?>"><?= $_GET['page'] + 1 ?></a></li>
+                                <li class="page-item <?php if ($_GET['page'] == $pageNumber) {
+                                echo 'disabled';
+                                } ?>"><a class="page-link" href="<?= '?page=' . ($_GET['page'] + 1); ?>">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

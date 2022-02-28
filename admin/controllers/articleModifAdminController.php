@@ -5,7 +5,7 @@ $articles = new articles;
 $articles->id = $_GET['id'];
 
 
-
+ 
 $formData = [];
 $formErrors = [];
 
@@ -19,7 +19,7 @@ $formErrors = [];
 
 
 $regex = [
-    'name' => '/^([A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+){1}([\- ]{1}[A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+)?$/',
+    'name' => '/^([A-Z0-9]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å\-🐙\' ]+){1}([\- ]{1}[A-Z09]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\-\' ]+)?$/',
 
 ];
 /**
@@ -30,7 +30,7 @@ $regex = [
  * 0-9 : autorise les nombres
  */
 
-
+$articlesDetails = $articles->getArticleById();
 if (count($_POST) > 0) {
     /**
      * La fonction count permet de compter le nombres d'éléments dans le tableau $_POST
@@ -88,7 +88,7 @@ if (count($_POST) > 0) {
             $formErrors['picture'] = 'Le fichier n\'est pas au bon format';
         }
     } else {
-        $formErrors['picture'] = 'Le fichier est obligatoire';
+        $articles->picture = $articlesDetails->picture;
     }
 
 
@@ -102,7 +102,7 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['title'])) {
         /**
-         * 2 - Je vérifie si ma variable correspond à ma Regex avec preg_match() - https://www.php.net/manual/fr/function.preg-match.php
+         * 2 - Je vérifie si ma variable correspond à ma Regex avec preg_match() 
          * Ca me permet de contrôler ce qui entrera plus tard dans ma base de données
          * Si ça ne correspond pas je crée un message d'erreur adapté
          */
@@ -128,7 +128,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['content'])) {
-        $articles->content = strip_tags($_POST['content']);
+        $articles->content = $_POST['content'];
         /**
          * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
          * Elle génère des alertes si les balises sont incomplètes ou erronées.
@@ -139,29 +139,30 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['headline'])) {
         if (preg_match($regex['name'], $_POST['headline'])) {
-            $articles->headline = strip_tags($_POST['headline']);
+            $articles->headline = htmlspecialchars($_POST['headline']);
             /**
+             * Le htmlspecialchars() - permet de désactiver les différentes balises html, cela nous protège en partie d'une possible faille xss
              * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
              * Elle génère des alertes si les balises sont incomplètes ou erronées.
+             * 
              */
         } else {
-            $formErrors['headline'] = 'Le nom d\'utilsateur est invalide. Il ne doit comporter que des lettre, des chiffres, des tirets, des espaces.';
+            $formErrors['headline'] = 'Ne doit comporter que des lettre, des chiffres, des tirets, des espaces.';
         }
     } else {
         $formErrors['headline'] = 'Votre message est vide.';
     }
 
-    $articles->publicationDate = $_POST['publicationDate'];
     // $articles->time = $_POST['time'];
 
 
     if (count($formErrors) == 0) {
         $articles->updateArticle();
+       
     }
 }
-$articlesDetails = $articles->updateArticle();
 
-var_dump($formErrors);
+var_dump($articles->updateArticle());
 /**
  * var_dump() affiche les informations structurées d'une variable, y compris son type et sa valeur.
  */

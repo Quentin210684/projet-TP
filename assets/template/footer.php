@@ -85,7 +85,7 @@
         </div>
         <div class="row ">
             <div class="col-sm p-1 text-center">
-                <p class="text-center text-white">GameScreening©&nbsp;2022&nbsp;Copyright.Tous&nbsp;droits&nbsp;réservés.</p>
+                <p class="text-center text-white">GameScreening©2022 Copyright.Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -95,7 +95,10 @@
 
 
 
-
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.8/js/froala_editor.pkgd.min.js'></script>
+    <script>
+        var editor = new FroalaEditor('#floatingTextarea2')
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -138,15 +141,27 @@
     <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/gamesListAdmin.php') { ?>
         <script src="assets/js/gamesListAdmin.js"></script>
     <?php } ?>
-    <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/userListAdmin.php') { ?>
+    <?php if (
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/usersListAdmin.php' ||
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/gamesListAdmin.php' ||
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/articlesListAdmin.php' ||
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/myDashboard.php' ||
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/addCommentUsers.php' ||
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/modsListAdmin.php' ||
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/addOpinion.php'
+    ) { ?>
         <script src="assets/js/userDelete.js"></script>
     <?php } ?>
     <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/connection.php') { ?>
         <script src="assets/js/registration.js"></script>
     <?php } ?>
-    <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/addEvaluation.php') { ?>
+    <?php if (
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/addEvaluation.php' ||
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/addEvaluationModif.php'
+    ) { ?>
         <script src="assets/js/rating.js"></script>
     <?php } ?>
+
 
     </body>
 

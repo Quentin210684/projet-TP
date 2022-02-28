@@ -1,10 +1,10 @@
 <?php
 session_start();
 require_once 'models/database.php'; ?>
-<?php require_once 'models/usersModel.php'; ?>
+<?php require_once 'models/modsModel.php'; ?>
+<?php require_once 'models/gamesModel.php'; ?>
 <?php require_once 'controllers/addModAdminController.php'; ?>
 <?php require '../assets/template/header.php'; ?>
-
 
 
 
@@ -35,7 +35,7 @@ require_once 'models/database.php'; ?>
                 </div>
             </div>
 
-      
+
             <div class="col-sm-12">
                 <div class="container">
                     <div class="row">
@@ -45,51 +45,49 @@ require_once 'models/database.php'; ?>
                             <!----------------------------------------- formulaire mods ------------------>
                             <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
 
-
-                                <form action="addListmodadmin.php" method="POST" id="transparent" enctype="multipart/form-data">
-                                    <div class="row g-3 mt-3 text-center text-dark">
-                                        <h2 class="text-white">Proposez votre Mod</h2>
-                                        <div class="col-md-6 mx-auto">
-                                            <div class="col-ms-6">
-                                                <div class="mt-3 mb-3 text-start text-white">
-                                                    <label for="lastName" class="form-label">Utilisateur :</label>
-                                                    <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['user'] ?>" id=" lastName" name="user">
-
-                                                    <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['user'] ?></p>
-                                                </div>
-
-                                                <div class="mb-3 text-start text-white">
-                                                    <label for="inputEmail4" class="form-label">Email</label>
-                                                    <input type="email" class="form-control <?= isset($formErrors['email']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['email'] ?>" id="inputEmail4" name="email">
-
-                                                    <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['email'] ?></p>
-                                                </div>
+                                <form action="admin-ajouter-un-mod" method="POST" enctype="multipart/form-data">
 
 
-                                                <div class="form-floating mb-3">
-                                                    <textarea class="form-control <?= isset($formErrors['message']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['message'] ?>" placeholder="Laissez un message..." name="message" id="floatingTextarea2" style="height: 100px"></textarea>
-                                                    <label for="floatingTextarea2">Votre message</label>
+                                    <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
+                                        <label for="title" class="form-label">Titre</label>
+                                        <input type="text" class="form-control <?= isset($formErrors['title']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['title'] ?>" id=" title" name="title">
 
-                                                    <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['message'] ?></p>
+                                        <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['title'] ?></p>
+                                    </div>
 
 
-                                                </div>
+                                    <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
+                                        <label for="releaseDate" class=" form-label">Date de sortie</label>
+                                        <input type="date" class="form-control" id=" releaseDate" name="releaseDate">
+                                    </div>
 
-                                                <div class="mb-2">
-                                                    <label for="formFileMultiple" class="form-label"></label>
-                                                    <input class="form-control" type="file" name="formFileMultiple" id="formFileMultiple" multiple>
-                                                </div>
+                                    <div class="col-sm-8 mt-3 mb-4 mx-auto text-white">
+                                        <label for="floatingTextarea2">Résumé</label>
+                                        <textarea class="form-control <?= isset($formErrors['summary']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['summary'] ?>" name="summary" id="floatingTextarea2" style="height: 100px"></textarea>
 
-                                            </div>
-                                        </div>
-                                        <div class="col-12 mb-5">
-                                            <button class="btn btn-primary" type="submit">Soumettre votre Mod</button>
-                                        </div>
+
+                                        <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['summary'] ?></p>
+                                    </div>
+
+                                    <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
+                                        <label for="picture" class="form-label">Image</label>
+                                        <input class="form-control form-control-sm" name="picture" id="formFileSm1" type="file">
+                                    </div>
+
+                                    <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
+                                        <label for="file" class="form-label">Fichier</label>
+                                        <input class="form-control form-control-sm" name="file" id="file" type="file">
+                                    </div>
+
+                                    <div class="mb-3 col-sm-11 mt-5 text-end">
+                                        <button type="submit" class="btn btn-outline-dark text-white border border-white" name="send" id="send">Publiez</button>
+                                        <a href="admin-liste-des-jeux" class="btn btn-outline-dark text-white border border-white" title="Retour"><i class="fas fa-reply"></i></a>
+
                                     </div>
                                 </form>
                             <?php } else { ?>
                                 <div class="text-center text-white mt-4 fs-5">
-                                    <p>Merci, <?php echo $user . ' Nous reviendrons vers vous après vérification. ' ?></p>
+                                    <p>Merci, <?php echo $mod->title . ' a bien été ajoutez. ' ?></p>
                                 </div>
                                 <div class="text-end text-white mt-4 fs-5">
                                     <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>

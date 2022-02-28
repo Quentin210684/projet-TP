@@ -12,4 +12,4 @@ if (!empty($_POST['updateArticle'])){
     $articles->updateArticle();
 }
 
-$articlesList = $articles->getArticleList();
+$articlesList = $articles->getArticleList(); 

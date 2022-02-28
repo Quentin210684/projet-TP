@@ -16,7 +16,7 @@ $formErrors = [];
 
 
 $regex = [
-    'name' => '/^([A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+){1}([\- ]{1}[A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+)?$/',
+    'name' => '/^([A-Z0-9]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å\-🐙\' ]+){1}([\- ]{1}[A-Z09]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\-\' ]+)?$/',
 
 ];
 /**
@@ -125,7 +125,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['content'])) {
-        $articles->content = strip_tags($_POST['content']);
+        $articles->content = $_POST['content'];
         /**
          * strip_tags() tente de retourner la chaîne string après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code. 
          * Elle génère des alertes si les balises sont incomplètes ou erronées.
@@ -157,7 +157,7 @@ if (count($_POST) > 0) {
         // var_dump($articles->addArticle());
     }
 }
-var_dump($formErrors);
+// var_dump($formErrors);
 /**
  * var_dump() affiche les informations structurées d'une variable, y compris son type et sa valeur.
  */

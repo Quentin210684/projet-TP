@@ -10,7 +10,7 @@ class database
              * Le nom d'utilisateur pour la chaîne DSN. Ce paramètre est optionnel pour certains pilote PDO.
              * Le mot de passe de la chaîne DSN. Ce paramètre est optionnel pour certains pilote PDO.
              */
-            return  new PDO('mysql:host=localhost; dbname=gamescreening; charset=UTF8', 'root', '2108171229');
+            return new PDO('mysql:host=localhost; dbname=gamescreening; charset=UTF8', 'root', '2108171229');
         } catch (Exception $error) {
             die($error->getMessage());
         }

@@ -1,7 +1,10 @@
 <?php
 session_start();
-
+require_once 'admin/models/database.php';
+require_once 'admin/models/modsModel.php';
+require_once 'controllers/modsListController.php';
 require 'assets/template/header.php'; ?>
+
 <!-------------------------------------------------------Page centrale Mods------------------------------------------->
 <div class="container-fluid">
     <div class="row">
@@ -14,10 +17,12 @@ require 'assets/template/header.php'; ?>
 
 <div class="container-fluid">
     <div class="row">
-        <div class="size col-md-4 mt-3 fs-5 text-white text-center">
-            Créer, trouver et télécharger des mods pour votre jeu.
+        <div class="col-md-8 mt-3 mb-5 text-white">
+            <p>Créer, trouver et télécharger des mods pour votre jeu. Parcourez les pages suivantes pour trouver du contenu créé par les joueurs et joueuses pour vos jeux. La création de contenu vous intéresse ?
+                <a href="connexion" class="figure-img text-decoration-none"> Connectez-vous</a> pour en savoir plus !
+            </p>
         </div>
-        <div class="col-md-8 mt-2 text-white">
+        <div class="col-md-4 mt-2 text-white">
             <nav class="navbar navbar-transparent bg-transparent">
                 <div class="container-fluid justify-content-end me-5 mt-3">
                     <form class="d-flex">
@@ -33,73 +38,23 @@ require 'assets/template/header.php'; ?>
         <div class="row">
             <div class="col-sm-12 mt-3 mb-5">
                 <div class="row">
-                    <div class="col-sm-3 mt-3">
-                        <div class="card animate__animated animate__backInLeft border-3 border-outset border-dark bgMods " id="slide">
-                            <a href="">
-                                <img src="assets/img/modimage1.png" class="img-fluid card-img-top " alt="...">
+                    <?php foreach ($modList as $mo) { ?>
+                        <div class="col-sm animate__animated animate__zoomInDown">
+                            <a href="mods_<?= $mo->id ?>" class="text-decoration-none text-dark">
+                                <div class="card h-100">
+                                    <img src="assets/img/<?= $mo->picture?>" class="card-img-top img-fluid" alt="image jeux">
+                                    <div class="card-body">
+                                        <p class="card-title d-flex h5"><span class="me-auto"><?= $mo->title ?></p>
+                                        <p class="card-text"></p>
+                                    </div>
+                                </div>
                             </a>
-                            <img src="assets/img/darkestDungeon.jpg" class="image-fluid">
-                            <p class="card-text text-center colorLogo2"><small class="text-white">3518 objets</small></p>
-                            <a href="rediger-un-commentaire-mod" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
                         </div>
-                    </div>
-                    <div class="col-sm-3 mt-3">
-                        <div class="card animate__animated animate__backInDown border-3 border-outset border-dark bgMods" id="slide">
-                            <a href="">
-                                <img src="assets/img/modimage2.png" class="card-img-top img-fluid" alt="...">
-                            </a>
-                            <img src="assets/img/divinity.jpg" class="image-fluid">
-                            <p class="card-text text-center colorLogo2"><small class="text-white">21 objets</small></p>
-                            <a href="rediger-un-commentaire-mod" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-3 mt-3">
-                        <div class="card animate__animated animate__backInUp border-3 border-outset border-dark bgMods" id="slide">
-                            <a href="">
-                                <img src="assets/img/modimage3.png" class="card-img-top img-fluid" alt="...">
-                            </a>
-                            <img src="assets/img/commandConquer.jpg" class="image-fluid">
-                            <p class="card-text text-center colorLogo2"><small class="text-white">11561 objets</small></p>
-                            <a href="rediger-un-commentaire-mod" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-3 mt-3">
-                        <div class="card animate__animated animate__backInRight border-3 border-outset border-dark bgMods" id="slide">
-                            <a href="">
-                                <img src="assets/img/modimage4.png" class="card-img-top img-fluid" alt="...">
-                            </a>
-                            <img src="assets/img/zombie.jpg" class="image-fluid">
-                            <p class="card-text text-center colorLogo2"><small class="text-white">61 objets</small></p>
-                            <a href="rediger-un-commentaire-mod" class="mx-auto"><button type="button" class="btn btn-outline-light btn-sm">Un commentaire ?</button></a>
-
-                        </div>
-                    </div>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center mt-2">
-                            <li class="page-item disabled">
-                                <a class="page-link">Previous</a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <?php } ?>
                 </div>
             </div>
         </div>
     </div>
-    
 </div>
 
 <?php require 'assets/template/footer.php'; ?>
-
-
-
-
-
-

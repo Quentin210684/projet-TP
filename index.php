@@ -17,24 +17,24 @@ require 'assets/template/header.php'; ?>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="assets/img/Action carroussel maquette.jpg" class="d-block w-100" class="img-fluid" alt="image1">
+                    <a href="pageJeux_<?= $gamesDetails->id ?>"><img src="assets/img/Infection Free Zone.jpg" class="d-block w-100" class="img-fluid" alt="image1"></a>
                         <div class="carousel-caption d-none d-md-block text-white bg-dark bg-opacity-50">
-                            <a href="Prochainement" class="news2">Prochainement</a>
-                            <p>Bright Memory: Infinite est un tout nouveau jeu fulgurant mélangeant FPS et action.</p>
+                            <a href="pageJeux_<?= $gamesDetails->id ?>" class="news2">Prochainement</a>
+                            <p>Infection Free Zone: Le « Virus fou » s'est répandu dans le monde entier à la vitesse de l'éclair. Les personnes infectées sont extrêmement agressives, très rapides et d'une force de titan...</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/img/Action carroussel maquette 2.jpg" class="d-block w-100" class="img-fluid" alt="image2">
+                        <img src="assets/img/replaced.jpg" class="d-block w-100" class="img-fluid" alt="image2">
                         <div class="carousel-caption d-none d-md-block text-white bg-dark bg-opacity-50">
                             <a href="Prochainement" class="news2">Prochainement</a>
-                            <p>Undungeon est un magnifique jeu d'action/RPG sublimé par des combats intenses en temps réel.</p>
+                            <p>REPLACED est un jeu de plateformes et de science-fiction rétrofuturiste en 2,5D se déroulant dans une Amérique alternative des années 80, avec des combats fluides sur fond d’histoire dystopique !</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/img/Action carroussel maquette3.jpg" class="d-block w-100" class="img-fluid" alt="image3">
+                        <img src="assets/img/gord.jpg" class="d-block w-100" class="img-fluid" alt="image3">
                         <div class="carousel-caption d-none d-md-block text-white bg-dark bg-opacity-50">
                             <a href="Prochainement" class="news2">Prochainement</a>
-                            <p>Hollow Knight: Silksong est un jeu vidéo indépendant de type metroidvania.</p>
+                            <p>Gord: Menez la Tribu de l'aube alors qu'elle s'aventure dans les terres interdites. Terminez des quêtes qui façonnent la personnalité des membres de la tribu et influent sur leur bien-être. Décidez du destin de la communauté.</p>
                         </div>
                     </div>
                 </div>

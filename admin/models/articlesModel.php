@@ -36,7 +36,7 @@ class articles extends database
     public function getArticleList()
     {
 
-        $query = 'SELECT `id`, `title`, `content`, `publicationDate`, `picture`, headline '
+        $query = 'SELECT `id`, `title`, `content`, DATE_FORMAT(`publicationDate`, "%d/%m/%Y %H:%i:%s") AS publicationDate, `picture`, headline '
             . 'FROM `wc5m2_articles`';
         $queryPrepare = $this->db->query($query);
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
@@ -61,13 +61,12 @@ class articles extends database
      */
     public function updateArticle()
     {
-        $query = 'UPDATE `wc5m2_articles` SET `title`=:title, `content`=:content,`publicationDate`=:publicationDate=NOW(), `picture`=:picture, `headline`=:headline 
-        WHERE id=:id ;';
+        $query = 'UPDATE `wc5m2_articles` SET `title`=:title, `content`=:content,`publicationDate`=NOW(), `picture`=:picture, `headline`=:headline 
+        WHERE id=:id;';
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         $queryPrepare->bindValue(':title', $this->title, PDO::PARAM_STR);
         $queryPrepare->bindValue(':content', $this->content, PDO::PARAM_STR);
-        $queryPrepare->bindValue(':publicationDate', $this->publicationDate, PDO::PARAM_STR);
         $queryPrepare->bindValue(':picture', $this->picture, PDO::PARAM_STR);
         $queryPrepare->bindValue(':headline', $this->headline, PDO::PARAM_STR);
 
@@ -79,7 +78,7 @@ class articles extends database
     {
         $query = 'SELECT id, title, content, publicationDate, picture, headline
         FROM wc5m2_articles
-        WHERE id = :id';
+        WHERE id = :id;';
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':id', $this->id, PDO::PARAM_INT);
         $queryPrepare->execute();

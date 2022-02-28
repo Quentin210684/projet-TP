@@ -3,6 +3,7 @@ session_start();
 require_once 'models/database.php'; ?>
 <?php require_once 'models/usersModel.php'; ?>
 <?php require_once 'models/gamesModel.php'; ?>
+<?php require_once 'models/commentModel.php'; ?>
 <?php require_once 'controllers/dashboardAdminController.php'; ?>
 <?php require '../assets/template/header.php'; ?>
 
@@ -57,8 +58,13 @@ require_once 'models/database.php'; ?>
                     <div class="card mb-3">
                         <div class=" fontColor2 card-body text-center">
                             <i class="far fa-eye" id="opinion"></i>
-                            <h5 class="card-title">visiteurs quotidiens</h5>
-                            <p class="card-text" id="user">0</p>
+                            <h5 class="card-title">Total commentaires</h5>
+                            <p class="card-text" id="user">
+                            <?php
+                                foreach ($comment as $comments) {
+                                    echo $comments->articlesCounter;
+                                }
+                                ?></p>
                         </div>
                     </div>
                 </div>

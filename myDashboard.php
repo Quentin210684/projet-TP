@@ -19,14 +19,16 @@ require_once 'admin/models/database.php'; ?>
 
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header colorLogo2">
-                    <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Dashboard Administrateur</h5>
+                    <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Dashboard Utilisateur</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body text-white">
                     <div>
                         <a class="dropdown-item text-decoration-none" href="espace-utilisateur">Mon espace</a>
                         <a class="dropdown-item text-decoration-none" href="utilisateur-ajouter-un-mod">Mes Mods</a>
-                        <a class="dropdown-item text-decoration-none" href="ajouter-un-avis">Ajouter un avis</a>
+                        <a class="dropdown-item text-decoration-none" href="mes-avis">Mes avis</a>
+                        <a class="dropdown-item text-decoration-none" href="mes-commentaires">Mes commentaires</a>
+
                     </div>
                 </div>
             </div>
@@ -35,7 +37,7 @@ require_once 'admin/models/database.php'; ?>
                 <div class="col-sm-12">
                     <div class="text-center text-white mt-4 fs-5">
                         <h4>Bonjour, <?= $_SESSION['user']->name ?> bienvenue dans votre espace personnel.</h4>
-                        <p>Vous pouvez si vous le souhaitez modifier votre profil.</p>
+                        <p>Vous pouvez si vous le souhaitez modifier ou supprimer votre profil.</p>
                     </div>
                     <div class="container">
                         <div class="row justify-content-center">
@@ -58,6 +60,9 @@ require_once 'admin/models/database.php'; ?>
                                                     <td class="align-middle">
                                                         <a href="utilisateur-modification" class="btn btn-warning" title="Modifier votre profil"><i class="fas fa-user-edit"></i></a>
                                                     </td>
+                                                    <td class="align-middle">
+                                                        <button type="button" class="btn btn-danger" data-bs-whatever="" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un utilisateur"><i class="far fa-times-circle"></i></button>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -71,7 +76,28 @@ require_once 'admin/models/database.php'; ?>
         </div>
     </div>
 </div>
-
+<form method="post" action="espace-utilisateur">
+<div class="modal fade" id="deleteItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="container">
+                    <div class="row colorLogo2">
+                        <h3 class="mt-2 text-center" id="staticBackdropLabel">Suppression</h3>
+                    </div>
+                </div>
+                <div class="modal-body container">
+                    <div class="row">
+                        <p class="text-center text-white">Voulez-vous supprimer votre compte ? Cette action sera irréversible.</p>
+                    </div>
+                </div>
+                <div class="modal-footer colorLogo2 ">
+                    <button type="button" class="btn btn-outline-secondary ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-outline-secondary  me-md-5 me-2" name="deleteUser" >Confirmer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 
 

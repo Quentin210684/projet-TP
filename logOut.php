@@ -11,4 +11,4 @@ $_SESSION = array();
 // Finalement, on détruit la session.
 session_destroy();
 header('Location: accueil');
-?>
+?> 

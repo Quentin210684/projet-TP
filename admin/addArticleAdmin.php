@@ -61,7 +61,7 @@ require_once 'models/database.php'; ?>
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="floatingTextarea2">Résumé</label>
-                                        <textarea class="form-control <?= isset($formErrors['content']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['content'] ?>" name="content" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <textarea class="form-control <?= isset($formErrors['content']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['content'] ?>" name="content" id="floatingTextarea2" style="height: 100px" ></textarea>
 
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['content'] ?></p>

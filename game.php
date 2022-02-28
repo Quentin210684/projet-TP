@@ -4,6 +4,7 @@ require_once 'admin/models/database.php'; ?>
 <?php require_once 'admin/models/gamesModel.php'; ?>
 <?php require_once 'admin/models/usersModel.php'; ?>
 <?php require_once 'admin/models/evaluationModel.php'; ?>
+<?php require_once 'admin/models/commentModel.php'; ?>
 <?php require_once 'admin/models/languagesModel.php'; ?>
 <?php require_once 'controllers/gameController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
@@ -55,24 +56,43 @@ require_once 'admin/models/database.php'; ?>
                 <iframe src="<?= $game->trailer ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
-            <td class="align-middle">
-                <a href="evaluation_<?= $evaluation->id ?>" class="btn btn-primary text-center mt-5" title="ajouter un avis"> Ecrire une évaluation pour <?= $game->title ?> <i class="fas fa-pen-alt"></i></a>
+            <td class="align-middle ">
+                <a href="evaluation_<?= $_GET['id']  ?>" class="btn btn-primary text-center mt-5" title="ajouter un avis"> Ecrire une évaluation pour <?= $game->title ?> <i class="fas fa-pen-alt"></i></a>
             </td>
 
         </div>
     </div>
 
-    <div class="col-sm-auto mt-3 border-3 border-top border-dark shadow"">
-                <h3 class=" fw-bolder text-dark text-center">-Evaluations-</h3>
+    <div class="col-sm-auto mt-5 border-3 border-top border-dark">
+        <h3 class=" fw-bolder text-dark text-center mb-4  border-3 border-bottom border-dark">-Evaluations-</h3>
         <div class="container">
-            <div class="row border">
-                <div class="col-sm-4 border">
-                    <p><?= $evaluation->id_users ?></p>
-                    <p><?= $evaluation->rating ?></p>
-                </div>
-                <div class="col-sm-8 border">
-                    Test
-                </div>
+            <div class="row justify-content-center text-white mb-4">
+                <?php foreach ($evaluationList as $e) { ?>
+                    <div class="col-sm-2 mb-3 bg-dark bg-opacity-50">
+                        <ul>
+                            <li class="deleteLi mt-2 fw-bolder"><?= $e->name ?></li>
+                            <?php foreach ($commentListUsers as $c) { ?>
+                                <li class="deleteLi"> commentaires : <?= $c->commentCount ?></li>
+                            <?php } ?>
+                            <?php foreach ($evaluationListUsers as $eva) { ?>
+                                <li class="deleteLi"> évaluations : <?= $eva->evaluationCount ?></li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-10 mb-3 bg-dark bg-opacity-75">
+                        <p class="mt-2">
+                            <?php for ($i = 1; $i <= $e->rating; $i += 1) { ?>
+                                <i class="fas fa-star star"></i>
+                            <?php } ?>
+                            <?php for ($i = 5; $i > $e->rating; $i -= 1) { ?>
+                                <i class="far fa-star star"></i>
+                            <?php } ?>
+                        </p>
+                        <p class="fst-italic fw-bolder">Evaluation publiée le <?= $e->date ?> </p>
+                        <p><?= $e->content ?></p>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>

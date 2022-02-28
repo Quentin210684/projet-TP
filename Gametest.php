@@ -11,7 +11,7 @@ require 'assets/template/header.php'; ?>
 </div>
 
 <div class="container">
-    <div class="row  justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-sm-auto my-5" id="gametest">
             <img src="assets/img/undying1.webp" class="img-fluid animate__animated animate__fadeInLeft mt-5" alt="undying" id="undying" />
         </div>

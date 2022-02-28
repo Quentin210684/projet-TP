@@ -127,6 +127,10 @@ footer {
   height: 20ch;
 }
 
+.deleteLi {
+  list-style: none;
+}
+
 /*-----------------------------------------Game test------------------------------------------------------*/
 #gametest {
   margin-top: 100px;
@@ -210,6 +214,11 @@ footer {
 
 .colorLogo2 {
   background-color: #000000;
+}
+
+.colorLogo2Opac {
+  background-color: #000000;
+  opacity: 0.33;
 }
 
 /*-------------------------------------------plan de site-------------------------------------------------------*/
@@ -401,10 +410,23 @@ a[href*="intent"] {
   width: 40vh;
 }
 
+.imgSize2 {
+  width: 20vh;
+}
+
 /*-------------------------------------------premiere visite-------------------------------------------------------*/
 .image1 {
   width: 133vh;
   height: 360px;
+}
+
+.image2 {
+  width: 88vh;
+}
+
+.image3 {
+  width: 133vh;
+  height: 532px;
 }
 
 /*-------------------------------------------rating-------------------------------------------------------*/
@@ -494,7 +516,7 @@ a[href*="intent"] {
   position: absolute;
   width: 35px;
   height: 35px;
-  background: #91a6ff;
+  background: #ef8225;
   border-radius: 5px;
   top: -50px;
   left: 2px;
@@ -508,7 +530,7 @@ a[href*="intent"] {
   font-weight: 900;
   content: "\f0dd";
   display: inline-block;
-  color: #91a6ff;
+  color: #ef8225;
   z-index: 1;
   position: absolute;
   left: 9px;
@@ -528,5 +550,10 @@ a[href*="intent"] {
 
 .rate:hover .face {
   opacity: 1;
+}
+
+/*-------------------------------------------mise en page articles de presse-------------------------------------------------------*/
+.formPoliceArticle {
+  font-family: 'Playfair Display SC', serif;
 }
 /*# sourceMappingURL=style.css.map */

@@ -8,7 +8,7 @@ define('CIVILITIES_ERROR', 'Veuillez sélectionner une civilité.');
 
 define('DEPARTMENTS_ERROR', 'Veuillez sélectionner un département.');
 
-define('LOGIN_ERROR_INVALID', 'L\'adresse mail ou le mot de passe est invalide.');
+define('LOGIN_ERROR_INVALID', 'Le nom d\'utilisateur ou le mot de passe est invalide.');
 
 define('MAIL_ERROR_EMPTY', 'Veuillez renseigner votre adresse mail.');
 define('MAIL_ERROR_INVALID', 'Veuillez entrer une adresse mail valide.');

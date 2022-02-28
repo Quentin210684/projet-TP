@@ -3,7 +3,7 @@
 $types = new types;
 $typesList = $types->selectTypesList();
 
-
+ 
 $graphism = new graphisms;
 $graphismsList = $graphism->selectGraphismsList();
 
@@ -34,7 +34,7 @@ $formErrors = [];
  */
 
 $regex = [
-    'name' => '/^([A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+){1}([\- ]{1}[A-Z]{1}[a-zâäàéèùêëîïôöçñ ]+)?$/',
+    'name' => '/^([A-Z0-9]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\' ]+){1}([\- ]{1}[A-Z09]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\' ]+)?$/',
 
     /**
  * Je crée une regex pour le nom d'utilisateur
@@ -168,7 +168,7 @@ if (count($_POST) > 0) {
 
 
     if (!empty($_POST['trailer'])) {
-        if (filter_var($_POST['trailer'], FILTER_VALIDATE_URL)) {
+        if (filter_var($_POST['trailer'], FILTER_VALIDATE_URL)) { 
             /**
              * Le filter_var()  - permet de remplacer une regex trop complexe. Ici, l'adresse mail par exemple.
              * Le filtre 'FILTER_VALIDATE_EMAIL' est une constante. Les différents filtres existants sont dispos sur le site php.net

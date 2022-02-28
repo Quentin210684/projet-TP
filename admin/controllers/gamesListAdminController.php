@@ -12,7 +12,8 @@ if (!empty($_POST['updateGame'])){
     $game->updateGame();
 }
 
-$gamesList = $game->getGamesList();
+$gamesList = $game->getGamesListAdmin();
 
+// var_dump($_POST);
 
 

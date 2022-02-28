@@ -23,3 +23,6 @@ $(function() {
     });
 
 });
+
+
+let stars = document.getElementById('starsEvaluation');

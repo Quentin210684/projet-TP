@@ -10,6 +10,8 @@ RewriteRule ^admin-liste-des-mods$ admin/modsListAdmin.php
 RewriteRule ^admin-liste-des-utilisateurs$ admin/usersListAdmin.php
 RewriteRule ^admin-modification-jeux_([0-9]+)$ admin/gameModifAdmin.php?id=$1
 RewriteRule ^admin-modification-article_([0-9]+)$ admin/articleModifAdmin.php?id=$1
+RewriteRule ^admin-modification-mod_([0-9]+)$ admin/modsModifAdmin.php?id=$1
+
 RewriteRule deconnexion logOut.php
 
 
@@ -20,8 +22,6 @@ RewriteRule ^mods$ modsList.php
 RewriteRule article-de-presse pressArticlesList.php
 RewriteRule ^test$ gameTest.php
 RewriteRule rediger-un-avis addReview.php
-RewriteRule rediger-un-commentaire-mod addRemarkMod.php
-RewriteRule rediger-un-commentaire-article addRemarkArticle.php
 RewriteRule espace-utilisateur myDashboard.php
 RewriteRule ^utilisateur-modification$ myDashboardModif.php
 RewriteRule connexion connection.php
@@ -30,8 +30,15 @@ RewriteRule mentions-Legales mentionsLegales.php
 RewriteRule jeu-potion-craft game.php
 RewriteRule contact contact.php
 RewriteRule premiere-visite premiereVisite.php
-RewriteRule evaluation addEvaluation.php
+RewriteRule ^evaluation_([0-9]+)$ addEvaluation.php?id=$1
+RewriteRule ^commentaire_([0-9]+)$ addComment.php?id=$1
+RewriteRule ^user-modification-commentaire_([0-9]+)$ addCommentModif.php?id=$1
+RewriteRule ^user-modification-avis_([0-9]+)$ addEvaluationModif.php?id=$1
+RewriteRule ^page-Article-Presse_([0-9]+)$ article.php?id=$1
+RewriteRule erreur_404 page404.php
 
+  
 
 RewriteRule utilisateur-ajouter-un-mod addMod.php
-RewriteRule ajouter-un-avis addOpinion.php
+RewriteRule mes-avis addOpinion.php
+RewriteRule mes-commentaires addCommentUsers.php

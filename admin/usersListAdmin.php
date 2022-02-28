@@ -57,7 +57,7 @@ require_once 'models/database.php'; ?>
                                             <td><?= $userDetails->email ?></td>
                                             <td><?php $userDetails->id_roles ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-danger" data-bs-whatever="<?= $userDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteAccount"><i class="far fa-times-circle"></i></button>
+                                                <button type="button" class="btn btn-danger" data-bs-whatever="<?= $userDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un utilisateurs"><i class="far fa-times-circle"></i></button>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -72,7 +72,7 @@ require_once 'models/database.php'; ?>
 </div>
 
 <form method="post" action="admin-liste-des-utilisateurs">
-    <div class="modal fade" id="deleteAccount" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myAccountContactModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark">
                 <div class="container">
@@ -83,7 +83,7 @@ require_once 'models/database.php'; ?>
                 <div class="modal-body container">
                     <div class="row">
                         <p class="text-center text-white">Voulez-vous supprimer cette utilisateur ?</p>
-                        <input type="hidden" value="<?= $userDetails->id ?>" name="deleteUser" id="deleteUser">
+                        <input type="hidden"  name="deleteUser" id="deleteInput">
                     </div>
                 </div>
                 <div class="modal-footer colorLogo2 ">

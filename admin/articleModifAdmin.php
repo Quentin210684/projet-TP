@@ -5,7 +5,7 @@ require_once 'models/database.php'; ?>
 <?php require_once 'controllers/articleModifAdminController.php'; ?>
 <?php require '../assets/template/header.php'; ?>
 
-
+ 
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
@@ -61,7 +61,7 @@ require_once 'models/database.php'; ?>
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="floatingTextarea2">Résumé</label>
-                                        <textarea class="form-control <?= isset($formErrors['content']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['content']) ? $_POST['content'] : $articlesDetails->content ?>" name="content" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <textarea class="form-control <?= isset($formErrors['content']) ? 'is-invalid' : '' ?> " name="content" id="floatingTextarea2" style="height: 100px"><?= $articlesDetails->content ?></textarea>
 
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['content'] ?></p>
@@ -76,10 +76,10 @@ require_once 'models/database.php'; ?>
                                     </div>
 
 
-                                    <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
+                                    <!-- <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="publicationDate" class="form-label">Date de publication</label>
                                         <input type="date" class="form-control" id=" title" name="publicationDate">
-                                    </div>
+                                    </div> -->
 
                                     <!-- <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="time" class="form-label">Heure de publication</label>
@@ -95,7 +95,7 @@ require_once 'models/database.php'; ?>
                                 </form>
                             <?php } else { ?>
                                 <div class="text-center text-white mt-4 fs-5">
-                                    <p>Bonjour, <?php echo $articles->title . ' à bien été envoyez' ?></p>
+                                    <p>Bonjour, <?php echo $articles->title . ' à bien été modifiez' ?></p>
                                 </div>
                                 <div class="text-end text-white mt-4 fs-5">
                                     <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>

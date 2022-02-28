@@ -39,7 +39,7 @@ $formErrors = [];
  */
 
 $regex = [
-    'name' => '/^([A-Z0-9]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\' ]+){1}([\- ]{1}[A-Z09]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\' ]+)?$/',
+    'name' => '/^([A-Z0-9]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å\-🐙\' ]+){1}([\- ]{1}[A-Z09]{1}[a-zA-Z0-9âäàéèùêëîïôöçñ!?.:,®™&™®å🐙\-\' ]+)?$/',
 
     /**
  * Je crée une regex pour le nom d'utilisateur
@@ -118,14 +118,14 @@ if (count($_POST) > 0) {
     }
 
     /**
-     * 1 - Je vérifie que ma variable existe ET n'est pas vide. La fonction empty() - https://www.php.net/manual/fr/function.empty.php - vérifie ces deux conditions, pas besoin de compléter avec isset()
+     * 1 - Je vérifie que ma variable existe ET n'est pas vide. La fonction empty() vérifie ces deux conditions, pas besoin de compléter avec isset()
      * Cette condition est faisable aussi pour un champs non-obligatoire, il faut juste supprimer le else (pas d'erreur si le champs n'est pas rempli)
      * Les autres vérifications pour ce champs doivent se faire dans cette condition, il ne faut pas vérifier si une varible correspond à une regex s'il n'y a rien dedans
      * Si ça n'existe pas je crée un message d'erreur adapté
      */
     if (!empty($_POST['title'])) {
         /**
-         * 2 - Je vérifie si ma variable correspond à ma Regex avec preg_match() - https://www.php.net/manual/fr/function.preg-match.php
+         * 2 - Je vérifie si ma variable correspond à ma Regex avec preg_match()
          * Ca me permet de contrôler ce qui entrera plus tard dans ma base de données
          * Si ça ne correspond pas je crée un message d'erreur adapté
          */

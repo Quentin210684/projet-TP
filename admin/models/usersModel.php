@@ -134,7 +134,7 @@ class users extends database
      * Paramètres : lastname, firstname, birthdate, phone,  mail, id
      * @return objet
      */
-    public function updateUser()
+    public function updateUser() 
     {
         $query = 'UPDATE `wc5m2_users` '
             . 'SET `name` = :name, email=:email '
@@ -190,4 +190,6 @@ class users extends database
         $queryPrepare->execute();
         return $queryPrepare->fetch(PDO::FETCH_OBJ);
     }
+
+    
 }

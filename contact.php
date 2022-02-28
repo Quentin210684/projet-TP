@@ -57,8 +57,8 @@ session_start();
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <textarea class="form-control <?= isset($formErrors['message']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['message'] ?>" placeholder="Laissez un message..." name="message" id="floatingTextarea2" style="height: 100px"></textarea>
-                                    <label for="floatingTextarea2">Votre message</label>
+                                    <textarea class="form-control <?= isset($formErrors['message']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['message'] ?>" placeholder="Laissez un message..." name="message" id="floatingTextarea4" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea4">Votre message</label>
 
                                     <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['message'] ?></p>
  

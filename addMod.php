@@ -25,7 +25,9 @@ require_once 'admin/models/database.php'; ?>
                     <div>
                         <a class="dropdown-item text-decoration-none" href="espace-utilisateur">Mon espace</a>
                         <a class="dropdown-item text-decoration-none" href="utilisateur-ajouter-un-mod">Mes Mods</a>
-                        <a class="dropdown-item text-decoration-none" href="ajouter-un-avis">Mes avis</a>
+                        <a class="dropdown-item text-decoration-none" href="mes-avis">Mes avis</a>
+                        <a class="dropdown-item text-decoration-none" href="mes-commentaires">Mes commentaires</a>
+
                     </div>
                 </div>
             </div>
@@ -46,14 +48,14 @@ require_once 'admin/models/database.php'; ?>
                                 <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
 
 
-                                    <form action="addListmodadmin.php" method="POST" id="transparent" enctype="multipart/form-data">
+                                    <form action="" method="POST" id="transparent" enctype="multipart/form-data">
                                         <div class="test row g-3 mt-3 text-center text-dark">
                                             <h2 class="text-white">Proposez votre Mod</h2>
                                             <div class="col-md-6 mx-auto">
                                                 <div class="col-ms-6">
                                                     <div class="mt-3 mb-3 text-start text-white">
                                                         <label for="lastName" class="form-label">Utilisateur :</label>
-                                                        <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['user'] ?>" id=" lastName" name="user">
+                                                        <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['user']) ? $_POST['user'] : $gameDetails->user ?>" id=" lastName" name="user">
 
                                                         <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['user'] ?></p>
                                                     </div>
@@ -67,8 +69,8 @@ require_once 'admin/models/database.php'; ?>
 
 
                                                     <div class="form-floating text-white">
-                                                        <textarea class="form-control" placeholder="Leave a comment here" name="message" id="floatingTextarea2" style="height: 100px"></textarea>
-                                                        <label for="floatingTextarea2">Votre message</label>
+                                                        <textarea class="form-control" placeholder="Leave a comment here" name="message" id="floatingTextarea4" style="height: 100px"></textarea>
+                                                        <label for="floatingTextarea4">Votre message</label>
                                                     </div>
 
                                                     <div class="mb-2">
@@ -78,8 +80,10 @@ require_once 'admin/models/database.php'; ?>
 
                                                 </div>
                                             </div>
-                                            <div class="col-12 mb-5">
-                                                <button class="btn btn-primary" type="submit">Soumettre votre Mod</button>
+                                            <div class="col-12-ms mb-5">
+                                                <button type="submit" class="btn btn-outline-dark text-white border border-white" name="send" id="send">Publiez</button>
+                                                <a href="espace-utilisateur" class="btn btn-outline-dark text-white border border-white" title="Retour"><i class="fas fa-reply"></i></a>
+
                                             </div>
                                         </div>
                                     </form>
@@ -105,11 +109,13 @@ require_once 'admin/models/database.php'; ?>
                                     <div class="row">
                                         <table class="table">
                                             <thead>
-                                                <tr class="text-center">
+                                                <tr class="text-center text-white">
                                                     <th scope="col">#</th>
                                                     <th scope="col">Titre</th>
-                                                    <th scope="col">trailer</th>
-                                                    <th scope="col">Picture</th>
+                                                    <th scope="col">Date de sortie</th>
+                                                    <th scope="col">Summary</th>
+                                                    <th scope="col">picture</th>
+                                                    <th scope="col">Validation</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -119,8 +125,16 @@ require_once 'admin/models/database.php'; ?>
                                                     <td class="align-middle">...</td>
                                                     <td class="align-middle">...</td>
                                                     <td class="align-middle">...</td>
+                                                    <td class="align-middle">...</td>
+                                                    <td class="align-middle">...</td>
+                                                    <td>
+                                                        <a href="" class="btn btn-info" title="voir le "><i class="far fa-eye"></i></a>
+                                                    </td>
                                                     <td class="align-middle">
-                                                        <a href="...>" class="btn btn-warning" title="Modifier votre profil"><i class="fas fa-user-edit"></i></a>
+                                                        <a href="" class="btn btn-warning" title="Modifier "><i class="fas fa-user-edit"></i></a>
+                                                    </td>
+                                                    <td class="align-middle">
+                                                        <button type="button" class="btn btn-danger" data-bs-whatever="" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer "><i class="far fa-times-circle"></i></button>
                                                     </td>
                                                 </tr>
 

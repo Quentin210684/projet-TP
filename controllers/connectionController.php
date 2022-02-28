@@ -1,9 +1,17 @@
 <?php
-
+// Si mon formulaire a été envoyé
 if (count($_POST) > 0) {
+    // J'initialise mon tableau qui stockera mes messages d'erreurs
     $formErrors = [];
-
+// J'instancie mon objet -j'appelle ma classe-
     $user = new users;
+
+    /**
+     * Si mon champs user n'est pas vide, alors je stocke son contenu dans l'attribut name de ma classe user, sinon j'informe
+     * l'utilisateur que le champs est obligatoire. 
+     * Si ce champs n'est pas vide, je vérifie également qu'il existe. Si ce n'est pas le cas, j'informe l'utilisateur que 
+     * le pseudo ou le mot de passe est incorrect.
+     */
 
     if (!empty($_POST['user'])) {
         $user->name = $_POST['user'];
