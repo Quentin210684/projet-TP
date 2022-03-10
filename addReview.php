@@ -1,7 +1,9 @@
 <?php
 session_start();
-
+require_once 'controllers\addReviewController.php';
 require 'assets/template/header.php'; ?>
+
+
 <!-------------------------------------------------------Page centrale Avis------------------------------------------->
 
 <div class="container-fluid">
@@ -15,32 +17,30 @@ require 'assets/template/header.php'; ?>
 <div class="container">
     <div class="row">
         <div class="col-sm-12 mt-5 mb-5 fs-5 text-white text-center">
-            <p>Chercher un jeu pour y laisser un avis</p>
+            <p>Chercher un jeu ou un article pour y laisser un avis</p>
         </div>
     </div>
 </div>
 
 <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-4 mb-4">
+            <select name="orderby" id="orderby" class="form-control mb-3">
+                <option value="title">Jeux</option>
+                <option value="title">Mod</option>
+                <option value="title">Article</option>
+            </select>
+            <input type="text" class="form-control" id="search" placeholder="Laissez votre avis sur un jeu, un article ou un mod" />
+        </div>
+    </div>
     <div class="row">
-        <div class="col-sm-12">
-            <nav class="navbar navbar-transparent bg-transparent">
-                <div class="container-fluid justify-content-center me-5 mt-2 mb-4">
-                    <form action="accueil" method="GET" class="d-flex w-50">
-                        <input class="form-control me-2 mb-2" type="search" placeholder="Recherche..." name="search" aria-label="Search">
-                        <input class="btn btn-outline-dark text-white border border-white" type="submit"  value="Valider">
-                    </form>
-                </div>
-            </nav>
+        <div class="col-sm">
+            <div id="gameOpinionDiv" class="mb-4 d-md-flex d-grid gap-2 justify-content-center"></div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm ms-md-5 mb-5 text-center">
-            <img src="">
-        </div>
-    </div>
-</div>
+
+
 
 <?php require 'assets/template/footer.php'; ?>

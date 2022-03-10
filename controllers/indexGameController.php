@@ -2,4 +2,7 @@
 
 $game = new games;
 
-$gamesList = $game->getGamesListHome();
+$gamesListIndex = $game->getGamesListHome();
+$gameNew = $game->getGamesListHomeNews();
+$gameCarousel = $game->getGamesListHomeCarousel();
+$gameCarouselLastId = $game->getGamesLastId();

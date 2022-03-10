@@ -32,7 +32,7 @@ class Evaluations extends database
         return $queryPrepare->execute();
     }
 
-    public function getEvaluationsList() 
+    public function getEvaluationsList()
     {
         /** 
          * INNER JOIN permet de mettre 2 tables en commun
@@ -80,7 +80,20 @@ class Evaluations extends database
         $queryPrepare = $this->db->prepare($query);
         $queryPrepare->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
         $queryPrepare->execute();
-        return $queryPrepare->fetchAll(PDO::FETCH_OBJ); 
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+    public function getEvaluationListHomeNote()
+    {
+        $query = 'SELECT ROUND(AVG(rating)) AS rating
+        FROM `wc5m2_evaluations`
+        INNER JOIN wc5m2_games ON wc5m2_evaluations.id_games = wc5m2_games.id
+        WHERE id_games =:id_games LIMIT 1';
+        $queryPrepare = $this->db->prepare($query);
+        $queryPrepare->bindValue(':id_games', $this->id_games, PDO::PARAM_INT);
+        $queryPrepare->execute();
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function deleteEvaluation()

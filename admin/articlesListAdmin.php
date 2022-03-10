@@ -37,49 +37,47 @@ require_once 'models/database.php'; ?>
                 </div>
             </div>
 
-            <div class="col-sm-12">
-                <div class="col-sm-12">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <table class="table">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th scope="col">#</th>
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Titre</th>
-                                        <th scope="col">Nom du journal</th>
-                                        <th scope="col">Date de publication</th>
-                                        <td class="align-middle">
-                                            <a href="admin-ajouter-un-article" class="btn btn-primary" title="Ajouter un article"><i class="fas fa-plus"></i></a>
-                                        </td>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($articlesList as $articlesDetails) { ?>
-                                        <tr class="text-center text-white">
-                                            <th class="align-middle" scope="row"><?= $articlesDetails->id ?></th>
-                                            <td class="align-middle"><img src="assets/img/<?= $articlesDetails->picture ?>" class="imgSize"></td>
-                                            <td class="align-middle"><?= $articlesDetails->title ?></td>
-                                            <td class="align-middle"><?= $articlesDetails->headline ?></td>
-                                            <td class="align-middle"><?= $articlesDetails->publicationDate ?></td>
-                                            <td class="align-middle">
-                                                <a href="page-Article-Presse_<?= $articlesDetails->id ?>" class="btn btn-info" title="voir l'article"><i class="far fa-eye"></i></a>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="admin-modification-article_<?= $articlesDetails->id ?>" class="btn btn-warning" title="Modifier articles"><i class="fas fa-user-edit"></i></a>
-                                            </td>
-                                            <td class="align-middle">
-                                                <button type="button" class="btn btn-danger" data-bs-whatever="<?= $articlesDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer articles"><i class="far fa-times-circle"></i></button>
 
-                                            </td>
+            <div class="container-fluid">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">#</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Titre</th>
+                                <th scope="col">Nom du journal</th>
+                                <th scope="col">Date de publication</th>
+                                <td class="align-middle">
+                                    <a href="admin-ajouter-un-article" class="btn btn-primary" title="Ajouter un article"><i class="fas fa-plus"></i></a>
+                                </td>
 
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($articlesList as $articlesDetails) { ?>
+                                <tr class="text-center text-white">
+                                    <th class="align-middle" scope="row"><?= $articlesDetails->id ?></th>
+                                    <td class="align-middle"><img src="assets/img/<?= $articlesDetails->picture ?>" class="imgSize"></td>
+                                    <td class="align-middle"><?= $articlesDetails->title ?></td>
+                                    <td class="align-middle"><?= $articlesDetails->headline ?></td>
+                                    <td class="align-middle"><?= $articlesDetails->publicationDate ?></td>
+                                    <td class="align-middle">
+                                        <a href="page-Article-Presse_<?= $articlesDetails->id ?>" class="btn btn-info" title="voir l'article"><i class="far fa-eye"></i></a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="admin-modification-article_<?= $articlesDetails->id ?>" class="btn btn-warning" title="Modifier articles"><i class="fas fa-user-edit"></i></a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button type="button" class="btn btn-danger" data-bs-whatever="<?= $articlesDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer articles"><i class="far fa-times-circle"></i></button>
+
+                                    </td>
+
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

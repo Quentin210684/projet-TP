@@ -70,8 +70,8 @@ class games extends database
             . 'ORDER BY wc5m2_games.id DESC '
             . 'LIMIT :limit OFFSET :offset';
         $queryPrepare = $this->db->prepare($query);
-        $queryPrepare->bindValue(':offset',$this->offset, PDO::PARAM_INT);
-        $queryPrepare->bindValue(':limit',$this->limit, PDO::PARAM_INT);
+        $queryPrepare->bindValue(':offset', $this->offset, PDO::PARAM_INT);
+        $queryPrepare->bindValue(':limit', $this->limit, PDO::PARAM_INT);
         $queryPrepare->execute();
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
@@ -85,10 +85,21 @@ class games extends database
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function searchOpinion()
+    {
+        $query = 'SELECT *
+        FROM `wc5m2_games` 
+        WHERE title LIKE :title';
+        $result = $this->db->prepare($query);
+        $result->bindValue(':title', $this->title . '%', PDO::PARAM_STR);
+        $result->execute();
+        return $result->fetchAll(PDO::FETCH_OBJ);
+    }
 
+    
     public function getGamesListHome()
     {
-        $query = 'SELECT wc5m2_games.id, `title`, `developpers`, `releaseDate`,`earlyExitDate`,`summary`,`trailer`,`picture`,wc5m2_graphisms.name AS graphismName, wc5m2_types.name AS typesName, wc5m2_platforms.name AS platformsName  '
+        $query = 'SELECT wc5m2_games.id, `title`, `developpers`, `releaseDate`,`earlyExitDate`,`summary`,`trailer`,`picture`, wc5m2_graphisms.name AS graphismName, wc5m2_types.name AS typesName, wc5m2_platforms.name AS platformsName  '
             . 'FROM `wc5m2_games` '
             . 'INNER JOIN `wc5m2_graphisms` ON  wc5m2_games.id_graphisms = wc5m2_graphisms.id '
             . 'INNER JOIN `wc5m2_types` ON  wc5m2_games.id_types = wc5m2_types.id '
@@ -99,7 +110,17 @@ class games extends database
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function getGamesListHomeNews()
+    {
+        $query = 'SELECT `id`, `picture`,`summary` '
+            . 'FROM `wc5m2_games` '
+            . 'ORDER BY wc5m2_games.id DESC '
+            . 'LIMIT 1';
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
 
+    
     public function countGamesList()
     {
         /**
@@ -170,7 +191,8 @@ class games extends database
         return $queryPrepare->fetch(PDO::FETCH_OBJ);
     }
 
-    public function countGamesPages(){
+    public function countGamesPages()
+    {
         $query = 'SELECT COUNT(id) AS cpt FROM wc5m2_games';
         $queryPrepare = $this->db->query($query);
         $queryResult = $queryPrepare->fetch(PDO::FETCH_OBJ);
@@ -179,7 +201,7 @@ class games extends database
 
     public function getGamesListAdmin()
     {
-        $query = 'SELECT wc5m2_games.id, `title`, `developpers`, `releaseDate`,`earlyExitDate`,`summary`,`trailer`,`picture`,wc5m2_graphisms.name AS graphismName, wc5m2_types.name AS typesName, wc5m2_platforms.name AS platformsName  '
+        $query = 'SELECT wc5m2_games.id, `title`, `developpers`, `releaseDate`,`earlyExitDate`,`summary`,`trailer`, wc5m2_games.picture AS picture,wc5m2_graphisms.name AS graphismName, wc5m2_types.name AS typesName, wc5m2_platforms.name AS platformsName  '
             . 'FROM `wc5m2_games` '
             . 'INNER JOIN `wc5m2_graphisms` ON  wc5m2_games.id_graphisms = wc5m2_graphisms.id '
             . 'INNER JOIN `wc5m2_types` ON  wc5m2_games.id_types = wc5m2_types.id '
@@ -191,8 +213,24 @@ class games extends database
     public function getGamesListForMods()
     {
         $query = 'SELECT id, `title` '
-            . 'FROM `wc5m2_games` ';   
+            . 'FROM `wc5m2_games` ';
         $queryPrepare = $this->db->query($query);
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function getGamesListHomeCarousel()
+    {
+        $query = 'SELECT `id`, `picture`, SUBSTR(summary, 1, 200) as summary '
+            . 'FROM `wc5m2_games` '
+            . 'ORDER BY id DESC '
+            . 'LIMIT 3';
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function getGamesLastId()
+    {
+        $query = 'SELECT max(id) as id '
+            . 'FROM `wc5m2_games`;';
+        $queryPrepare = $this->db->query($query);
+        return $queryPrepare->fetch(PDO::FETCH_OBJ);
     }
 }

@@ -77,6 +77,6 @@ if (count($_POST) > 0) {
     }
 }
 // var_dump($_POST);
-var_dump($comment);
+// var_dump($comment);
 
 

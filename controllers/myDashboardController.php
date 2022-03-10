@@ -11,4 +11,4 @@ if (isset($_POST['deleteUser'])) {
 }
 
 $user = $user->selectUserById();
-var_dump($_POST);
+// var_dump($_POST);

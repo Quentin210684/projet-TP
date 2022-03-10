@@ -35,45 +35,44 @@ require_once 'admin/models/database.php'; ?>
 
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-sm-12">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <table class="table">
-                                    <thead>
-                                        <tr class="text-center">
-                                            <th scope="col">#</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Contenu</th>
-                                            <th scope="col">Evaluation</th>
-                                            <th scope="col">Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($evaluationList as $evaluation) { ?>
 
-                                            <tr class="text-center text-white">
-                                                <th class="align-middle" scope="row"><?= $evaluation->id ?></th>
-                                                <td class="align-middle"><img src="assets/img/<?= $evaluation->picture ?>" class="imgSize"></td>
-                                                <td class="align-middle"><?= $evaluation->content ?></td>
-                                                <td class="align-middle"><?php for ($i = 1; $i <= $evaluation->rating; $i += 1) { ?>
-                                                        <i class="fas fa-star star"></i>
-                                                    <?php } ?>
-                                                    <?php for ($i = 5; $i > $evaluation->rating; $i -= 1) { ?>
-                                                        <i class="far fa-star star"></i>
-                                                    <?php } ?>
-                                                </td>
-                                                <td class="align-middle"><?= $evaluation->date ?></td>
-                                                <td class="align-middle">
-                                                    <a href="user-modification-avis_<?= $evaluation->id ?>" class="btn btn-warning" title="Modifier un avis"><i class="fas fa-user-edit"></i></a>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <button type="button" class="btn btn-danger" data-bs-whatever="<?= $evaluation->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un avis"><i class="far fa-times-circle"></i></button>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div> 
+                    <div class="container-fluid">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Contenu</th>
+                                        <th scope="col">Evaluation</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($evaluationList as $evaluation) { ?>
+
+                                        <tr class="text-center text-white">
+                                            <th class="align-middle" scope="row"><?= $evaluation->id ?></th>
+                                            <td class="align-middle"><img src="assets/img/<?= $evaluation->picture ?>" class="imgSize"></td>
+                                            <td class="align-middle"><?= $evaluation->content ?></td>
+                                            <td class="align-middle"><?php for ($i = 1; $i <= $evaluation->rating; $i += 1) { ?>
+                                                    <i class="fas fa-star star"></i>
+                                                <?php } ?>
+                                                <?php for ($i = 5; $i > $evaluation->rating; $i -= 1) { ?>
+                                                    <i class="far fa-star star"></i>
+                                                <?php } ?>
+                                            </td>
+                                            <td class="align-middle"><?= $evaluation->date ?></td>
+                                            <td class="align-middle">
+                                                <a href="user-modification-avis_<?= $evaluation->id ?>" class="btn btn-warning" title="Modifier un avis"><i class="fas fa-user-edit"></i></a>
+                                            </td>
+                                            <td class="align-middle">
+                                                <button type="button" class="btn btn-danger" data-bs-whatever="<?= $evaluation->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un avis"><i class="far fa-times-circle"></i></button>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

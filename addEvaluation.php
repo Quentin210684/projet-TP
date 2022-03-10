@@ -79,7 +79,7 @@ require_once 'admin/models/database.php'; ?>
                             <p>Bonjour, votre évaluation à bien été ajoutez</p>
                         </div>
                         <div class="text-center text-white mt-4 fs-5">
-                            <p><a class="text-decoration-none text-white" href="administration">Retourner à l'accueil</a> </p>
+                            <p><a class="text-decoration-none text-white" href="accueil">Retourner à l'accueil</a> </p>
                         </div>
                     <?php } ?>
                 </div>

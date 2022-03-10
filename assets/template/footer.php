@@ -30,7 +30,7 @@
                                         <div class="col-sm-3">
                                             <h3><a href="accueil" class="plan text-white text-decoration-none">Accueil</a></h3>
                                             <ul>
-                                                <li><a href="jeux" class="plan text-white text-decoration-none">Jeux</a></li>
+                                                <li><a href="jeux?page=1" class="plan text-white text-decoration-none">Jeux</a></li>
                                                 <li><a href="mods" class="plan text-white text-decoration-none">Mods</a></li>
                                                 <li><a href="article-de-presse" class="plan text-white text-decoration-none">Articles</a></li>
                                                 <li><a href="test" class="plan text-white text-decoration-none">Game test</a></li>
@@ -93,21 +93,16 @@
 
 
 
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.8/js/froala_editor.pkgd.min.js'></script>
     <script>
         var editor = new FroalaEditor('#floatingTextarea2')
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/0af4ce9358.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
-
-
 
 
 
@@ -117,6 +112,7 @@
     <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/registration.php') { ?>
         <script src="assets/js/registration.js"></script>
     <?php } ?>
+
     <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gameTest.php') { ?>
         <script src="assets/js/gametest.js"></script>
     <?php } ?>
@@ -132,15 +128,22 @@
     <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/dashboardAdmin.php') { ?>
         <script src="assets/js/admin.js"></script>
     <?php } ?>
-    <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gamesList.php') { ?>
+
+    <?php if (
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/game.php' ||
+        $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/gamesList.php'
+    ) { ?>
         <script src="assets/js/games.js"></script>
     <?php } ?>
+
     <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/gamesListAdmin.php') { ?>
         <script src="assets/js/script.js"></script>
     <?php } ?>
+
     <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/gamesListAdmin.php') { ?>
         <script src="assets/js/gamesListAdmin.js"></script>
     <?php } ?>
+
     <?php if (
         $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/usersListAdmin.php' ||
         $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/admin/gamesListAdmin.php' ||
@@ -152,14 +155,24 @@
     ) { ?>
         <script src="assets/js/userDelete.js"></script>
     <?php } ?>
+
     <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/connection.php') { ?>
         <script src="assets/js/registration.js"></script>
     <?php } ?>
+
     <?php if (
         $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/addEvaluation.php' ||
         $_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/addEvaluationModif.php'
     ) { ?>
         <script src="assets/js/rating.js"></script>
+    <?php } ?>
+
+    <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/mod.php') { ?>
+        <script src="assets/js/mods.js"></script>
+    <?php } ?>
+
+    <?php if ($_SERVER['PHP_SELF'] == '/ProjetTPGameScreening/addReview.php') { ?>
+        <script src="assets/js/addReview.js"></script>
     <?php } ?>
 
 

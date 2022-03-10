@@ -19,6 +19,7 @@ RewriteRule accueil index.php
 RewriteRule jeux gamesList.php
 RewriteRule pageJeux_([0-9]+) game.php?id=$1
 RewriteRule ^mods$ modsList.php
+RewriteRule ^pageMods_([0-9]+)$ mod.php?id=$1
 RewriteRule article-de-presse pressArticlesList.php
 RewriteRule ^test$ gameTest.php
 RewriteRule rediger-un-avis addReview.php
@@ -27,7 +28,6 @@ RewriteRule ^utilisateur-modification$ myDashboardModif.php
 RewriteRule connexion connection.php
 RewriteRule inscription registration.php
 RewriteRule mentions-Legales mentionsLegales.php
-RewriteRule jeu-potion-craft game.php
 RewriteRule contact contact.php
 RewriteRule premiere-visite premiereVisite.php
 RewriteRule ^evaluation_([0-9]+)$ addEvaluation.php?id=$1
@@ -35,6 +35,7 @@ RewriteRule ^commentaire_([0-9]+)$ addComment.php?id=$1
 RewriteRule ^user-modification-commentaire_([0-9]+)$ addCommentModif.php?id=$1
 RewriteRule ^user-modification-avis_([0-9]+)$ addEvaluationModif.php?id=$1
 RewriteRule ^page-Article-Presse_([0-9]+)$ article.php?id=$1
+RewriteRule ^selection_moment_([0-9]+)$ selectionmoment.php?id=$1
 RewriteRule erreur_404 page404.php
 
   

@@ -35,39 +35,37 @@ require_once 'admin/models/database.php'; ?>
 
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-sm-12">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <table class="table">
-                                    <thead>
-                                        <tr class="text-center">
-                                            <th scope="col">#</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Titre</th>
-                                            <th scope="col">Contenu</th>
-                                            <th scope="col">Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($commentList as $co) { ?>
+                    <div class="container-fluid">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Titre</th>
+                                        <th scope="col">Contenu</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($commentList as $co) { ?>
 
-                                            <tr class="text-center text-white">
-                                                <th class="align-middle" scope="row"><?= $co->id ?></th>
-                                                <td class="align-middle"><img src="assets/img/<?= $co->picture ?>" class="imgSize"></td>
-                                                <td class="align-middle"><?= $co->title ?></td>
-                                                <td class="align-middle"><?= $co->content ?></td>
-                                                <td class="align-middle"><?= $co->date ?></td>
-                                                <td class="align-middle">
-                                                    <a href="user-modification-commentaire_<?= $co->id ?>" class="btn btn-warning" title="Modifier un commentaire"><i class="fas fa-user-edit"></i></a>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <button type="button" class="btn btn-danger" data-bs-whatever="<?= $co->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un commentaire"><i class="far fa-times-circle"></i></button>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody> 
-                                </table>
-                            </div>
+                                        <tr class="text-center text-white">
+                                            <th class="align-middle" scope="row"><?= $co->id ?></th>
+                                            <td class="align-middle"><img src="assets/img/<?= $co->picture ?>" class="imgSize"></td>
+                                            <td class="align-middle"><?= $co->title ?></td>
+                                            <td class="align-middle"><?= $co->content ?></td>
+                                            <td class="align-middle"><?= $co->date ?></td>
+                                            <td class="align-middle">
+                                                <a href="user-modification-commentaire_<?= $co->id ?>" class="btn btn-warning" title="Modifier un commentaire"><i class="fas fa-user-edit"></i></a>
+                                            </td>
+                                            <td class="align-middle">
+                                                <button type="button" class="btn btn-danger" data-bs-whatever="<?= $co->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un commentaire"><i class="far fa-times-circle"></i></button>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

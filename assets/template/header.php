@@ -20,17 +20,17 @@
 <body>
 
     <!--En tête-->
-
+    
     <header class="container-fluid">
         <div class="row">
 
             <div class="col-md-4 col">
-                <img src="assets/img/gif/Game Screening (2).gif" alt="logo" id="logo">
+                <img src="assets/img/gif/Game Screening (2).gif" alt="logo" id="logo" class="img-fluid">
             </div>
-
+            
             <!--Logo/recherche/contact-->
 
-            <div class="col-md-7 col-5 mt-5">
+            <div class="col-md-7 col-5 mt-5"> 
                 <div class="text-end" id="rechercher">
                     <?php if (!$_SESSION) { ?>
                         <a href="premiere-visite" class="me-4 text-white text-decoration-none"><i class="fas fa-gamepad image-clignote"></i>&nbsp;PREMIERE VISITE ?</a>
@@ -157,3 +157,4 @@
             </div>
         </div>
     </div>
+    

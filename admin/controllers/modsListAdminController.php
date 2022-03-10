@@ -13,4 +13,4 @@ if (!empty($_POST['updateMod'])) {
 }
 
 $modList = $mod->getModsList();
-var_dump($mod->deleteMod());
+// var_dump($mod->deleteMod());

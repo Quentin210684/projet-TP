@@ -22,7 +22,7 @@ session_start();
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-8 mx-auto mb-5 mt-3 border-3 shadow video" id="transparent">
+        <div class="col-sm-8 mx-auto mb-5 mt-3 border-3 shadow video img-fluid" id="transparent">
 
             <!----------------------------------------- formulaire de contact et regex ------------------>
 

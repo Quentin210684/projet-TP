@@ -70,7 +70,7 @@ require_once 'models/database.php'; ?>
                 </div>
                 <div class="col-sm-3">
                     <div class="card mb-3">
-                        <div class="fontColor3 card-body text-center">
+                        <div class="fontColor4 card-body text-center">
                             <i class="far fa-comments text-white" id="opinion"></i>
                             <h5 class="card-title text-white">Total Avis</h5>
                             <p class="card-text text-white" id="user">

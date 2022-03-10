@@ -1,18 +1,20 @@
 <?php
 
-$mod = new mods;
-$mod->id = $_GET['id'];
-$modList = $mod->getModById();
-$modListPage = $mod->getModsList();
+$game = new games;
 
-$languages = new languages;
-$languagesList = $languages->selectLanguagesList();
+$gameNew = $game->getGamesListHomeNews();
+
 
 $comment = new comments;
-$evaluation = new evaluations;
-$evaluation->id_mods = $_GET['id'];
-$evaluationList = $evaluation->getEvaluationsList();
 
+$evaluation = new evaluations;
+$evaluation->id_games = $_GET['id'];
+$evaluationList = $evaluation->getEvaluationsList();
+$evaluationNote = $evaluation->getEvaluationListHomeNote();
+
+
+// boucle qui met permet d'aller rechercher id_user dans getEvaluationsList()
+// ce qui permet de pouvoir compter le nombre d'avis laisser par un utilisateur.
 foreach ($evaluationList as $e) {
     $evaluation->id_users = $e->id_users;
     $evaluationListUsers = $evaluation->getEvaluationsByUsers();
@@ -20,3 +22,4 @@ foreach ($evaluationList as $e) {
     $comment->id_users = $evaluation->id_users;
     $commentListUsers = $comment->getCommentByUsers();
 }
+

@@ -48,7 +48,7 @@ require 'assets/template/header.php'; ?>
                 </select>
             </div>
             <div class=" size col-sm fs-5 mt-5 d-grid">
-                <button class="btn btn-outline-dark text-white border border-white" type="submit" id="button search">Rechercher</button>
+                <button class="btn btn-outline-dark text-white border border-white" type="submit" id="button search" >Rechercher</button>
             </div>
         </div>
 

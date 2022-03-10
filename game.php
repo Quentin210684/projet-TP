@@ -8,8 +8,8 @@ require_once 'admin/models/database.php'; ?>
 <?php require_once 'admin/models/languagesModel.php'; ?>
 <?php require_once 'controllers/gameController.php'; ?>
 <?php require 'assets/template/header.php'; ?>
-
-<div class="container-fluid">
+<div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
+<div class="container-fluid" id="haut">
     <div class="row">
         <div class="col-sm-5 mt-3 mb-3 mx-auto">
             <div class="col-sm-12 mt-2 mx-auto border-3 border border-dark">
@@ -55,12 +55,13 @@ require_once 'admin/models/database.php'; ?>
             <div class="ratio ratio-16x9">
                 <iframe src="<?= $game->trailer ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-
-            <td class="align-middle ">
-                <a href="evaluation_<?= $_GET['id']  ?>" class="btn btn-primary text-center mt-5" title="ajouter un avis"> Ecrire une évaluation pour <?= $game->title ?> <i class="fas fa-pen-alt"></i></a>
-            </td>
-
+            <div class="text-center mt-4">
+                <a href="evaluation_<?= $_GET['id']  ?>" class="btn btn-outline-dark text-white border border-white text-center mt-5 text-decoration-none" title="ajouter un avis"> Ecrire une évaluation pour <?= $game->title ?> <i class="fas fa-pen-alt"></i></a>
+            </div>
         </div>
+    </div>
+    <div class="text-end">
+        <a href="jeux?page=1" class="btn btn-outline-dark text-white border border-white" title="Retour"><i class="fas fa-reply"></i></a>
     </div>
 
     <div class="col-sm-auto mt-5 border-3 border-top border-dark">

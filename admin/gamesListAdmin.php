@@ -36,54 +36,53 @@ require_once 'models/database.php'; ?>
 
 
 
-            <div class="col-sm-12">
-                <div class="container-fluid">
-                    <div class="row">
-                        <table class="table">
-                            <thead>
+
+            <div class="container-fluid">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="text-center text-white">
+                                <th scope="col">#</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Titre</th>
+                                <th scope="col">Développeur</th>
+                                <th scope="col">Date de parution</th>
+                                <th scope="col">Date sortie anticipé</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Graphisme</th>
+                                <th scope="col">Plateforme</th>
+                                <td class="align-middle">
+                                    <a href="admin-ajouter-un-jeu" class="btn btn-primary" title="Ajouter jeux"><i class="fas fa-plus"></i></a>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($gamesList as $gamesDetails) { ?>
                                 <tr class="text-center text-white">
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Titre</th>
-                                    <th scope="col">Développeur</th>
-                                    <th scope="col">Date de parution</th>
-                                    <th scope="col">Date sortie anticipé</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Graphisme</th>
-                                    <th scope="col">Plateforme</th>
+                                    <th class="align-middle" scope="row"><?= $gamesDetails->id ?></th>
+                                    <td class="align-middle"><img src="assets/img/<?= $gamesDetails->picture ?>" class="imgSize"></td>
+                                    <td class="align-middle"><?= $gamesDetails->title ?></td>
+                                    <td class="align-middle"><?= $gamesDetails->developpers ?></td>
+                                    <td class="align-middle"><?= $gamesDetails->releaseDate ?></td>
+                                    <td class="align-middle"><?= $gamesDetails->earlyExitDate ?></td>
+                                    <td class="align-middle"><?= $gamesDetails->typesName ?></td>
+                                    <td class="align-middle"><?= $gamesDetails->graphismName ?></td>
+                                    <td class="align-middle"><?= $gamesDetails->platformsName ?></td>
                                     <td class="align-middle">
-                                        <a href="admin-ajouter-un-jeu" class="btn btn-primary" title="Ajouter jeux"><i class="fas fa-plus"></i></a>
+                                        <a href="pageJeux_<?= $gamesDetails->id ?>" class="btn btn-info" title="voir le jeu"><i class="far fa-eye"></i></a>
                                     </td>
+                                    <td class="align-middle">
+                                        <a href="admin-modification-jeux_<?= $gamesDetails->id ?>" class="btn btn-warning" title="Modifier jeux"><i class="fas fa-user-edit"></i></a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button type="button" class="btn btn-danger" data-bs-whatever="<?= $gamesDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un jeu"><i class="far fa-times-circle"></i></button>
+                                    </td>
+
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($gamesList as $gamesDetails) { ?>
-                                    <tr class="text-center text-white">
-                                        <th class="align-middle" scope="row"><?= $gamesDetails->id ?></th>
-                                        <td class="align-middle"><img src="assets/img/<?= $gamesDetails->picture ?>" class="imgSize"></td>
-                                        <td class="align-middle"><?= $gamesDetails->title ?></td>
-                                        <td class="align-middle"><?= $gamesDetails->developpers ?></td>
-                                        <td class="align-middle"><?= $gamesDetails->releaseDate ?></td>
-                                        <td class="align-middle"><?= $gamesDetails->earlyExitDate ?></td>
-                                        <td class="align-middle"><?= $gamesDetails->typesName ?></td>
-                                        <td class="align-middle"><?= $gamesDetails->graphismName ?></td>
-                                        <td class="align-middle"><?= $gamesDetails->platformsName ?></td>
-                                        <td class="align-middle">
-                                            <a href="pageJeux_<?= $gamesDetails->id ?>" class="btn btn-info" title="voir le jeu"><i class="far fa-eye"></i></a>
-                                        </td>
-                                        <td class="align-middle">
-                                            <a href="admin-modification-jeux_<?= $gamesDetails->id ?>" class="btn btn-warning" title="Modifier jeux"><i class="fas fa-user-edit"></i></a>
-                                        </td>
-                                        <td class="align-middle">
-                                            <button type="button" class="btn btn-danger" data-bs-whatever="<?= $gamesDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un jeu"><i class="far fa-times-circle"></i></button>
-                                        </td>
+                            <?php } ?>
+                        </tbody>
 
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-
-                        </table>
-                    </div>
+                    </table>
                 </div>
             </div>
         </div>

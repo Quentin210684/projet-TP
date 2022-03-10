@@ -34,71 +34,71 @@ require_once 'admin/models/database.php'; ?>
 
 
             <div class="col py-3 text-start">
-                <div class="col-sm-12">
-                    <div class="container">
-                        <div class="row">
-                            <div class="text-center text-white mt-4 fs-5">
-                                <h4>Bienvenue dans votre espace personnel.</h4>
-                                <p>Vous pouvez si vous le souhaitez proposer votre mod.</p>
-                            </div>
-                            <div class="col-sm-8 mx-auto mb-5 mt-4 shadow">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="text-center text-white mt-4 fs-5">
+                            <h4>Bienvenue dans votre espace personnel.</h4>
+                            <p>Vous pouvez si vous le souhaitez proposer votre mod.</p>
+                        </div>
+                        <div class="col-sm-8 mx-auto mb-5 mt-4 shadow">
 
 
-                                <!----------------------------------------- formulaire mods ------------------>
-                                <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
+                            <!----------------------------------------- formulaire mods ------------------>
+                            <?php if (count($_POST) == 0 || count($formErrors) > 0) { ?>
 
 
-                                    <form action="" method="POST" id="transparent" enctype="multipart/form-data">
-                                        <div class="test row g-3 mt-3 text-center text-dark">
-                                            <h2 class="text-white">Proposez votre Mod</h2>
-                                            <div class="col-md-6 mx-auto">
-                                                <div class="col-ms-6">
-                                                    <div class="mt-3 mb-3 text-start text-white">
-                                                        <label for="lastName" class="form-label">Utilisateur :</label>
-                                                        <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['user']) ? $_POST['user'] : $gameDetails->user ?>" id=" lastName" name="user">
+                                <form action="" method="POST" id="transparent" enctype="multipart/form-data">
+                                    <div class="test row g-3 mt-3 text-center text-dark">
+                                        <h2 class="text-white">Proposez votre Mod</h2>
+                                        <div class="col-md-6 mx-auto">
+                                            <div class="col-ms-6">
+                                                <div class="mt-3 mb-3 text-start text-white">
+                                                    <label for="lastName" class="form-label">Utilisateur :</label>
+                                                    <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['user']) ? $_POST['user'] : $gameDetails->user ?>" id=" lastName" name="user">
 
-                                                        <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['user'] ?></p>
-                                                    </div>
-
-                                                    <div class="mb-3 text-start text-white">
-                                                        <label for="inputEmail4" class="form-label">Email</label>
-                                                        <input type="email" class="form-control <?= isset($formErrors['email']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['email'] ?>" id="inputEmail4" name="email">
-
-                                                        <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['email'] ?></p>
-                                                    </div>
-
-
-                                                    <div class="form-floating text-white">
-                                                        <textarea class="form-control" placeholder="Leave a comment here" name="message" id="floatingTextarea4" style="height: 100px"></textarea>
-                                                        <label for="floatingTextarea4">Votre message</label>
-                                                    </div>
-
-                                                    <div class="mb-2">
-                                                        <label for="formFileMultiple" class="form-label"></label>
-                                                        <input class="form-control" type="file" name="formFileMultiple" id="formFileMultiple" multiple>
-                                                    </div>
-
+                                                    <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['user'] ?></p>
                                                 </div>
-                                            </div>
-                                            <div class="col-12-ms mb-5">
-                                                <button type="submit" class="btn btn-outline-dark text-white border border-white" name="send" id="send">Publiez</button>
-                                                <a href="espace-utilisateur" class="btn btn-outline-dark text-white border border-white" title="Retour"><i class="fas fa-reply"></i></a>
+
+                                                <div class="mb-3 text-start text-white">
+                                                    <label for="inputEmail4" class="form-label">Email</label>
+                                                    <input type="email" class="form-control <?= isset($formErrors['email']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['email'] ?>" id="inputEmail4" name="email">
+
+                                                    <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['email'] ?></p>
+                                                </div>
+
+
+                                                <div class="form-floating text-white">
+                                                    <textarea class="form-control" placeholder="Leave a comment here" name="message" id="floatingTextarea4" style="height: 100px"></textarea>
+                                                    <label for="floatingTextarea4">Votre message</label>
+                                                </div>
+
+                                                <div class="mb-2">
+                                                    <label for="formFileMultiple" class="form-label"></label>
+                                                    <input class="form-control" type="file" name="formFileMultiple" id="formFileMultiple" multiple>
+                                                </div>
 
                                             </div>
                                         </div>
-                                    </form>
-                                <?php } else { ?>
-                                    <div class="text-center text-white mt-4 fs-5">
-                                        <p>Merci, <?php echo $user . ' Nous reviendrons vers vous après vérification. ' ?></p>
+                                        <div class="col-12-ms mb-5">
+                                            <button type="submit" class="btn btn-outline-dark text-white border border-white" name="send" id="send">Publiez</button>
+                                            <a href="espace-utilisateur" class="btn btn-outline-dark text-white border border-white" title="Retour"><i class="fas fa-reply"></i></a>
+
+                                        </div>
                                     </div>
-                                    <div class="text-end text-white mt-4 fs-5">
-                                        <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
-                                    </div>
-                                <?php } ?>
-                            </div>
+                                </form>
+                            <?php } else { ?>
+                                <div class="text-center text-white mt-4 fs-5">
+                                    <p>Merci, <?php echo $user . ' Nous reviendrons vers vous après vérification. ' ?></p>
+                                </div>
+                                <div class="text-end text-white mt-4 fs-5">
+                                    <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="col py-3 text-start">
                 <div class="col-sm-12">
@@ -106,8 +106,8 @@ require_once 'admin/models/database.php'; ?>
                         <div class="row justify-content-center">
                             <div class="col-sm-12">
                                 <div class="container-fluid">
-                                    <div class="row">
-                                        <table class="table">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
                                             <thead>
                                                 <tr class="text-center text-white">
                                                     <th scope="col">#</th>
@@ -149,10 +149,10 @@ require_once 'admin/models/database.php'; ?>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
 
-
-    <?php require 'assets/template/footer.php'; ?>
+<?php require 'assets/template/footer.php'; ?>

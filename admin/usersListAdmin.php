@@ -35,35 +35,33 @@ require_once 'models/database.php'; ?>
 
 
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="table-responsive">
-                            <table class="table text-white text-center">
-                                <thead>
-                                    <tr>
-                                        <th scope="col-sm-2">#</th>
-                                        <th scope="col-sm-2">UTILISATEUR</th>
-                                        <th scope="col-sm-2">EMAIL</th>
-                                        <th scope="col-sm-2">ROLE</th>
-                                        <th scope="col-sm-4">SUPPRIMER</th>
+                <div class="table-responsive">
+                    <div class="table table-hover">
+                        <table class="table text-white text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col-sm-2">#</th>
+                                    <th scope="col-sm-2">UTILISATEUR</th>
+                                    <th scope="col-sm-2">EMAIL</th>
+                                    <th scope="col-sm-2">ROLE</th>
+                                    <th scope="col-sm-4">SUPPRIMER</th>
 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($usersList as $userDetails) { ?>
+                                    <tr>
+                                        <th scope="row"><?= $userDetails->id ?></th>
+                                        <td><?= $userDetails->name ?></td>
+                                        <td><?= $userDetails->email ?></td>
+                                        <td><?php $userDetails->id_roles ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" data-bs-whatever="<?= $userDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un utilisateurs"><i class="far fa-times-circle"></i></button>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($usersList as $userDetails) { ?>
-                                        <tr>
-                                            <th scope="row"><?= $userDetails->id ?></th>
-                                            <td><?= $userDetails->name ?></td>
-                                            <td><?= $userDetails->email ?></td>
-                                            <td><?php $userDetails->id_roles ?></td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger" data-bs-whatever="<?= $userDetails->id ?>" data-bs-toggle="modal" data-bs-target="#deleteItem" title="Supprimer un utilisateurs"><i class="far fa-times-circle"></i></button>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -83,12 +81,12 @@ require_once 'models/database.php'; ?>
                 <div class="modal-body container">
                     <div class="row">
                         <p class="text-center text-white">Voulez-vous supprimer cette utilisateur ?</p>
-                        <input type="hidden"  name="deleteUser" id="deleteInput">
+                        <input type="hidden" name="deleteUser" id="deleteInput">
                     </div>
                 </div>
                 <div class="modal-footer colorLogo2 ">
                     <button type="button" class="btn btn-outline-secondary ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-outline-secondary  me-md-5 me-2" >Confirmer</button>
+                    <button type="submit" class="btn btn-outline-secondary  me-md-5 me-2">Confirmer</button>
                 </div>
             </div>
         </div>
