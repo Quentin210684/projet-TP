@@ -114,7 +114,7 @@ footer {
   }
 }
 
-/*-----------------------------------------Page Jeux---------------------------------------------------*/
+/*-----------------------------------------Page Jeux list---------------------------------------------------*/
 #press {
   overflow: hidden;
 }
@@ -628,5 +628,10 @@ a#cRetour.cVisible {
 .carousel-control-prev,
 .carousel-control-next {
   z-index: 3;
+}
+
+/*-------------------------------------------animation jeux accueil-------------------------------------------------------*/
+.overflow {
+  overflow-x: hidden;
 }
 /*# sourceMappingURL=style.css.map */

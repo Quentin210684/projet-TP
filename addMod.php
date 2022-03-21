@@ -55,7 +55,7 @@ require_once 'admin/models/database.php'; ?>
                                             <div class="col-ms-6">
                                                 <div class="mt-3 mb-3 text-start text-white">
                                                     <label for="lastName" class="form-label">Utilisateur :</label>
-                                                    <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['user']) ? $_POST['user'] : $gameDetails->user ?>" id=" lastName" name="user">
+                                                    <input type="text" class="form-control <?= isset($formErrors['user']) ? 'is-invalid' : '' ?> " value="<?= isset($_POST['user']) ?>" id=" lastName" name="user">
 
                                                     <p class="invalid-feedback text-dark fw-bold"><?= @$formErrors['user'] ?></p>
                                                 </div>

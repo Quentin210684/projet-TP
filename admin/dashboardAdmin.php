@@ -60,11 +60,16 @@ require_once 'models/database.php'; ?>
                             <i class="far fa-eye" id="opinion"></i>
                             <h5 class="card-title">Total commentaires</h5>
                             <p class="card-text" id="user">
-                            <?php
+                                <!-- La structure de langage foreach fournit une façon simple de parcourir des tableaux. foreach ne fonctionne que pour les tableaux et les objets,
+                                 et émettra une erreur si vous tentez de l'utiliser sur une variable de type différent ou une variable non initialisée.-->
+                                <!-- La première forme passe en revue le tableau comment. À chaque itération, la valeur de l'élément courant est assignée à $comments.-->
+
+                                <?php
                                 foreach ($comment as $comments) {
                                     echo $comments->articlesCounter;
                                 }
-                                ?></p>
+                                ?>
+                            </p>
                         </div>
                     </div>
                 </div>

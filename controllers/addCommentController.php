@@ -73,7 +73,7 @@ if (count($_POST) > 0) {
     }
 
     if (count($formErrors) == 0) {
-        var_dump($comment->addComment());
+        $comment->addComment();
     }
 }
 // var_dump($_POST);

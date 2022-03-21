@@ -1,5 +1,6 @@
 <?php
 
+
 if (!empty($_GET['search'])) {
     require_once '../admin/models/database.php';
     require_once '../admin/models/gamesModel.php';

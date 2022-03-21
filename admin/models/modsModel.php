@@ -41,7 +41,7 @@ class mods extends database
         $queryPrepare->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
         $queryPrepare->bindValue(':id_games', $this->id_games, PDO::PARAM_INT);
         // L'execute va éxécuter la requête préparée avec les valeurs données dans le bindvalue qui elles, seront tirées de nos inputs
-        // Enfin on retourne l'éxécute qui nous renvoi ici true ou false (booléan) car cette méthode ne nous permet pas des infos du "FETCH ou FETC ALL).
+        // Enfin on retourne l'éxécute qui nous renvoi ici true ou false (booléan) car cette méthode ne nous permet pas des infos du "FETCH ou FETCH ALL).
         return $queryPrepare->execute();
     }
     public function getModsList()

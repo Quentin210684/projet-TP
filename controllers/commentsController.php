@@ -7,7 +7,7 @@ if (!empty($_POST['deleteComment'])) {
     $comment->deleteComment();
 }
 
-var_dump($comment->deleteComment());
+// var_dump($comment->deleteComment());
 
 
 if (!empty($_POST['updateComment'])) {

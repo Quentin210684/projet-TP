@@ -1,5 +1,5 @@
 <?php
-
+// J'instancie mon objet- j'appelle ma classe
 $user = new users;
 $game = new games;
 $comment = new comments;

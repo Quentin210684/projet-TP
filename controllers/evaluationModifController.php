@@ -51,13 +51,13 @@ if (count($_POST) > 0) {
     }
 
     if (count($formErrors) == 0) {
-        var_dump($evaluation->updateEvaluation());
+        $evaluation->updateEvaluation();
     }
 }
 
 
 
-var_dump($_POST);
-var_dump($evaluation);
+// var_dump($_POST);
+// var_dump($evaluation);
 
 

@@ -111,7 +111,7 @@ footer {
 }
 
 
-/*-----------------------------------------Page Jeux---------------------------------------------------*/
+/*-----------------------------------------Page Jeux list---------------------------------------------------*/
 
 #press {
     overflow: hidden;
@@ -652,4 +652,22 @@ a#cRetour.cVisible {
 .carousel-control-prev,
 .carousel-control-next {
     z-index: 3;
+}
+
+
+/*-------------------------------------------animation jeux accueil-------------------------------------------------------*/
+
+// .secondImg {
+//     opacity: 0;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//     width: 100%;
+// }
+// .imgGameContainer:hover .secondImg {
+//     opacity: 1;
+// }
+.overflow {
+    overflow-x: hidden;
 }

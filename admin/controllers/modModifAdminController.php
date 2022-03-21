@@ -1,5 +1,5 @@
 <?php
-
+// J'instancie mon objet- j'appelle ma classe
 $mod = new mods;
 $mod->id = $_GET['id'];
 
@@ -195,9 +195,9 @@ if (count($_POST) > 0) {
 
 
     if (count($formErrors) == 0) {
-        var_dump($mod->updateMod());
+        $mod->updateMod();
     }
 }
 $modsDetails = $mod->getModById();
-var_dump($mod->updateMod());
-var_dump($mod);
+$mod->updateMod();
+// var_dump($mod);

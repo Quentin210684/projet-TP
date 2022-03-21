@@ -1,8 +1,7 @@
 <?php
-
+// J'instancie mon objet- j'appelle ma classe
 $types = new types;
 $typesList = $types->selectTypesList();
-
  
 $graphism = new graphisms;
 $graphismsList = $graphism->selectGraphismsList();
@@ -12,12 +11,6 @@ $platformsList = $platforms->selectPlatformsList();
 
 $languages = new languages;
 $languagesList = $languages->selectLanguagesList();
-
-// $gamesLanguages = new gamesLanguages;
-// $gamesLanguagesList = $gamesLanguages->selectGameLanguageList();
-
-// $modsLanguages = new modsLanguages;
-// $modsLanguagesList = $modsLanguages->selectModLanguageList();
 
 
 $game = new games;

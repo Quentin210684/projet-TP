@@ -96,7 +96,7 @@ class games extends database
         return $result->fetchAll(PDO::FETCH_OBJ);
     }
 
-    
+
     public function getGamesListHome()
     {
         $query = 'SELECT wc5m2_games.id, `title`, `developpers`, `releaseDate`,`earlyExitDate`,`summary`,`trailer`,`picture`, wc5m2_graphisms.name AS graphismName, wc5m2_types.name AS typesName, wc5m2_platforms.name AS platformsName  '
@@ -112,7 +112,7 @@ class games extends database
 
     public function getGamesListHomeNews()
     {
-        $query = 'SELECT `id`, `picture`,`summary` '
+        $query = 'SELECT `id`, `picture`, SUBSTR(summary, 1, 300) AS summary '
             . 'FROM `wc5m2_games` '
             . 'ORDER BY wc5m2_games.id DESC '
             . 'LIMIT 1';
@@ -120,7 +120,7 @@ class games extends database
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
 
-    
+
     public function countGamesList()
     {
         /**
@@ -174,7 +174,8 @@ class games extends database
         $queryPrepare->bindValue(':id_types', $this->id_types, PDO::PARAM_INT);
         $queryPrepare->bindValue(':id_platforms', $this->id_platforms, PDO::PARAM_INT);
 
-
+        // L'execute va éxécuter la requête préparée avec les valeurs données dans le bindvalue qui elles, seront tirées de nos inputs
+        // Enfin on retourne l'éxécute qui nous renvoi ici true ou false (booléan) car cette méthode ne nous permet pas des infos du "FETCH ou FETCH ALL).
 
         return $queryPrepare->execute();
     }
@@ -219,6 +220,8 @@ class games extends database
     }
     public function getGamesListHomeCarousel()
     {
+        // La fonction SUBSTRING() dans le langage SQL (ou SUBSTR() ) est utilisée pour segmenter une chaîne de caractère.
+        //  Autrement dit, cela permet d’extraire une partie d’un chaîne, par exemple pour tronquer un texte. Dans le cas présent, 200 caractères
         $query = 'SELECT `id`, `picture`, SUBSTR(summary, 1, 200) as summary '
             . 'FROM `wc5m2_games` '
             . 'ORDER BY id DESC '

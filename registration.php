@@ -23,7 +23,7 @@ require_once 'admin/models/database.php'; ?>
                     <img src="assets/img/northguard img.png" class="img-fluid">
                 </div>
                 <div class="p-auto fw-bold text-white text-center mt-3 fs-5">
-                    <h2><label for="chk" aria-hidden="true" class="label">CREEZ UN COMPTE ou <a href="connection.php" class="link-dark">Connectez-vous</a></label></h2>
+                    <h2><label for="chk" aria-hidden="true" class="label">CREEZ UN COMPTE ou <a href="connexion" class="link-dark">Connectez-vous</a></label></h2>
                 </div>
 
                 <!---------------------------------------------formulaire avec regex  -------------------------------->
@@ -77,7 +77,7 @@ require_once 'admin/models/database.php'; ?>
                         <p>Bonjour, <?php echo $user->name . ' Bienvenue sur GameScreening' ?></p>
                     </div>
                     <div class="text-end text-white mt-4 fs-5">
-                        <p><a class="text-decoration-none text-white" href="index.php">Retourner à l'accueil</a> </p>
+                        <p><a class="text-decoration-none text-white" href="connexion">Connectez-vous</a> </p>
                     </div>
                 <?php } ?>
             </div>

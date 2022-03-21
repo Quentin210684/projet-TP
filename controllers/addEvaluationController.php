@@ -1,4 +1,6 @@
 <?php
+
+
 $evaluation = new evaluations;
 $evaluationList = $evaluation->getEvaluationsListByUSerID(); 
 $game = new games;
@@ -53,10 +55,10 @@ if (count($_POST) > 0) {
     }
 
     if (count($formErrors) == 0) {
-        var_dump($evaluation->addEvaluation());
+        $evaluation->addEvaluation();
     }
 }
-var_dump($_POST);
-var_dump($evaluation);
+// var_dump($_POST);
+// var_dump($evaluation);
 
 

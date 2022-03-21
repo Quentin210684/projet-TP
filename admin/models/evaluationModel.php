@@ -28,7 +28,8 @@ class Evaluations extends database
         $queryPrepare->bindValue(':id_mods', $this->id_mods, PDO::PARAM_INT);
         $queryPrepare->bindValue(':id_games', $this->id_games, PDO::PARAM_INT);
         $queryPrepare->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
-
+        // L'execute va éxécuter la requête préparée avec les valeurs données dans le bindvalue qui elles, seront tirées de nos inputs
+        // Enfin on retourne l'éxécute qui nous renvoi ici true ou false (booléan) car cette méthode ne nous permet pas des infos du "FETCH ou FETCH ALL).
         return $queryPrepare->execute();
     }
 
@@ -86,6 +87,8 @@ class Evaluations extends database
 
     public function getEvaluationListHomeNote()
     {
+        // Dans le langage SQL la fonction ROUND() permet d’arrondir un résultat numérique.
+        // La fonction d’agrégation AVG() dans le langage SQL permet de calculer une valeur moyenne sur un ensemble d’enregistrement de type numérique et non nul.
         $query = 'SELECT ROUND(AVG(rating)) AS rating
         FROM `wc5m2_evaluations`
         INNER JOIN wc5m2_games ON wc5m2_evaluations.id_games = wc5m2_games.id

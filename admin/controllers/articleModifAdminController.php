@@ -1,6 +1,6 @@
 <?php
 
-
+// J'instancie mon objet- j'appelle ma classe
 $articles = new articles;
 $articles->id = $_GET['id'];
 
@@ -13,7 +13,7 @@ $formErrors = [];
  * Je crée les tableaux formData et formErrors. Ils vont stocker des éléments de manière logique (toutes les erreurs ou toutes les données).
  * formData : sert à stocker les éléments du formulaire une fois vérifiés
  * formErrors : sert à stocker les messages d'erreur
- * Ca permet de ne pas chercher de nom de variable
+ * Ça permet de ne pas chercher de nom de variable
  */
 
 
@@ -24,7 +24,7 @@ $regex = [
 ];
 /**
  * Je crée une regex pour le nom d'utilisateur
- * ^$ : marquent le début et la fin de la chaîne de caractère / permettent de dire que toute la chaîne doit correpondre à la Regex
+ * ^$ : marquent le début et la fin de la chaîne de caractères / permettent de dire que toute la chaîne doit correpondre à la Regex
  * a-z : autorise les lettres en minuscules
  * A-Z : autorise les lettres en majuscules
  * 0-9 : autorise les nombres
@@ -33,17 +33,17 @@ $regex = [
 $articlesDetails = $articles->getArticleById();
 if (count($_POST) > 0) {
     /**
-     * La fonction count permet de compter le nombres d'éléments dans le tableau $_POST
+     * La fonction count permet de compter le nombre d'éléments dans le tableau $_POST
      * J'envoie le formulaire grâce à la méthode POST, il remplit donc mon tableau superglobal $_POST
      * Donc s'il y a un élément dans $_POST, c'est que mon formulaire a été envoyé
-     * Permet de ne pas lancer les vérifications si le formulaire n'est pas envoyé et de na pas afficher les erreurs au démarrage
+     * Permets de ne pas lancer les vérifications si le formulaire n'est pas envoyé et de ne pas afficher les erreurs au démarrage
      */
 
     if ($_FILES['picture']['error'] == 0) {
         /**
-         * Le tableau super global $_FILES se remplit dès que l'on envoie un fichier. Il crée alors une entrée ['nomDuFichier'] qui devient elle-même un tableau.
+         * Le tableau super global $_FILES se remplit dès que l'on envoie un fichier. Il crée alors une entrée ['nomDuFichier'] qui devient lui-même un tableau.
          * Ce nouveau tableau ($_FILES['nomDuFichier']) contient des informations très utiles comme le nom du fichier, sa taille et s'il y a eu une erreur lors de l'upload
-         * Ce tableau $_FILES['nomDuFichier'] contient notamment une entrée error qui est à 0 si le fihier s'est bien uploadé
+         * Ce tableau $_FILES['nomDuFichier'] contient notamment une entrée error qui est à 0 si le fichier s'est bien uploadé
          */
         $fileInfos = pathinfo($_FILES['picture']['name']);
         /**
@@ -53,7 +53,7 @@ if (count($_POST) > 0) {
         $pictureExtension = strtolower($fileInfos['extension']);
 
         /**
-         * Je crée un tableau associatif des extentions avec les types mimes associés
+         * Je crée un tableau associatif des extensions avec les types mimes associés
          */
         $authorizedMimeTypes = [
             'png' => 'image/png',
@@ -65,7 +65,7 @@ if (count($_POST) > 0) {
 
         /**
          * La fonction array_key_exists() 
-         * permet de vérifier si un index existe dans un tableau, permet de vérifier si l'extension existe dans le tableau et donc si elle est autorisée
+         * permets de vérifier si un index existe dans un tableau, permet de vérifier si l'extension existe dans le tableau et donc si elle est autorisée
          * La fonction mime_content_type() -
          * détecte le type mime du fichier et le renvoie. Je me sers de l'extension du fichier pour récupérer le type MIME correspondant à cette extension
          * pour vérifier que le type MIME est bien celui qui correspond à l'extension
@@ -73,11 +73,11 @@ if (count($_POST) > 0) {
         if (array_key_exists($pictureExtension, $authorizedMimeTypes) && mime_content_type($_FILES['picture']['tmp_name']) == $authorizedMimeTypes[$pictureExtension]) {
             /**
              * move_uploaded_file() 
-             * permet de déplacer un fichier dans un dossier sur le serveur où est hebergé le site
+             * permets de déplacer un fichier dans un dossier sur le serveur où est hébergé le site
              */
 
             if (move_uploaded_file($_FILES['picture']['tmp_name'], '../uploads/' . $_FILES['picture']['name'])) {
-                //donne des droits au fichiers, utiles pour les sites hébergés sur un serveur Linux
+                //donne des droits aux fichiers, utiles pour les sites hébergés sur un serveur Linux
 
                 chmod('../uploads/' . $_FILES['picture']['name'], 0644);
                 $articles->picture = '../../uploads/' . $_FILES['picture']['name'];
@@ -94,8 +94,8 @@ if (count($_POST) > 0) {
 
     /**
      * 1 - Je vérifie que ma variable existe ET n'est pas vide. La fonction empty() -  vérifie ces deux conditions, pas besoin de compléter avec isset()
-     * Cette condition est faisable aussi pour un champs non-obligatoire, il faut juste supprimer le else (pas d'erreur si le champs n'est pas rempli)
-     * Les autres vérifications pour ce champs doivent se faire dans cette condition, il ne faut pas vérifier si une varible correspond à une regex s'il n'y a rien dedans
+     * Cette condition est faisable aussi pour un champ non-obligatoire, il faut juste supprimer le else (pas d'erreur si le champ n'est pas rempli)
+     * Les autres vérifications pour ce champs doivent se faire dans cette condition, il ne faut pas vérifier si une variable correspond à une regex s'il n'y a rien dedans
      * Si ça n'existe pas je crée un message d'erreur adapté
      */
 
@@ -111,9 +111,9 @@ if (count($_POST) > 0) {
              * 2bis - Si tout se passe bien je peux enregistrer ma valeur
              * Je la stocke dans l'attribut de mon objet, l'username de mon objet $user
              * Le htmlspecialchars() - permet de désactiver les différentes balises html, cela nous protège en partie d'une possible faille xss
-             * En principe, cette partie là pourrait paraître inutile car nous avons la regex qui n'autorise pas les chevrons
+             * En principe, cette partie-là pourrait paraître inutile car nous avons la regex qui n'autorise pas les chevrons
              * cependant, avec la cybersécurité 2,3 voire 4 sécurités valent mieux qu'une
-             * Peut être remplacée par htmlentities() -
+             * Peut-être remplacée par htmlentities() -
              */
             $articles->title = strip_tags($_POST['title']);
             /**

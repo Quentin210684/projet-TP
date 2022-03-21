@@ -16,6 +16,11 @@ if (count($_POST) > 0) {
     if (!empty($_POST['user'])) {
         $user->name = $_POST['user'];
         if ($user->checkIfUserExists() > 0) {
+            /**
+             * J'effectue une recherche graçce à un compteur pour verifier que le nom d'utilisateur n'est pas
+             * déjà utiliser. 
+             * 
+             */
             $hash = $user->selectPasswordByUsername();
         } else {
             $formErrors['user'] = $formErrors['password'] = 'Le nom d\'utilisateur ou le mot de passe est invalide.';

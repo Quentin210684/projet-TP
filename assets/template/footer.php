@@ -2,8 +2,12 @@
 <div class="container-fluid colorLogo2">
     <div class="row">
         <div class="col-sm p text-end">
+            <a href="https://gocdkeys.com/fr"><img src="assets/img/gocdkeys-Logo test.png"></a>
             <a href="https://www.youtube.com/"><img src="assets/img/YouTube.png"></a>
             <a href="https://store.steampowered.com/?l=french"><img src="assets/img/icone steam.png"></a>
+            <a href="https://www.instant-gaming.com/fr/"><img src="assets/img/IG.png"></a>
+            <a href="https://www.goclecd.fr/"><img src="assets/img/goclecd2.png"></a>
+            <a href="https://www.dlcompare.fr/"><img src="assets/img/dlCompare.jpg"></a>
         </div>
     </div>
 

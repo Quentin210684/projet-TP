@@ -21,14 +21,28 @@ class articles extends database
      * @return objet
      */
     public function addArticle()
+    // L’insertion de données dans une table s’effectue à l’aide de la commande INSERT INTO. 
+    // Cette commande permet au choix d’inclure une seule ligne à la base existante ou plusieurs lignes d’un coup.
     {
         $query = 'INSERT INTO `wc5m2_articles`(`title`, `content`,`publicationDate`, `picture`, `headline`) '
             . 'VALUES (:title, :content, NOW(), :picture, :headline);';
         $queryPrepare = $this->db->prepare($query);
+        /**
+         * Prépare une requête à l'exécution et retourne un objet
+         */
         $queryPrepare->bindValue(':title', $this->title, PDO::PARAM_STR);
+        /**
+         * Associe une valeur à un paramètre
+         */
         $queryPrepare->bindValue(':content', $this->content, PDO::PARAM_STR);
         $queryPrepare->bindValue(':picture', $this->picture, PDO::PARAM_STR);
         $queryPrepare->bindValue(':headline', $this->headline, PDO::PARAM_STR);
+        /**
+         * Exécute une requête préparée
+         */
+
+        // L'execute va éxécuter la requête préparée avec les valeurs données dans le bindvalue qui elles, seront tirées de nos inputs
+        // Enfin on retourne l'éxécute qui nous renvoi ici true ou false (booléan) car cette méthode ne nous permet pas des infos du "FETCH ou FETCH ALL).
 
         return $queryPrepare->execute();
     }
@@ -38,6 +52,8 @@ class articles extends database
 
         $query = 'SELECT `id`, `title`, `content`, DATE_FORMAT(`publicationDate`, "%d/%m/%Y %H:%i:%s") AS publicationDate, `picture`, headline '
             . 'FROM `wc5m2_articles`';
+        // La fonction DATE_FORMAT(), dans le langage SQL et plus particulièrement avec MySQL, 
+        // permet de formater une donnée DATE dans le format indiqué
         $queryPrepare = $this->db->query($query);
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
@@ -55,7 +71,7 @@ class articles extends database
         return $queryPrepare->execute();
     }
     /**
-     * Méthode permettant d'ajouter un jeu dans la base de données.
+     * Méthode permettant d'ajouter un article dans la base de données.
      * Paramètres : title, content, publicationDate, picture
      * @return objet
      */
@@ -73,7 +89,7 @@ class articles extends database
         return $queryPrepare->execute();
     }
 
-    
+
     public function getArticleById()
     {
         $query = 'SELECT id, title, content, publicationDate, picture, headline
@@ -84,5 +100,4 @@ class articles extends database
         $queryPrepare->execute();
         return $queryPrepare->fetch(PDO::FETCH_OBJ);
     }
-
 }

@@ -19,7 +19,11 @@ require_once 'admin/models/database.php'; ?>
                 <p class="size text-white fs-5 ms-2"><i class="far fa-calendar-alt text-dark"></i> Date de parution : <?= $game->releaseDate ?></p>
                 <p class="size fs-5 text-white ms-2"><i class="fas fa-external-link-alt text-dark"></i> Date de sortie en accès anticipé : <?= $game->earlyExitDate ?></p>
                 <div class="d-flex">
-                    <p class="size fs-5 text-white ms-2"><img src="assets/img/icone steam.png"><a href="https://store.steampowered.com/app/1210320/Potion_Craft_Alchemist_Simulator/" class="text-decoration-none text-white">Store</a></p>
+                    <p class="size fs-5 text-white ms-2"><a href="https://store.steampowered.com" class="text-decoration-none text-white"><img src="assets/img/icone steam.png"></a></p>
+                    <p class="size fs-5 text-white ms-2"><a href="https://www.instant-gaming.com/fr/" class="text-decoration-none text-white"><img src="assets/img/IG.png"></a></p>
+                    <p class="size fs-5 text-white ms-2"><a href="https://www.goclecd.fr/" class="text-decoration-none text-white"><img src="assets/img/goclecd.png"></a></p>
+                    <p class="size fs-5 text-white ms-2"><a href="https://www.dlcompare.fr/" class="text-decoration-none text-white"><img src="assets/img/dlCompare.jpg"></a></p>
+                    <p class="size fs-5 text-white ms-2"><a href="https://gocdkeys.com/fr" class="text-decoration-none text-white"><img src="assets/img/gocdkeys-Logo test.png"></a></p>
                 </div>
             </div>
             <div class="col-sm-12 mt-4 border-3 border border-dark" id="gameWindows">

@@ -49,7 +49,10 @@ require_once 'models/database.php'; ?>
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- La structure de langage foreach fournit une façon simple de parcourir des tableaux. foreach ne fonctionne que pour les tableaux et les objets,
+                                 et émettra une erreur si vous tentez de l'utiliser sur une variable de type différent ou une variable non initialisée.-->
                                 <?php foreach ($usersList as $userDetails) { ?>
+                                    <!-- La première forme passe en revue le tableau usersList. À chaque itération, la valeur de l'élément courant est assignée à $userDetails.-->
                                     <tr>
                                         <th scope="row"><?= $userDetails->id ?></th>
                                         <td><?= $userDetails->name ?></td>
@@ -75,7 +78,7 @@ require_once 'models/database.php'; ?>
             <div class="modal-content bg-dark">
                 <div class="container">
                     <div class="row colorLogo2">
-                        <h3 class="mt-2 text-center" id="staticBackdropLabel">Suppression</h3>
+                        <h3 class="mt-2 text-center text-white" id="staticBackdropLabel">Suppression</h3>
                     </div>
                 </div>
                 <div class="modal-body container">
@@ -85,8 +88,8 @@ require_once 'models/database.php'; ?>
                     </div>
                 </div>
                 <div class="modal-footer colorLogo2 ">
-                    <button type="button" class="btn btn-outline-secondary ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-outline-secondary  me-md-5 me-2">Confirmer</button>
+                    <button type="button" class="btn btn-outline-dark text-white border border-white ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-outline-dark text-white border border-white  me-md-5 me-2">Confirmer</button>
                 </div>
             </div>
         </div>

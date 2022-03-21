@@ -42,7 +42,7 @@ require 'assets/template/header.php'; ?>
             <?php foreach ($gameNew as $gn) { ?>
                 <div class="clearfix mt-4">
                     <img src="assets\img\<?= $gn->picture ?>" class="col-md-8 float-md-end mb-3 ms-md-3 img-fluid" alt="jeu nouveau">
-                    <p><?= $gn->summary ?></p>
+                    <p><?= $gn->summary ?>...</p>
                     <a href="selection_moment_<?= $gn->id ?>" class="text-decoration-none">En savoir plus</a>
                 </div>
             <?php } ?>

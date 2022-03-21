@@ -73,7 +73,7 @@ require_once 'admin/models/database.php'; ?>
             <div class="modal-content bg-dark">
                 <div class="container">
                     <div class="row colorLogo2">
-                        <h3 class="mt-2 text-center" id="staticBackdropLabel">Suppression</h3>
+                        <h3 class="mt-2 text-center text-white" id="staticBackdropLabel">Suppression</h3>
                     </div>
                 </div>
                 <div class="modal-body container">
@@ -82,8 +82,8 @@ require_once 'admin/models/database.php'; ?>
                     </div>
                 </div>
                 <div class="modal-footer colorLogo2 ">
-                    <button type="button" class="btn btn-outline-secondary ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-outline-secondary  me-md-5 me-2" name="deleteUser">Confirmer</button>
+                    <button type="button" class="btn btn-outline-dark text-white border border-white ms-md-5 ms-2 me-auto" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-outline-dark text-white border border-white me-md-5 me-2" name="deleteUser">Confirmer</button>
                 </div>
             </div>
         </div>

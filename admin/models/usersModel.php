@@ -41,6 +41,10 @@ class users extends database
         /**
          * Exécute une requête préparée
          */
+
+        // L'execute va éxécuter la requête préparée avec les valeurs données dans le bindvalue qui elles, seront tirées de nos inputs
+        // Enfin on retourne l'éxécute qui nous renvoi ici true ou false (booléan) car cette méthode ne nous permet pas des infos du "FETCH ou FETCH ALL).
+
         return $queryPrepare->execute();
     }
 
@@ -87,6 +91,7 @@ class users extends database
         return $queryPrepare->fetchAll(PDO::FETCH_OBJ);
     }
 
+    
     /**
      * Méthode permettant de supprimer un utilisateur
      * Paramètres : id
@@ -130,11 +135,11 @@ class users extends database
     }
 
     /**
-     * Méthode permettant de modifier un patient
-     * Paramètres : lastname, firstname, birthdate, phone,  mail, id
+     * Méthode permettant de modifier un utilisateurs
+     * 
      * @return objet
      */
-    public function updateUser() 
+    public function updateUser()
     {
         $query = 'UPDATE `wc5m2_users` '
             . 'SET `name` = :name, email=:email '
@@ -190,6 +195,4 @@ class users extends database
         $queryPrepare->execute();
         return $queryPrepare->fetch(PDO::FETCH_OBJ);
     }
-
-    
 }

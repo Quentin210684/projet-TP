@@ -55,14 +55,14 @@ require_once 'models/database.php'; ?>
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="title" class="form-label">Titre</label>
                                         <input type="text" class="form-control <?= isset($formErrors['title']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['title'] ?>" id=" title" name="title">
-
+                                        <!-- Si l'erreur existe dans l'input il sera signalé afin de pouvoir le rectifier-->
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['title'] ?></p>
                                     </div>
 
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="floatingTextarea2">Résumé</label>
                                         <textarea class="form-control <?= isset($formErrors['content']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['content'] ?>" name="content" id="floatingTextarea2" style="height: 100px"></textarea>
-
+                                        <!-- Si l'erreur existe dans l'input il sera signalé afin de pouvoir le rectifier-->
 
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['content'] ?></p>
                                     </div>

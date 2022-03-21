@@ -125,9 +125,9 @@ require_once 'models/database.php'; ?>
                                             <?php foreach ($languagesList as $language) { ?>
                                                 <option value="<?= $language->id ?>"><?= $language->name ?></option>
                                             <?php } ?>
-                                        </select>                                    
+                                        </select>
                                     </div>
-                                    
+
                                     <div class="col-sm-8 mt-3 mb-3 mx-auto text-white">
                                         <label for="url" class="form-label">Trailer</label>
                                         <input class="form-control form-control-sm" id="url" name="trailer" type="url" pattern="https://.*">
@@ -138,7 +138,7 @@ require_once 'models/database.php'; ?>
                                         <label for="floatingTextarea2">Résumé</label>
                                         <textarea class="form-control <?= isset($formErrors['summary']) ? 'is-invalid' : '' ?> " value="<?= @$_POST['summary'] ?>" name="summary" id="floatingTextarea2" style="height: 100px"></textarea>
 
-
+                                        <!-- Si l'erreur existe dans l'input il sera signalé afin de pouvoir le rectifier-->
                                         <p class="invalid-feedback text-white fw-bold"><?= @$formErrors['summary'] ?></p>
                                     </div>
 
